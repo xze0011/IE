@@ -1,0 +1,23 @@
+.footer{
+    text-align: left;
+    width: 100%;
+    color:white;
+    position:absolute;
+    bottom:0;
+    background-color:	#51B5E0;
+    margin-top: auto;
+    padding: 0 10%;
+    height: 80px;
+}
+
+ul li{
+    list-style-type:none;
+    padding: 0px;
+    margin: 0px;
+}
+ul{
+    color:rgba(255, 255, 255, 0.5);
+}
+h5{
+    color: #fff;
+}
