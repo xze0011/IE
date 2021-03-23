@@ -67,7 +67,7 @@ class Maps extends Component {
           <AnyReactComponent
             lat={-37.906612}
             lng={145.136693}
-            text="My Marker"
+
           />
         </GoogleMapReact>
       </div>
