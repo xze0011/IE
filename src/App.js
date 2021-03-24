@@ -5,18 +5,24 @@ import Home from './pages/home';
 import Maps from './pages/map';
 import Guide from './pages/guide';
 import Attration from './pages/attraction';
+import CarparkPermit from './pages/subpages/carparkPermit';
+import MelPolicy from './pages/subpages/melPolicy';
+import WheerchairCharge from './pages/subpages/wheerchairCharge';
 
 function App() {
   return (
     <div className="App">
       <Router>
          <Layout />
-         <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/map' component={Maps} />
-          <Route path='/guide' component={Guide} />
-          <Route path='/attraction' component={Attration} />
-        </Switch>
+          <Switch>
+            <Route path='/'  exact component={Home} />
+            <Route path='/map' component={Maps} />
+            <Route path='/guide' component={Guide} />
+            <Route path='/attraction' component={Attration} />
+            <Route path='/carparkpermit'  component={CarparkPermit} />
+            <Route path='/wheerchaircharge' component={WheerchairCharge} />
+            <Route path='/melpolicy' component={MelPolicy} />
+          </Switch>
       </Router>
     </div>
 

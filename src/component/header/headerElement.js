@@ -1,5 +1,7 @@
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaBars } from 'react-icons/fa';
+import {Button,Dropdown} from "react-bootstrap"
 
 export const Nav = styled.nav`
   background: 	#51B5E0;
@@ -25,19 +27,19 @@ export const NavLink = styled(Link)`
   }
 `;
 
-// export const Bars = styled(FaBars)`
-//   display: none;
-//   color:	#0F2B5B;
-//   @media screen and (max-width: 768px) {
-//     display: block;
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     transform: translate(-100%, 75%);
-//     font-size: 1.8rem;
-//     cursor: pointer;
-//   }
-// `;
+export const Bars = styled(FaBars)`
+  display: none;
+  color:	#0F2B5B;
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 75%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+`;
 
 export const NavMenu = styled.div`
   display: flex;
@@ -53,3 +55,8 @@ export const NavMenu = styled.div`
   }
 `;
 
+export const Toggle = styled(Dropdown.Toggle)`
+  background-color:	#51B5E0;
+  border:none;
+  color:	#0F2B5B;
+`
