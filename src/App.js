@@ -2,7 +2,7 @@ import Layout from './component/layout/layout';
 import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/home';
-import Maps from './pages/map';
+import Maps from './pages/map/map';
 import Guide from './pages/guide';
 import Attration from './pages/attraction';
 import CarparkPermit from './pages/subpages/carparkPermit';

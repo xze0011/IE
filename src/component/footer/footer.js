@@ -7,6 +7,7 @@ import logo from '../../teamlogo.png'
 const Footer = ()=>{
     return(
         <div className='footer' style={{
+            color:'white',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'

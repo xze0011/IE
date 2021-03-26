@@ -3,7 +3,7 @@
     width: 100%;
     position:fixed;
     bottom:0;
-    background-color:	#51B5E0;
+    background-color:	#939393;
     height: 40px;
     margin-bottom: 0%;
 }
@@ -14,7 +14,7 @@ ul li{
     margin: 0px;
 }
 ul{
-    color:rgba(255, 255, 255, 0.5);
+    color:white;
 }
 h5{
     color: #fff;

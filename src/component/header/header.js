@@ -12,18 +12,16 @@ import {Dropdown} from "react-bootstrap"
 const Header = () => {
     
  const [sidebar, setSidebar] = useState(false);
-
  const showSidebar = () => setSidebar(!sidebar);
     return(
         <>
             <Nav>
-                <NavLink to='/'>
+                <NavLink to='/' style={{color:'white'}}>
                     <h3>WAYFARER</h3>
                 </NavLink>
-                    <Bars />    
-                
+                    <Bars />         
                 <NavMenu>
-                    <NavLink to='/' >
+                    <NavLink to='/'style={{color:'white'}} >
                         Home
                     </NavLink>
                     <NavLink to='/map' >
@@ -35,13 +33,13 @@ const Header = () => {
                             Guide
                         </Toggle>
                         <Dropdown.Menu>
-                            <NavLink to='/carparkpermit' >
+                            <NavLink to='/carparkpermit'  >
                                 CarparkPermit
                                 </NavLink>
-                            <NavLink to='/wheerchaircharge' >
+                            <NavLink to='/wheerchaircharge'style={{color:'black'}}>
                                 WheerchairCharge
                             </NavLink>
-                            <NavLink to='/melpolicy' >
+                            <NavLink to='/melpolicy' style={{color:'black'}} >
                                 MelPolicy
                             </NavLink>
                                 </Dropdown.Menu>
