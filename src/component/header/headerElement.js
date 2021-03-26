@@ -4,7 +4,7 @@ import { FaBars } from 'react-icons/fa';
 import {Button,Dropdown} from "react-bootstrap"
 
 export const Nav = styled.nav`
-  background: 	#939393;
+  background: #939393;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -22,9 +22,7 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
-  &.active {
-    color: 	#0F2B5B;
-  }
+
 `;
 
 export const Bars = styled(FaBars)`
@@ -45,18 +43,39 @@ export const NavMenu = styled.div`
   display: flex;
   align-items: center;
   margin-right: -24px;
-  /* Second Nav */
-  /* margin-right: 24px; */
-  /* Third Nav */
-  /* width: 100vw;
-  white-space: nowrap; */
   @media screen and (max-width: 768px) {
     display: none;
   }
 `;
 
 export const Toggle = styled(Dropdown.Toggle)`
-  background-color:	#939393;
+  background:	#939393;
   border:none;
   color:	white;
+  &:hover {
+    background: #535353;
+    cursor: pointer;
+  }
+  &.:active{
+    background: #535353;
+    cursor: pointer;
+  }
 `
+
+
+export const SidebarNav = styled.nav`
+  background: #939393;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 80px;
+  right: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
+  transition: 350ms;
+  z-index: 10;
+`;
+
+export const SidebarWrap = styled.div`
+  width: 100%;
+`;

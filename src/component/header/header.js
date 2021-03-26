@@ -4,10 +4,14 @@ import {
     NavLink,
     Bars,
     NavMenu,
-    Toggle
+    Toggle,
+    SidebarNav,
+    SidebarWrap
   } from './headerElement';
 import { Link } from 'react-router-dom';
 import {Dropdown} from "react-bootstrap"
+import {MenuItems} from './menuitem';
+import SubMenu from './submenu';
 
 const Header = () => {
     
@@ -19,7 +23,14 @@ const Header = () => {
                 <NavLink to='/' style={{color:'white'}}>
                     <h3>WAYFARER</h3>
                 </NavLink>
-                    <Bars />         
+                    <Bars onClick={showSidebar} />         
+                    <SidebarNav sidebar={sidebar}>
+                        <SidebarWrap>
+                            {MenuItems.map((item, index) => {
+                            return <SubMenu item={item} key={index} />;
+                            })}
+                        </SidebarWrap>
+                    </SidebarNav>    
                 <NavMenu>
                     <NavLink to='/'style={{color:'white'}} >
                         Home
@@ -28,18 +39,18 @@ const Header = () => {
                         Accessible Melbounre
                     </NavLink>
                     <NavLink to='/carparkpermit' >
-                    <Dropdown>
+                    <Dropdown >
                         <Toggle >
                             Guide
                         </Toggle>
-                        <Dropdown.Menu>
-                            <NavLink to='/carparkpermit'  >
+                        <Dropdown.Menu style={{background:'#939393'}}>
+                            <NavLink to='/carparkpermit' >
                                 CarparkPermit
                                 </NavLink>
-                            <NavLink to='/wheerchaircharge'style={{color:'black'}}>
+                            <NavLink to='/wheerchaircharge'>
                                 WheerchairCharge
                             </NavLink>
-                            <NavLink to='/melpolicy' style={{color:'black'}} >
+                            <NavLink to='/melpolicy' >
                                 MelPolicy
                             </NavLink>
                                 </Dropdown.Menu>
