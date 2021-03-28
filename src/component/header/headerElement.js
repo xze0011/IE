@@ -4,10 +4,13 @@ import { FaBars } from 'react-icons/fa';
 import {Button,Dropdown} from "react-bootstrap"
 
 export const Nav = styled.nav`
-  background: #939393;
+  background: white;
   height: 80px;
   display: flex;
   justify-content: space-between;
+  font-size: 1.2rem;
+  position: sticky;
+  align-items: center;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
   /* Third Nav */
@@ -15,7 +18,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color:	white;
+  color:	#555;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -27,7 +30,7 @@ export const NavLink = styled(Link)`
 
 export const Bars = styled(FaBars)`
   display: none;
-  color:	white;
+  color: #333;
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
@@ -49,9 +52,9 @@ export const NavMenu = styled.div`
 `;
 
 export const Toggle = styled(Dropdown.Toggle)`
-  background:	#939393;
+  background:	white;
   border:none;
-  color:	white;
+  color:#555;
   &:hover {
     background: #535353;
     cursor: pointer;
@@ -73,7 +76,6 @@ export const SidebarNav = styled.nav`
   top: 80px;
   right: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 350ms;
-  z-index: 10;
 `;
 
 export const SidebarWrap = styled.div`

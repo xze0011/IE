@@ -4,6 +4,8 @@ video {
     height: 100%;
     position: fixed;
     z-index: -1;
+    top:0;
+    
   }
   
   .hero-container {
@@ -68,4 +70,33 @@ video {
     .btn {
       width: 100%;
     }
+}
+
+
+.cards > h2 , .label > h2{
+  text-align: center;
+  margin:0 10%;
+  margin-bottom: 2%;
+  
+}
+.label > h2{
+  padding-top: 5%;
+}
+.label {
+  background-color: #555;
+  color:white;
+
+}
+.row{
+  font-size: x-large;
+  padding-left: 13%;
+  display: flex;
+}
+.introtitle{
+  text-align: center;
+  padding-left: 10%;
+  padding-top: 7%;
+}
+svg{
+  margin-left: 40%;
 }

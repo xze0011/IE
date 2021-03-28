@@ -20,7 +20,7 @@ const Header = () => {
     return(
         <>
             <Nav>
-                <NavLink to='/' style={{color:'white'}}>
+                <NavLink to='/' style={{color:'#555'}}>
                     <h3>WAYFARER</h3>
                 </NavLink>
                     <Bars onClick={showSidebar} />         
@@ -32,7 +32,7 @@ const Header = () => {
                         </SidebarWrap>
                     </SidebarNav>    
                 <NavMenu>
-                    <NavLink to='/'style={{color:'white'}} >
+                    <NavLink to='/' style={{color:'#555'}}  >
                         Home
                     </NavLink>
                     <NavLink to='/map' >
@@ -43,7 +43,7 @@ const Header = () => {
                         <Toggle >
                             Guide
                         </Toggle>
-                        <Dropdown.Menu style={{background:'#939393'}}>
+                        <Dropdown.Menu style={{background:'white'}}>
                             <NavLink to='/carparkpermit' >
                                 CarparkPermit
                                 </NavLink>

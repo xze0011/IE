@@ -17,7 +17,7 @@ const Maps = ()=>{
   const [isLoading,setIsLoading] = useState(false); 
   const libraries = ["places"]
   const mapContainerStyle={
-    height: '100vh', width: '100vw'
+    height: '100vh', width: '99vw'
   }
   const center = {
     lat: -37.906612,
@@ -59,7 +59,7 @@ const Maps = ()=>{
     <div>
         <GoogleMap mapContainerStyle={mapContainerStyle} zoom={8} center={center} onLoad={onMapLoad}>
         <Locate panTo={panTo} />
-        <Search  panTo={panTo}/>
+        <Search panTo={panTo}/>
             {/* {markers.map((marker)=>(
               <Marker 
                 key={marker.time.toISOString()} 
@@ -109,7 +109,10 @@ const Maps = ()=>{
         >
           <div>
             <p><b>{selectedToilet.Name}</b></p>
-            <p>{selectedToilet.Accessible ? 'Accessible' : "Not Accessible"}</p>
+            <p>{ selectedToilet.Accessible === 'True' ? 'Accessible' : 'Unaccessible'}  </p>
+            <p>FacilityType : {selectedToilet.FacilityType}</p>
+            <p>{selectedToilet.ParkingNote}</p>
+            <p>OpeningHours : {selectedToilet.OpeningHours}</p>
           </div>
         </InfoWindow>
       )}
