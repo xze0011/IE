@@ -34,3 +34,22 @@
     width: 30px;
     cursor: pointer;
   }
+
+.Pointaddress{
+  font-size: smaller;
+  color: green;
+}
+
+.Pointname{
+  font-weight: bold;
+  font-size: small;
+  color:darkblue;
+}
+.iconrow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.iconrow > img{
+  background-color: gray;
+}

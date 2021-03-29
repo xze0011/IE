@@ -21,7 +21,7 @@ const Header = () => {
         <>
             <Nav>
                 <NavLink to='/' style={{color:'#555'}}>
-                    <h3>WAYFARER</h3>
+                    <img src='./Logo.jpeg' width='200px' height='60px'/> 
                 </NavLink>
                     <Bars onClick={showSidebar} />         
                     <SidebarNav sidebar={sidebar}>
@@ -38,7 +38,7 @@ const Header = () => {
                     <NavLink to='/map' >
                         Accessible Melbounre
                     </NavLink>
-                    <NavLink to='/carparkpermit' >
+                    {/* <NavLink to='/carparkpermit' >
                     <Dropdown >
                         <Toggle >
                             Guide
@@ -58,7 +58,7 @@ const Header = () => {
                             </NavLink>
                     <NavLink to='/attraction' >
                         Attractions in Melbounre
-                    </NavLink>
+                    </NavLink> */}
                 </NavMenu>
             </Nav>
         </>
