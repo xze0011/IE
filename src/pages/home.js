@@ -11,8 +11,8 @@ const Home = () => {
     <div>
     <div className='hero-container'>
     <video src='./video.mp4' autoPlay loop muted />
-    <h1>Welcome to Melbounre</h1>
-    <p>What are you waiting for?</p>
+    <h1>Welcome to Melbourne</h1>
+    <p>Find accessible facilities?</p>
     <div className='hero-btns'>
       <Button
         className='btns'
