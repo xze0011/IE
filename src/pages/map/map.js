@@ -5,13 +5,11 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import { formatRelative } from "date-fns";
 import './map.css'
 import Search from './mapsearch';
 import Locate from './locate';
 import axios from 'axios';
-import {Accordion,Card} from 'react-bootstrap';
-import {Container,Col,Row}  from 'react-bootstrap'
+// import {Accordion,Card} from 'react-bootstrap';
 
 const Maps = ()=>{
   const [toilet, setToilet] = useState([]);
