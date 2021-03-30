@@ -1,5 +1,6 @@
 
 function Locate({ panTo }) {
+  
     return (
       <button
         className="locate"

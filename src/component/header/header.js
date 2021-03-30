@@ -21,7 +21,7 @@ const Header = () => {
         <>
             <Nav>
                 <NavLink to='/' style={{color:'#555'}}>
-                    <img src='./Logo.jpeg' width='200px' height='60px'/> 
+                    <img src='./Logo.png' width='200px' height='180px'/> 
                 </NavLink>
                     <Bars onClick={showSidebar} />         
                     <SidebarNav sidebar={sidebar}>

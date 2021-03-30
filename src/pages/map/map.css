@@ -7,6 +7,9 @@
     width: 100%;
     max-width: 400px;
     z-index: -0;
+    background: #fff;
+    box-sizing: border-box;
+    transition-duration: 0.3s;
   }
 
   span{
@@ -50,6 +53,12 @@
   justify-content: space-between;
 }
 
-.iconrow > img{
-  background-color: gray;
+
+.sidebarmap{
+  float:'right';
+  top:'0';
+  overflow :auto;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }

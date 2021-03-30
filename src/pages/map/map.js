@@ -10,7 +10,8 @@ import './map.css'
 import Search from './mapsearch';
 import Locate from './locate';
 import axios from 'axios';
-
+import {Accordion,Card} from 'react-bootstrap';
+import {Container,Col,Row}  from 'react-bootstrap'
 
 const Maps = ()=>{
   const [toilet, setToilet] = useState([]);
@@ -18,12 +19,11 @@ const Maps = ()=>{
   const [carpark,setCarpark] = useState([]);
   const libraries = ["places"]
   const mapContainerStyle={
-    height: '100vh', width: '99vw'
+    height: '85vh', width: '100vw'
   }
-  const center = {
+  const [center,setCenter] = useState({
     lat: -37.906612,
-    lng: 145.136693
-  }
+    lng: 145.136693})
   useEffect(async () => {
     const result = await axios(
       'https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC',
@@ -34,11 +34,11 @@ const Maps = ()=>{
     setToilet(result.data.result.records);
     setCarpark(carparkResult.data)
     setIsLoading(true);
-    console.log(carpark)
+    
+    
   },[isLoading]);
   const [selectedToilet, setSelectedToilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
-  const [flag,setFlag] = useState(false); 
   const {isLoaded,loadError} = useLoadScript({
     googleMapsApiKey:"AIzaSyDHYvDznXH0Ep5elG3OHU-TfrMt80HItuI",
     libraries,
@@ -55,7 +55,7 @@ const Maps = ()=>{
   if(!isLoaded) return 'loading maps';
   
   return(
-    <div>
+    <div className='mapWraper' style={{display:'flex'}}>
         <GoogleMap mapContainerStyle={mapContainerStyle} zoom={8} center={center} onLoad={onMapLoad}>
         <Locate panTo={panTo} />
         <Search panTo={panTo}/>
@@ -71,7 +71,7 @@ const Maps = ()=>{
               }}
               icon={{
                 url: `toilet.png`,
-                scaledSize: new window.google.maps.Size(40, 40)
+                scaledSize: new window.google.maps.Size(30, 30)
               }}
             /> 
             ))}     
@@ -87,15 +87,15 @@ const Maps = ()=>{
           }}
           icon={{
             url: `carpark.png`,
-            scaledSize: new window.google.maps.Size(25, 25)
+            scaledSize: new window.google.maps.Size(20, 20)
           }}
         /> ))}
 
-
+      
       {selectedToilet && (
         <InfoWindow
           onCloseClick={() => {
-            // setSelectedToilet(null);
+            setSelectedToilet(null);
           }}
           position={{
             lat: Number(selectedToilet.Latitude),
@@ -103,10 +103,12 @@ const Maps = ()=>{
           }}
         >
           <div className='loop'>
-            <p><img src='./wc.png' width='30' height='30' align="left"/><span className='Pointname'>{selectedToilet.Name}<br/></span>
+            <p><img src='./wc.png' width='30' height='30' align="left" alt='wc' title='accessible toilet' /><span className='Pointname'>{selectedToilet.Name}<br/></span>
             <span className='Pointaddress'>{selectedToilet.Town},{selectedToilet.Address1}</span></p>
             <div className='iconrow'>
-              <img src='./Male.png' width='30' height='30'/><img src='./Female.png' width='30' height='30'/><img src='./Both.png' width='30' height='30'/>
+              <img src='./Male.png' width='30' height='30' alt='man' title='male ' style={{background : selectedToilet.Male === 'True' ? '#1e90ff':'grey'}}/>
+              <img src='./Female.png' width='30' height='30' alt='women' title='female' style={{background : selectedToilet.Female === 'True' ? '#1e90ff':'grey'}}/>
+              <img src='./Both.png' width='30' height='30' alt='unisex' title='unisex' style={{background : selectedToilet.Unisex === 'True' ? '#1e90ff':'grey'}}/>
               {/* <p>{ selectedToilet.Accessible === 'True' ? 'Accessible' : 'Unaccessible'}  </p>
               <p>FacilityType : {selectedToilet.FacilityType}</p>
               <p>{selectedToilet.ParkingNote}</p>
@@ -120,20 +122,36 @@ const Maps = ()=>{
           {selectedCarpark && (
           <InfoWindow
             onCloseClick={() => {
+              setSelectedCarpark(null);
             }}
             position={{
               lat: Number(selectedCarpark.lat),
               lng: Number(selectedCarpark.lon)
             }}
           >
-            <div>
-              <p><b>{selectedCarpark.Latest_Description}</b></p>
-            </div>
+            <div className='loop'>
+            <p><img src='./P.png' width='30' height='30' align="left" alt='car' title='accessible carpark' /><span className='Pointname'>Description: {selectedCarpark.Latest_Description}<br/></span></p>
+          <p>Parking time for Disability: {selectedCarpark.Latest_DisabilityExt} minutes</p>
+          </div>
           </InfoWindow>
           )}
             </GoogleMap> 
-            
-            
+            {/* <div className='sidebarmap' style={{height: '85vh' ,width: '29vw'}}>
+        <Accordion defaultActiveKey="0">
+        {toilet.map(toi => (
+            <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="0">
+              {selectedToilet.Address1}
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>{selectedToilet.Town}</Card.Body>
+            </Accordion.Collapse>
+            </Card>
+        ))}     
+      </Accordion>
+      </div>  */}
+
+
     </div>
   )
 }

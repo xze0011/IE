@@ -7,12 +7,12 @@ export const MenuItems = [
       title: 'Accessible Melbounre',
       path: '/map',
     },
-    {
-      title: 'Guide',
-      path: '/guide',
-    },
-    {
-      title: 'Attractions in Melbounre',
-      path: '/attraction',
-    }
+    // {
+    //   title: 'Guide',
+    //   path: '/guide',
+    // },
+    // {
+    //   title: 'Attractions in Melbounre',
+    //   path: '/attraction',
+    // }
   ];
