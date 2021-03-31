@@ -2,7 +2,7 @@
 function Locate({ panTo }) {
   
     return (
-      <button
+      <button title='Click to locate your current position'
         className="locate"
         onClick={() => {
           navigator.geolocation.getCurrentPosition(
