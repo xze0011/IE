@@ -9,6 +9,7 @@ import './map.css'
 import Search from './mapsearch';
 import Locate from './locate';
 import axios from 'axios';
+
 // import {Accordion,Card} from 'react-bootstrap';
 
 const Maps = ()=>{
@@ -17,7 +18,7 @@ const Maps = ()=>{
   const [carpark,setCarpark] = useState([]);
   const libraries = ["places"]
   const mapContainerStyle={
-    height: '85vh', width: '100vw'
+    height: '84vh', width: '100vw'
   }
   const [center,setCenter] = useState({
     lat: -37.906612,
@@ -128,7 +129,9 @@ const Maps = ()=>{
             }}
           >
             <div className='loop'>
-            <p><img src='./P.png' width='30' height='30' align="left" alt='car' title='accessible carpark' /><span className='Pointname'>Description: {selectedCarpark.Latest_Description}<br/></span></p>
+            <p><img src='./P.png' width='30' height='30' align="left" alt='car' title='accessible carpark' />
+              <span className='Pointname'>Opening Time: {selectedCarpark.Latest_Description}<br/></span>
+            </p>
           <p>Parking time for Disability: {selectedCarpark.Latest_DisabilityExt} minutes</p>
           </div>
           </InfoWindow>

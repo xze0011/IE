@@ -9,6 +9,8 @@ import usePlacesAutocomplete, {
     ComboboxList,
     ComboboxOption,
   } from "@reach/combobox";
+  import "@reach/combobox/styles.css";
+  
  const Search = ({ panTo }) =>{
     const {
       ready,
@@ -49,7 +51,7 @@ import usePlacesAutocomplete, {
               placeholder="Search your location"
             />
             <ComboboxPopover>
-              <ComboboxList >
+              <ComboboxList>
                 {status === "OK" &&
                   data.map(({ id, description }) => (
                     <ComboboxOption key={id} value={description} />
