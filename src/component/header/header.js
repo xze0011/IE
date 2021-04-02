@@ -13,6 +13,7 @@ import {Dropdown} from "react-bootstrap"
 import {MenuItems} from './menuitem';
 import SubMenu from './submenu';
 import './header.css'
+import Slide from 'react-reveal/Slide'
 
 const Header = () => {
     
@@ -22,7 +23,8 @@ const Header = () => {
         <>
             <Nav>
                 <NavLink to='/' style={{color:'#555'}}>
-                    <img className='LOGO' src='./Logo.png' width='200px' height='180px' /> 
+                    <img className='LOGO' src='./Logo.png' width='200px' height='180px' alt='city' /> 
+                    <Slide left delay='200' duration='3000'>< img className='LOGO' src='./3.png' width='100px' height='100px' alt='wheelchair' style={{marginLeft:'-100px'}}/></Slide>
                 </NavLink>
                     <Bars onClick={showSidebar} />         
                         <SidebarNav sidebar={sidebar}>
