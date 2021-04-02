@@ -48,7 +48,7 @@ import usePlacesAutocomplete, {
               value={value}
               onChange={handleInput}
               disabled={!ready}
-              placeholder="Search your location"
+              placeholder="Search your target location"
             />
             <ComboboxPopover>
               <ComboboxList>

@@ -8,10 +8,20 @@ import Attration from './pages/attraction';
 import CarparkPermit from './pages/subpages/carparkPermit';
 import MelPolicy from './pages/subpages/melPolicy';
 import WheerchairCharge from './pages/subpages/wheerchairCharge';
+import AnimatedCursor from "react-animated-cursor";
+
 
 function App() {
   return (
     <div className="App">
+      <AnimatedCursor
+      innerSize={20}
+      outerSize={38}
+      color='231, 111, 81'
+      outerAlpha={0.2}
+      innerScale={0.8}
+      outerScale={3}
+      />
       <Router>
          <Layout />
           <Switch>

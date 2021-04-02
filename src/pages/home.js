@@ -5,13 +5,33 @@ import Card from '../component/card/card';
 import {Row,Col} from 'react-bootstrap';
 import { RiBankLine } from "react-icons/ri";
 import {MdDirectionsSubway} from "react-icons/md";
-const Home = () => {
+import Bounce from 'react-reveal/Bounce';
+import Zoom from 'react-reveal/Zoom';
+import BGM from 'react-awesome-snippets-bgm';
 
+const Home = () => {
+  const homePageIntro ={
+    marginTop:'-15%',
+    marginLeft:'5%',
+    marginRight:'5%',
+    borderRadius:'20px',
+    marginBottom:'50px',
+    /*color:'#2a9d8f'*/
+
+};
   return (
     <div>
     <div className='hero-container'>
+    {/* <BGM src='./summer-rain2.mp3' autoplay={true} loop={false}/> */}
     <video src='./video.mp4' autoPlay loop muted />
-    <h1>Welcome to Melbourne</h1>
+     {/*https://www.react-reveal.com/docs/props/ animation for heading */}
+      <h1 className=''>
+        <Bounce top  duration={2000} delay={200}>
+          Welcome To Melbourne 
+         </Bounce>
+      </h1>
+     
+    
     <p>Find accessible facilities?</p>
     <div className='hero-btns'>
       <Button
@@ -23,18 +43,29 @@ const Home = () => {
       </Button>
     </div>
   </div>
-  <div className='cards'>
-      <h2>Our team aims to help disabilities</h2>
+
+  <div className='cards' style={homePageIntro}>
+    
+    <Zoom  top duration={600} delay={2200}>
+      <h2 style={{color:''}}>Our team aims to help disabilities</h2></Zoom>
       <div className='container'>
+      <Bounce  Left duration={3000} delay={2700}>
       <div> Especially those with mobility problems better access to Victoria's spectacular tourism attractions and improve their travel experience with the idea that everyone should have equally enjoyment towards Victoria's entertainment amenities and sceneries. </div>
-        <div className='cards__wrapper'>
+      
+      
+      <div> 
           Melbourne is a truly wonderful country, filled with ancient history and contemporary modern appeal. However, if you have a disability or other specific needs, finding the right information on accessibility can be a challenge.
 Even though you might be adventurous at heart, it’s still a good idea to have some information before you embark on your journey to Melbourne. It’s a website dedicated to collecting everything there is to know about accessibility in Melbourne. 
-        </div>
       </div>
-    </div>
+      </Bounce>
+      
+      </div>
+      
+  </div>
+
+
     <div className='label' >
-         <h2>Visiting a country far from home can be overwhelming.  Get prepared with:</h2>
+         <h2>Visiting a city far from home can be overwhelming.  Get prepared with:</h2>
          <div className='container'>
          <div className='row' >
 

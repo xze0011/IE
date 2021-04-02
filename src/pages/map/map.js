@@ -9,6 +9,7 @@ import './map.css'
 import Search from './mapsearch';
 import Locate from './locate';
 import axios from 'axios';
+import useSupercluster from "use-supercluster";
 
 // import {Accordion,Card} from 'react-bootstrap';
 
@@ -17,14 +18,15 @@ const Maps = ()=>{
   const [isLoading,setIsLoading] = useState(false); 
   const [carpark,setCarpark] = useState([]);
   const libraries = ["places"]
-  const mapContainerStyle={
+   const mapContainerStyle={
     height: '84vh', width: '100vw'
   }
   const [center,setCenter] = useState({
     lat: -37.906612,
     lng: 145.136693})
-  useEffect(async () => {
-    const result = await axios(
+  useEffect(() => {
+    async function temp(){
+    const result = await  axios(
       'https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC',
     );
     const carparkResult = await axios(
@@ -34,14 +36,14 @@ const Maps = ()=>{
     setCarpark(carparkResult.data)
     setIsLoading(true);
     
-    
-  },[isLoading]);
+  }temp();},[isLoading]);
   const [selectedToilet, setSelectedToilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
   const {isLoaded,loadError} = useLoadScript({
     googleMapsApiKey:"AIzaSyDHYvDznXH0Ep5elG3OHU-TfrMt80HItuI",
     libraries,
   });
+
   const mapRef =useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -55,7 +57,7 @@ const Maps = ()=>{
   
   return(
     <div className='mapWraper' style={{display:'flex'}}>
-        <GoogleMap mapContainerStyle={mapContainerStyle} zoom={8} center={center} onLoad={onMapLoad}>
+        <GoogleMap mapContainerStyle={mapContainerStyle}  zoom={10} center={center} yesIWantToUseGoogleMapApiInternals onLoad={onMapLoad} >
         <Locate panTo={panTo} />
         <Search panTo={panTo}/>
         {toilet.map(toi => (
@@ -74,7 +76,7 @@ const Maps = ()=>{
               }}
             /> 
             ))}     
-        {carpark.map(car => (
+        {/* {carpark.map(car => (
         <Marker
           key={car.bay_id}
           position={{
@@ -88,7 +90,7 @@ const Maps = ()=>{
             url: `carpark.png`,
             scaledSize: new window.google.maps.Size(20, 20)
           }}
-        /> ))}
+        /> ))} */}
 
       
       {selectedToilet && (
@@ -118,7 +120,7 @@ const Maps = ()=>{
         
       )}
         
-          {selectedCarpark && (
+          {/* {selectedCarpark && (
           <InfoWindow
             onCloseClick={() => {
               setSelectedCarpark(null);
@@ -135,7 +137,7 @@ const Maps = ()=>{
           <p>Parking time for Disability: {selectedCarpark.Latest_DisabilityExt} minutes</p>
           </div>
           </InfoWindow>
-          )}
+          )} */}
             </GoogleMap> 
             {/* <div className='sidebarmap' style={{height: '85vh' ,width: '29vw'}}>
         <Accordion defaultActiveKey="0">

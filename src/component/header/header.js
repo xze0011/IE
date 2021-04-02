@@ -28,7 +28,7 @@ const Header = () => {
                         <SidebarNav sidebar={sidebar}>
                             <SidebarWrap>
                                 {MenuItems.map((item, index) => {
-                                return <SubMenu item={item} key={index}/>;
+                                return <SubMenu item={item} key={index} />;
                                 })}
                             </SidebarWrap>
                         </SidebarNav>    
@@ -39,7 +39,7 @@ const Header = () => {
                     <NavLink to='/map'  >
                         Accessible Melbounre
                     </NavLink>
-                    {/* <NavLink to='/carparkpermit' >
+                    <NavLink to='/carparkpermit' >
                     <Dropdown >
                         <Toggle >
                             Guide
@@ -59,7 +59,7 @@ const Header = () => {
                             </NavLink>
                     <NavLink to='/attraction' >
                         Attractions in Melbounre
-                    </NavLink> */}
+                    </NavLink>
                 </NavMenu>
             </Nav>
         </>
