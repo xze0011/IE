@@ -1,164 +1,206 @@
-import React,{useState,useRef, useCallback,useEffect} from "react";
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from "@react-google-maps/api";
-import './map.css'
-import Search from './mapsearch';
-import Locate from './locate';
+import React, { useState, useEffect ,useRef} from "react";
+import ReactMapGL, { Marker, Popup, FlyToInterpolator,GeolocateControl } from "react-map-gl";
 import axios from 'axios';
+import "./map.css";
 import useSupercluster from "use-supercluster";
+import 'mapbox-gl/dist/mapbox-gl.css'
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
+import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
 
-// import {Accordion,Card} from 'react-bootstrap';
-
-const Maps = ()=>{
+const Maps = () => {
   const [toilet, setToilet] = useState([]);
-  const [isLoading,setIsLoading] = useState(false); 
+  const [center, setCenter] = useState([145.1622,-37.9263]);
   const [carpark,setCarpark] = useState([]);
-  const libraries = ["places"]
-   const mapContainerStyle={
-    height: '84vh', width: '100vw'
-  }
-  const [center,setCenter] = useState({
-    lat: -37.906612,
-    lng: 145.136693})
+  const [viewport, setViewport] = useState({
+    latitude:center[1],
+    longitude:center[0],
+    width: "100vw",
+    height: "80vh",
+    zoom: 10
+  });
+  const [selectedtoilet, setSelectedtoilet] = useState(null);
+  const [selectedCarpark, setSelectedCarpark] = useState(null);
+
+  const mapRef = useRef();
+  const geolocateStyle = {
+    top: 0,
+    left: 0,
+    margin: 10
+  };
+  const positionOptions = {enableHighAccuracy: true};
   useEffect(() => {
     async function temp(){
     const result = await  axios(
       'https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC',
     );
+    setToilet(result.data.result.records)
     const carparkResult = await axios(
       'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
     );
-    setToilet(result.data.result.records);
     setCarpark(carparkResult.data)
-    setIsLoading(true);
-    
-  }temp();},[isLoading]);
-  const [selectedToilet, setSelectedToilet] = useState(null);
-  const [selectedCarpark, setSelectedCarpark] = useState(null);
-  const {isLoaded,loadError} = useLoadScript({
-    googleMapsApiKey:"AIzaSyDHYvDznXH0Ep5elG3OHU-TfrMt80HItuI",
-    libraries,
+    const map = mapRef.current? mapRef.current.getMap():null;
+    map.addControl(
+      new MapboxDirections({
+      accessToken: "pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA"
+      }),
+      'top-left'
+      );
+  }temp()}, []);
+  const points = carpark.map(car => ({
+    type: "Feature",
+    properties: { cluster: false, bay_id: car.bay_id, Latest_Description: car.Latest_Description,lon:car.lon,lat:car.lat },
+    geometry: {
+      type: "Point",
+      coordinates: [
+        parseFloat(car.lon),
+        parseFloat(car.lat)
+      ]
+    }
+  }));
+  const bounds = mapRef.current
+    ? mapRef.current
+        .getMap()
+        .getBounds()
+        .toArray()
+        .flat()
+    : null;
+  const { clusters, supercluster } = useSupercluster({
+    points,
+    bounds,
+    zoom: viewport.zoom,
+    options: { radius: 75, maxZoom: 20 }
   });
-
-  const mapRef =useRef();
-  const onMapLoad = useCallback((map) => {
-    mapRef.current = map;
-  }, []);
-  const panTo = useCallback(({ lat, lng }) => {
-    mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(14);
-  }, []);
-  if(loadError) return 'Error loading maps';
-  if(!isLoaded) return 'loading maps';
-  
-  return(
-    <div className='mapWraper' style={{display:'flex'}}>
-        <GoogleMap mapContainerStyle={mapContainerStyle}  zoom={10} center={center} yesIWantToUseGoogleMapApiInternals onLoad={onMapLoad} >
-        <Locate panTo={panTo} />
-        <Search panTo={panTo}/>
+  return (
+    <div className='MapWrapper'>
+      <ReactMapGL
+        {...viewport}
+        mapboxApiAccessToken={'pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA'}
+        mapStyle="mapbox://styles/ming1023002480/ckmyal80j1lqq17lufcezogq8"
+        onViewportChange={viewport => {
+          setViewport(viewport);
+        }}
+        ref={mapRef}
+      >
+        <GeolocateControl
+        style={geolocateStyle}
+        positionOptions={positionOptions}
+        trackUserLocation
+        auto
+      />
         {toilet.map(toi => (
-            <Marker
-              key={toi._id}
-              position={{
-                lat: Number(toi.Latitude),
-                lng: Number(toi.Longitude)
+          <Marker
+            key={toi._id}
+            latitude={toi.Latitude}
+            longitude={toi.Longitude}
+          >
+            <button
+              className="carpark-marker"
+              onClick={e => {
+                e.preventDefault();
+                setSelectedtoilet(toi);
               }}
-              onClick={() => {
-                setSelectedToilet(toi);
-              }}
-              icon={{
-                url: `toilet.png`,
-                scaledSize: new window.google.maps.Size(30, 30)
-              }}
-            /> 
-            ))}     
-        {/* {carpark.map(car => (
-        <Marker
-          key={car.bay_id}
-          position={{
-            lat: Number(car.lat),
-            lng: Number(car.lon)
-          }}
-          onClick={() => {
-            setSelectedCarpark(car);
-          }}
-          icon={{
-            url: `carpark.png`,
-            scaledSize: new window.google.maps.Size(20, 20)
-          }}
-        /> ))} */}
+            >
+              <img src="/toilet.png" alt="toilet icon"  />
+            </button>
+          </Marker>
+        ))}
+        {clusters.map(cluster => {
+          const [longitude, latitude] = cluster.geometry.coordinates;
+          const {
+            cluster: isCluster,
+            point_count: pointCount
+          } = cluster.properties;
 
-      
-      {selectedToilet && (
-        <InfoWindow
-          onCloseClick={() => {
-            setSelectedToilet(null);
-          }}
-          position={{
-            lat: Number(selectedToilet.Latitude),
-            lng: Number(selectedToilet.Longitude)
-          }}
-        >
-          <div className='loop'>
-            <p><img src='./wc.png' width='30' height='30' align="left" alt='wc' title='accessible toilet' /><span className='Pointname'>{selectedToilet.Name}<br/></span>
-            <span className='Pointaddress'>{selectedToilet.Town},{selectedToilet.Address1}</span></p>
-            <div className='iconrow'>
-              <img src='./Male.png' width='30' height='30' alt='man' title='male ' style={{background : selectedToilet.Male === 'True' ? '#1e90ff':'grey'}}/>
-              <img src='./Female.png' width='30' height='30' alt='women' title='female' style={{background : selectedToilet.Female === 'True' ? '#1e90ff':'grey'}}/>
-              <img src='./Both.png' width='30' height='30' alt='unisex' title='unisex' style={{background : selectedToilet.Unisex === 'True' ? '#1e90ff':'grey'}}/>
-              {/* <p>{ selectedToilet.Accessible === 'True' ? 'Accessible' : 'Unaccessible'}  </p>
-              <p>FacilityType : {selectedToilet.FacilityType}</p>
-              <p>{selectedToilet.ParkingNote}</p>
-              <p>OpeningHours : {selectedToilet.OpeningHours}</p> */}
-            </div>
-          </div>
-        </InfoWindow>
-        
-      )}
-        
-          {/* {selectedCarpark && (
-          <InfoWindow
-            onCloseClick={() => {
+          if (isCluster) {
+            return (
+              <Marker
+                key={`cluster-${cluster.id}`}
+                latitude={latitude}
+                longitude={longitude}
+              >
+                <div
+                  className="cluster-marker"
+                  style={{
+                    width: `${10 + (pointCount / points.length) * 20}px`,
+                    height: `${10 + (pointCount / points.length) * 20}px`
+                  }}
+                  onClick={() => {
+                    const expansionZoom = Math.min(
+                      supercluster.getClusterExpansionZoom(cluster.id),
+                      20
+                    );
+
+                    setViewport({
+                      ...viewport,
+                      latitude,
+                      longitude,
+                      zoom: expansionZoom,
+                      transitionInterpolator: new FlyToInterpolator({
+                        speed: 2
+                      }),
+                      transitionDuration: "auto"
+                    });
+                  }}
+                >
+                  {pointCount}
+                </div>
+              </Marker>
+            );
+          }
+
+          return (
+            <Marker
+              key={`car-${cluster.properties.bay_id}`}
+              latitude={latitude}
+              longitude={longitude}
+            >
+              <button
+                className="carpark-marker"
+                onClick={e => {
+                  e.preventDefault();
+                  setSelectedCarpark(cluster.properties);
+                }}
+              ><img src="./carpark.png" alt="Carpark" /></button>
+            </Marker>
+          );
+        })}{selectedCarpark ? (
+          <Popup
+            latitude={selectedCarpark.lat}
+            longitude={selectedCarpark.lon}
+            onClose={() => {
               setSelectedCarpark(null);
             }}
-            position={{
-              lat: Number(selectedCarpark.lat),
-              lng: Number(selectedCarpark.lon)
-            }}
           >
-            <div className='loop'>
+          <div className='loop'>
             <p><img src='./P.png' width='30' height='30' align="left" alt='car' title='accessible carpark' />
               <span className='Pointname'>Opening Time: {selectedCarpark.Latest_Description}<br/></span>
             </p>
-          <p>Parking time for Disability: {selectedCarpark.Latest_DisabilityExt} minutes</p>
+            <p>Parking time for Disability: {selectedCarpark.Latest_Description} minutes</p>
           </div>
-          </InfoWindow>
-          )} */}
-            </GoogleMap> 
-            {/* <div className='sidebarmap' style={{height: '85vh' ,width: '29vw'}}>
-        <Accordion defaultActiveKey="0">
-        {toilet.map(toi => (
-            <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="0">
-              {selectedToilet.Address1}
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body>{selectedToilet.Town}</Card.Body>
-            </Accordion.Collapse>
-            </Card>
-        ))}     
-      </Accordion>
-      </div>  */}
-
-
+          </Popup>
+        ) : null}
+        {selectedtoilet ? (
+          <Popup
+            latitude={selectedtoilet.Latitude}
+            longitude={selectedtoilet.Longitude}
+            onClose={() => {
+              setSelectedtoilet(null);
+            }}
+          >
+            <div className='loop'>
+            <p><img src='./wc.png' width='30' height='30' align="left" alt='wc' title='accessible toilet' /><span className='Pointname'>{selectedtoilet.Name}<br/></span>
+            <span className='Pointaddress'>{selectedtoilet.Town},{selectedtoilet.Address1}</span></p>
+            <div className='iconrow'>
+              <img src='./Male.png' width='30' height='30' alt='man' title='male ' style={{background : selectedtoilet.Male === 'True' ? '#1e90ff':'grey'}}/>
+              <img src='./Female.png' width='30' height='30' alt='women' title='female' style={{background : selectedtoilet.Female === 'True' ? '#1e90ff':'grey'}}/>
+              <img src='./Both.png' width='30' height='30' alt='unisex' title='unisex' style={{background : selectedtoilet.Unisex === 'True' ? '#1e90ff':'grey'}}/>
+            </div>
+          </div>
+          </Popup>
+        ) : null}
+      </ReactMapGL>
     </div>
-  )
+  );
 }
-
-
 
 export default Maps;

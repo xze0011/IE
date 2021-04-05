@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button } from '../component/button/button';
 import './home.css';
-import Card from '../component/card/card';
-import {Row,Col} from 'react-bootstrap';
 import { RiBankLine } from "react-icons/ri";
 import {MdDirectionsSubway} from "react-icons/md";
 import Bounce from 'react-reveal/Bounce';
