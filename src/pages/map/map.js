@@ -2,6 +2,7 @@ import React, { useState, useEffect ,useRef} from "react";
 import ReactMapGL, { Marker, Popup, FlyToInterpolator,GeolocateControl } from "react-map-gl";
 import axios from 'axios';
 import "./map.css";
+import mapboxgl from 'mapbox-gl';
 import useSupercluster from "use-supercluster";
 import 'mapbox-gl/dist/mapbox-gl.css'
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
@@ -9,26 +10,42 @@ import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
 
 const Maps = () => {
   const [toilet, setToilet] = useState([]);
-  const [center, setCenter] = useState([145.1622,-37.9263]);
   const [carpark,setCarpark] = useState([]);
   const [viewport, setViewport] = useState({
-    latitude:center[1],
-    longitude:center[0],
+    latitude:-37.9263,
+    longitude:145.1622,
     width: "100vw",
     height: "80vh",
-    zoom: 10
+    zoom: 12
   });
   const [selectedtoilet, setSelectedtoilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
 
   const mapRef = useRef();
-  const geolocateStyle = {
-    top: 0,
-    left: 0,
-    margin: 10
-  };
-  const positionOptions = {enableHighAccuracy: true};
-  useEffect(() => {
+  // const geolocateStyle = {
+  //   top: 0,
+  //   left: 0,
+  //   margin: 10
+  // };
+  const showRoute = ()=>{
+    const map = mapRef.current? mapRef.current.getMap():null;
+    // const map = new mapboxgl.Map({
+    //   container: this.mapWrapper,
+    //   style: 'mapbox://styles/mapbox/streets-v10',
+    //   center: [-73.985664, 40.748514],
+    //   zoom: 12
+    // });
+    map.addControl(
+    new MapboxDirections({
+    accessToken: "pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA"
+    }),
+    'top-right'
+    );
+  }
+  
+  // const positionOptions = {enableHighAccuracy: true};
+  useEffect(() => {    
+    showRoute();
     async function temp(){
     const result = await  axios(
       'https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC',
@@ -38,13 +55,6 @@ const Maps = () => {
       'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
     );
     setCarpark(carparkResult.data)
-    const map = mapRef.current? mapRef.current.getMap():null;
-    map.addControl(
-      new MapboxDirections({
-      accessToken: "pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA"
-      }),
-      'top-left'
-      );
   }temp()}, []);
   const points = carpark.map(car => ({
     type: "Feature",
@@ -74,19 +84,15 @@ const Maps = () => {
     <div className='MapWrapper'>
       <ReactMapGL
         {...viewport}
+        maxZoom={20}
         mapboxApiAccessToken={'pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA'}
         mapStyle="mapbox://styles/ming1023002480/ckmyal80j1lqq17lufcezogq8"
-        onViewportChange={viewport => {
-          setViewport(viewport);
+        onViewportChange={(newViewport) => {
+          setViewport({...newViewport});
         }}
         ref={mapRef}
       >
-        <GeolocateControl
-        style={geolocateStyle}
-        positionOptions={positionOptions}
-        trackUserLocation
-        auto
-      />
+
         {toilet.map(toi => (
           <Marker
             key={toi._id}
@@ -198,6 +204,7 @@ const Maps = () => {
           </div>
           </Popup>
         ) : null}
+  
       </ReactMapGL>
     </div>
   );

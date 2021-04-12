@@ -9,7 +9,8 @@ import CarparkPermit from './pages/subpages/carparkPermit';
 import MelPolicy from './pages/subpages/melPolicy';
 import WheerchairCharge from './pages/subpages/wheerchairCharge';
 import AnimatedCursor from "react-animated-cursor";
-
+import Airport from './pages/subpages/airportService';
+import TrailRider from './pages/subpages/trailRider';
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
             <Route path='/carparkpermit'  component={CarparkPermit} />
             <Route path='/wheerchaircharge' component={WheerchairCharge} />
             <Route path='/melpolicy' component={MelPolicy} />
+            <Route path='/airportService' component={Airport} />
+            <Route path='/trailRider' component={TrailRider} />
           </Switch>
       </Router>
     </div>

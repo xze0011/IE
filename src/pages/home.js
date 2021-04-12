@@ -45,13 +45,13 @@ const Home = () => {
   <div className='cards' style={homePageIntro}>
     
     <Zoom  top duration={600} delay={2200}>
-      <h2 style={{color:''}}>Our team aims to help disabilities</h2></Zoom>
+      <h2 >Our team aims to help disabilities</h2></Zoom>
       <div className='container'>
       <Bounce  Left duration={3000} delay={2700}>
-      <div> Especially those with mobility problems better access to Victoria's spectacular tourism attractions and improve their travel experience with the idea that everyone should have equally enjoyment towards Victoria's entertainment amenities and sceneries. </div>
+      <div> Especially those with mobility problems better access to Victoria's spectacular tourism attractions and improve their travel experience with the idea that everyone should have equally enjoyment towards Victoria's entertainment amenities and sceneries. <br/>
       
       
-      <div> 
+      
           Melbourne is a truly wonderful country, filled with ancient history and contemporary modern appeal. However, if you have a disability or other specific needs, finding the right information on accessibility can be a challenge.
 Even though you might be adventurous at heart, it’s still a good idea to have some information before you embark on your journey to Melbourne. It’s a website dedicated to collecting everything there is to know about accessibility in Melbourne. 
       </div>

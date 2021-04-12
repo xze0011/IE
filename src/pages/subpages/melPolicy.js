@@ -1,5 +1,4 @@
 import React from 'react';
-import './mel.css';
 const MelPolicy = () => {
   return (
       <div>

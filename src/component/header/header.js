@@ -22,7 +22,7 @@ const Header = () => {
     return(
         <>
             <Nav>
-                <NavLink to='/' style={{color:'#555'}}>
+                <NavLink to="#" disabled="disabled" style={{color:'#555'}}>
                     <img className='LOGO' src='./Logo.png' width='200px' height='180px' alt='city' /> 
                     <Slide left delay='200' duration='3000'>< img className='LOGO' src='./3.png' width='100px' height='100px' alt='wheelchair' style={{marginLeft:'-100px'}}/></Slide>
                 </NavLink>
@@ -39,7 +39,7 @@ const Header = () => {
                         Home
                     </NavLink>
                     <NavLink to='/map'  >
-                        Accessible Melbounre
+                        Accessible Melbourne
                     </NavLink>
                     <NavLink to='/carparkpermit' >
                     <Dropdown >
@@ -56,12 +56,19 @@ const Header = () => {
                             <NavLink to='/melpolicy' >
                                 MelPolicy
                             </NavLink>
+                            <NavLink to='/airportService' >
+                                Accessible Airport 
+                            </NavLink>
+                            <NavLink to='/trailRider' >
+                                TrailRider
+                            </NavLink>
                                 </Dropdown.Menu>
                                 </Dropdown>
                             </NavLink>
                     <NavLink to='/attraction' >
                         Attractions in Melbounre
                     </NavLink>
+                    
                 </NavMenu>
             </Nav>
         </>

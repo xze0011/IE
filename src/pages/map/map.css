@@ -21,10 +21,15 @@
 ul{
   color: black;
 }
-
+.loop{
+  width: fit-content;
+  white-space:nowrap;
+}
 .Pointaddress{
   font-size: smaller;
   color: green;
+  padding-right: 50%;
+  margin-right:50%;
 }
 
 .Pointname{
@@ -36,3 +41,14 @@ ul{
   display: flex;
   justify-content: space-between;
 }
+#label{
+  display: none !important;
+}
+
+/* .mapbox-directions-profile > label:nth-child(2){
+  display: none !important;
+} 
+
+.mapbox-directions-profile > label:nth-child(2):after{
+  content: "whatever it is you want to add" !important;
+}  */
