@@ -16,12 +16,15 @@ const Maps = () => {
   const [toiletFlag,setToiletFlag] = useState(false);
   const [carpark,setCarpark] = useState([]);
   const [carparkFlag,setCarparkFlag] = useState(false);
+  const [latitude,setLatitude] = useState(-37.9263);
+  const [longitude,setLongitude] = useState(145.1622);
+  const [zoom,setZoom] = useState(10);
   const [viewport, setViewport] = useState({
-    latitude:-37.9263,
-    longitude:145.1622,
+    latitude:latitude,
+    longitude:longitude,
     width: "100vw",
     height: "80vh",
-    zoom:10
+    zoom:zoom
   });
   const [selectedtoilet, setSelectedtoilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
@@ -53,11 +56,22 @@ const Maps = () => {
   }temp();}, [carparkFlag]);
   useEffect(() => {
       var map = mapRef.current.getMap();
-      // console.log(map)
       var directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
       });
       map.addControl(directions,"top-left");
+      console.log(map)
+      directions._map.on('move', () => {
+        setLongitude(directions._map.getCenter().lng.toFixed(4));
+        setLatitude(directions._map.getCenter().lat.toFixed(4));
+        setZoom(directions._map.getZoom().toFixed(2));
+        });
+        setViewport({
+          ...viewport,
+          latitude,
+          longitude,
+          zoom,
+        });  
   }, [])
   const points = carpark.map(car => ({
     type: "Feature",
@@ -118,9 +132,11 @@ const Maps = () => {
       >
       <div className='flagIcon'>    
         <button onClick={()=>{setToiletFlag(!toiletFlag)}}><img src='/toilet.png' alt='Toilet Control Icon' ></img></button><br/>
-        <button onClick={()=>{setCarparkFlag(!carparkFlag);console.log(carparkFlag)}}><img src='/carpark.png' alt='Carpark Control Icon' ></img></button>
+        <button onClick={()=>{setCarparkFlag(!carparkFlag)}}><img src='/carpark.png' alt='Carpark Control Icon' ></img></button>
       </div>  
-      
+      <div className="sidebar">
+      Longitude: {longitude} | Latitude: {latitude} | Zoom: {zoom} | viewpoint: {viewport.latitude}
+      </div>
         {clusters.map(cluster => {
           const [longitude, latitude] = cluster.geometry.coordinates;
           const {
@@ -140,7 +156,6 @@ const Maps = () => {
                   style={{
                     width: `${30 + (pointCount / points.length) * 20}px`,
                     height: `${30 + (pointCount / points.length) * 20}px`,
-                    // display:'none'
                   }}
                   onClick={() => {
                     const expansionZoom = Math.min(
@@ -189,7 +204,7 @@ const Maps = () => {
               setSelectedCarpark(null);
             }}
           >
-          <div className='loop'>
+          <div className='loopCarpark'>
             <p><img src='./P.png' width='30' height='30' align="left" alt='car' title='accessible carpark' />
               <span className='Pointname'>Opening Time: {selectedCarpark.Latest_Description}<br/></span>
             </p>

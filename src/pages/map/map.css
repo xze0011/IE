@@ -13,17 +13,26 @@
   border: none;
 }
 
-.carpark-marker img {
+.carpark-marker img{
   width: 25px;
   height: 30px;
 }
 
 ul{
-  color: black;
+  color:black;
 }
+
 .loop{
   width: fit-content;
   white-space:nowrap;
+  min-width: 16rem; 
+}
+
+
+
+.loop > p > img{
+  margin-top: 5%;
+  margin-right:5%;
 }
 .Pointaddress{
   font-size: smaller;
@@ -34,6 +43,7 @@ ul{
   font-weight: bold;
   font-size: small;
   color:darkblue;
+  
 }
 .iconrow{
   display: flex;
