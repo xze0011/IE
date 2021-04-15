@@ -66,12 +66,7 @@ const Maps = () => {
         setLatitude(directions._map.getCenter().lat.toFixed(4));
         setZoom(directions._map.getZoom().toFixed(2));
         });
-        setViewport({
-          ...viewport,
-          latitude,
-          longitude,
-          zoom,
-        });  
+  
   }, [])
   const points = carpark.map(car => ({
     type: "Feature",

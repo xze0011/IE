@@ -11,7 +11,8 @@ const Footer = ()=>{
             alignItems: 'center'
           }}>
              {/* <img src={logo} width="15%" height="10%"/> */}
-             @ 2021 - Hodophiles
+             <p className='footerp' style={{margin:'10px'}}><a  style={{color:'#ffffff'}}>About Us</a></p>
+             <p className='footerp' style={{margin:'10px'}}>@ 2021 - Hodophiles</p>
         </div>
     )
 }

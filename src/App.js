@@ -11,7 +11,7 @@ import WheerchairCharge from './pages/subpages/wheerchairCharge';
 import AnimatedCursor from "react-animated-cursor";
 import Airport from './pages/subpages/airportService';
 import TrailRider from './pages/subpages/trailRider';
-
+import About from './pages/about';
 function App() {
   return (
     <div className="App">
@@ -35,6 +35,7 @@ function App() {
             <Route path='/melpolicy' component={MelPolicy} />
             <Route path='/airportService' component={Airport} />
             <Route path='/trailRider' component={TrailRider} />
+            <Route path='/about' component={About} />
           </Switch>
       </Router>
     </div>
