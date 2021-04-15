@@ -1,8 +1,8 @@
 .cluster-marker {
   color: #fff;
-  background: #1978c8;
+  background: #055816;
   border-radius: 50%;
-  padding: 20px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,8 +28,6 @@ ul{
 .Pointaddress{
   font-size: smaller;
   color: green;
-  padding-right: 50%;
-  margin-right:50%;
 }
 
 .Pointname{
@@ -41,14 +39,23 @@ ul{
   display: flex;
   justify-content: space-between;
 }
-#label{
-  display: none !important;
-}
 
-/* .mapbox-directions-profile > label:nth-child(2){
-  display: none !important;
+ .mapbox-directions-profile > label:nth-child(8){
+  visibility: hidden;
 } 
 
-.mapbox-directions-profile > label:nth-child(2):after{
-  content: "whatever it is you want to add" !important;
-}  */
+.mapbox-directions-profile > label:nth-child(8)::after{
+  content: "Wheechair" !important;
+  visibility: visible;
+  margin-left: -85%;
+} 
+.flagIcon  {
+  position: absolute;
+  top: 1.1rem;
+  left: 20rem;
+}
+.flagIcon > button> img{
+  width: 3rem;
+  height: 3rem;
+}
+

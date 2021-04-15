@@ -4,7 +4,8 @@ import ballon from  './assets/ballon.png';
 import Tilt from 'react-parallax-tilt';
 import Accordion from '../../component/Accordion/Accordion';
 import data from './assets/carpark.json';
-import './carparkPermit.css'
+import './carparkPermit.css';
+
 const CarparkPermit = () => {
   const carpermitContainer ={
     marginTop:'-5%',

@@ -1,34 +1,50 @@
 import React from 'react';
+import banner from  './assets/banner.jpeg';
+import ballon from  './assets/ballon.png';
+import Tilt from 'react-parallax-tilt';
+import Accordion from '../../component/Accordion/Accordion';
+import data from './assets/melbp.json';
+import './carparkPermit.css'
+
 const MelPolicy = () => {
+  const carpermitContainer ={
+    marginTop:'-5%',
+    marginLeft:'5%',
+    marginRight:'5%',
+    marginBottom:'5%',  
+    borderRadius:'20px',
+    display: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding:'5%',
+    boxShadow:'0 6px 20px rgba(56, 125, 255, 0.3)'
+  };
   return (
-      <div>
-    <div className='melbanner'>
-    <h1>Welcome to Melbounre</h1>
-    <div>
-    <h2>XXXX</h2>
-        <div>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</div>
-        </div>   
-  </div>
-        
-        <div className='content'>
-        <h1>Welcome to Melbounre</h1>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-        </div>
-
-        <div className='content'>
-        <h1>What is Lorem Ipsum?</h1>
-                    <ol>
-            <li>As the original Japanese braille system is based only on the kana characters, which in turn prompted the development of the Kantenji Braille in the 1960s</li>
-            <li>the Japanese Braille system has been widely used and taught in schools for people with special needs. It has been heavily implemented in daily life,</li>
-            <li>including alcohol cans with “alcohol” written in braille and on the underside of handrails at train stations to indicate the train’s destination</li>
-            </ol>
-        </div>
-
-        <div className='content'>
-        <h1>Welcome to Melbounre</h1>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-        </div>
-  </div>
+    <div className='banner'>
+      
+      <Tilt
+        tiltMaxAngleX={100}
+        tiltMaxAngleY={20}
+        perspective={800}
+        scale={0.7}
+        transitionSpeed={100000}>
+        <img src={ballon} alt='ballon' style={{width:'8vw',zIndex:1000,position:'absolute',top:'150px',left:'80%'}}/>
+        </Tilt>
+        <Tilt
+        tiltMaxAngleX={-200}
+        tiltMaxAngleY={20}
+        perspective={-800}
+        scale={1.3}
+        transitionSpeed={100000}>
+        <img src={ballon} alt='ballon' style={{width:'4vw',zIndex:1000,position:'absolute',top:'50px',left:'30%'}}/>
+        </Tilt>
+      <img src={banner} alt='banner' style={{width:'100vw',zIndex:-1}}/>
+      
+      <div className='card'style={carpermitContainer}>
+        <h1>Accessible parking permits</h1>
+        <Accordion content={data}/>
+      </div>
+    </div>
   );
 };
 

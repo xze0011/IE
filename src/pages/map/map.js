@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useRef} from "react";
+import React, { useState, useEffect ,useRef,useMemo} from "react";
 import ReactMapGL, { Marker, Popup, FlyToInterpolator,GeolocateControl } from "react-map-gl";
 import axios from 'axios';
 import "./map.css";
@@ -8,15 +8,20 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
 
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA';
+
 const Maps = () => {
   const [toilet, setToilet] = useState([]);
+  const [toiletFlag,setToiletFlag] = useState(false);
   const [carpark,setCarpark] = useState([]);
+  const [carparkFlag,setCarparkFlag] = useState(false);
   const [viewport, setViewport] = useState({
     latitude:-37.9263,
     longitude:145.1622,
     width: "100vw",
     height: "80vh",
-    zoom: 12
+    zoom:10
   });
   const [selectedtoilet, setSelectedtoilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
@@ -27,35 +32,33 @@ const Maps = () => {
   //   left: 0,
   //   margin: 10
   // };
-  const showRoute = ()=>{
-    const map = mapRef.current? mapRef.current.getMap():null;
-    // const map = new mapboxgl.Map({
-    //   container: this.mapWrapper,
-    //   style: 'mapbox://styles/mapbox/streets-v10',
-    //   center: [-73.985664, 40.748514],
-    //   zoom: 12
-    // });
-    map.addControl(
-    new MapboxDirections({
-    accessToken: "pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA"
-    }),
-    'top-right'
-    );
-  }
+
   
   // const positionOptions = {enableHighAccuracy: true};
-  useEffect(() => {    
-    showRoute();
+  useEffect(() => {   
     async function temp(){
     const result = await  axios(
       'https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC',
     );
-    setToilet(result.data.result.records)
+    toiletFlag ? setToilet(result.data.result.records): setToilet([]);
+    
+  }temp();}, [toiletFlag]);
+  useEffect(() => {   
+    async function temp(){
     const carparkResult = await axios(
       'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
     );
-    setCarpark(carparkResult.data)
-  }temp()}, []);
+    carparkFlag ? setCarpark(carparkResult.data) : setCarpark([]);
+    
+  }temp();}, [carparkFlag]);
+  useEffect(() => {
+      var map = mapRef.current.getMap();
+      // console.log(map)
+      var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+      });
+      map.addControl(directions,"top-left");
+  }, [])
   const points = carpark.map(car => ({
     type: "Feature",
     properties: { cluster: false, bay_id: car.bay_id, Latest_Description: car.Latest_Description,lon:car.lon,lat:car.lat },
@@ -80,36 +83,44 @@ const Maps = () => {
     zoom: viewport.zoom,
     options: { radius: 75, maxZoom: 20 }
   });
+
+  const toiletMarker = useMemo(() => toilet.map(
+    toi => (
+      <Marker
+      key={toi._id}
+      latitude={toi.Latitude}
+      longitude={toi.Longitude}
+    >
+      <button
+        className="carpark-marker"
+        onClick={e => {
+          e.preventDefault();
+          setSelectedtoilet(toi);
+        }}
+      >
+        <img src="/toilet.png" alt="toilet icon"  />
+      </button>
+    </Marker>
+    )
+  ), [toilet]);
+
   return (
     <div className='MapWrapper'>
       <ReactMapGL
+        ref={mapRef}
         {...viewport}
         maxZoom={20}
-        mapboxApiAccessToken={'pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA'}
+        mapboxApiAccessToken={mapboxgl.accessToken}
         mapStyle="mapbox://styles/ming1023002480/ckmyal80j1lqq17lufcezogq8"
         onViewportChange={(newViewport) => {
           setViewport({...newViewport});
         }}
-        ref={mapRef}
       >
-
-        {toilet.map(toi => (
-          <Marker
-            key={toi._id}
-            latitude={toi.Latitude}
-            longitude={toi.Longitude}
-          >
-            <button
-              className="carpark-marker"
-              onClick={e => {
-                e.preventDefault();
-                setSelectedtoilet(toi);
-              }}
-            >
-              <img src="/toilet.png" alt="toilet icon"  />
-            </button>
-          </Marker>
-        ))}
+      <div className='flagIcon'>    
+        <button onClick={()=>{setToiletFlag(!toiletFlag)}}><img src='/toilet.png' alt='Toilet Control Icon' ></img></button><br/>
+        <button onClick={()=>{setCarparkFlag(!carparkFlag);console.log(carparkFlag)}}><img src='/carpark.png' alt='Carpark Control Icon' ></img></button>
+      </div>  
+      
         {clusters.map(cluster => {
           const [longitude, latitude] = cluster.geometry.coordinates;
           const {
@@ -127,8 +138,9 @@ const Maps = () => {
                 <div
                   className="cluster-marker"
                   style={{
-                    width: `${10 + (pointCount / points.length) * 20}px`,
-                    height: `${10 + (pointCount / points.length) * 20}px`
+                    width: `${30 + (pointCount / points.length) * 20}px`,
+                    height: `${30 + (pointCount / points.length) * 20}px`,
+                    // display:'none'
                   }}
                   onClick={() => {
                     const expansionZoom = Math.min(
@@ -185,7 +197,8 @@ const Maps = () => {
           </div>
           </Popup>
         ) : null}
-        {selectedtoilet ? (
+      {toiletMarker}
+      {selectedtoilet ? (
           <Popup
             latitude={selectedtoilet.Latitude}
             longitude={selectedtoilet.Longitude}
