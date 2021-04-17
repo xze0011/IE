@@ -16,19 +16,19 @@ const Maps = () => {
   const [toiletFlag,setToiletFlag] = useState(false);
   const [carpark,setCarpark] = useState([]);
   const [carparkFlag,setCarparkFlag] = useState(false);
-  const [latitude,setLatitude] = useState(-37.9263);
-  const [longitude,setLongitude] = useState(145.1622);
-  const [zoom,setZoom] = useState(10);
-  const [viewport, setViewport] = useState({
-    latitude:latitude,
-    longitude:longitude,
-    width: "100vw",
-    height: "80vh",
-    zoom:zoom
-  });
+  const [Latitude,setLatitude] = useState(-37.9263);
+  const [Longitude,setLongitude] = useState(145.1622);
+  const [Zoom,setZoom] = useState(10);
   const [selectedtoilet, setSelectedtoilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
-
+  const [isMoving,setIsMoving] = useState(false)
+  const [viewport, setViewport] = useState({
+    latitude:Latitude,
+    longitude:Longitude,
+    width: "100vw",
+    height: "80vh",
+    zoom:Zoom
+  });
   const mapRef = useRef();
   // const geolocateStyle = {
   //   top: 0,
@@ -44,7 +44,7 @@ const Maps = () => {
       'https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC',
     );
     toiletFlag ? setToilet(result.data.result.records): setToilet([]);
-    
+
   }temp();}, [toiletFlag]);
   useEffect(() => {   
     async function temp(){
@@ -52,7 +52,6 @@ const Maps = () => {
       'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
     );
     carparkFlag ? setCarpark(carparkResult.data) : setCarpark([]);
-    
   }temp();}, [carparkFlag]);
   useEffect(() => {
       var map = mapRef.current.getMap();
@@ -60,14 +59,29 @@ const Maps = () => {
         accessToken: mapboxgl.accessToken,
       });
       map.addControl(directions,"top-left");
-      console.log(map)
+
       directions._map.on('move', () => {
-        setLongitude(directions._map.getCenter().lng.toFixed(4));
-        setLatitude(directions._map.getCenter().lat.toFixed(4));
-        setZoom(directions._map.getZoom().toFixed(2));
+        setLongitude(directions._map.getCenter().lng);
+        setLatitude(directions._map.getCenter().lat);
+        setZoom(directions._map.getZoom());
+        
         });
-  
+      
   }, [])
+
+
+  useEffect(() => {
+    var map = mapRef.current.getMap();
+    if(map.isZooming()){setIsMoving(true);}else{setIsMoving(false);setViewport({
+      ...viewport,
+      latitude:Latitude,
+      longitude: Longitude,
+      zoom: Zoom,
+    });}
+
+}, [Zoom])
+
+
   const points = carpark.map(car => ({
     type: "Feature",
     properties: { cluster: false, bay_id: car.bay_id, Latest_Description: car.Latest_Description,lon:car.lon,lat:car.lat },
@@ -121,8 +135,8 @@ const Maps = () => {
         maxZoom={20}
         mapboxApiAccessToken={mapboxgl.accessToken}
         mapStyle="mapbox://styles/ming1023002480/ckmyal80j1lqq17lufcezogq8"
-        onViewportChange={(newViewport) => {
-          setViewport({...newViewport});
+        onViewportChange={viewport => {
+          setViewport(viewport);
         }}
       >
       <div className='flagIcon'>    
@@ -130,7 +144,7 @@ const Maps = () => {
         <button onClick={()=>{setCarparkFlag(!carparkFlag)}}><img src='/carpark.png' alt='Carpark Control Icon' ></img></button>
       </div>  
       <div className="sidebar">
-      Longitude: {longitude} | Latitude: {latitude} | Zoom: {zoom} | viewpoint: {viewport.latitude}
+      Longitude: {Longitude} | Latitude: {Latitude} | Zoom: {Zoom} | viewpoint: {viewport.latitude} 
       </div>
         {clusters.map(cluster => {
           const [longitude, latitude] = cluster.geometry.coordinates;
