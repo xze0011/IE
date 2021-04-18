@@ -27,7 +27,7 @@ const Header = () => {
                     <Slide left delay='200' duration='3000'>< img className='LOGO' src='./3.png' width='100px' height='100px' alt='wheelchair' style={{marginLeft:'-100px'}}/></Slide>
                 </NavLink>
                     <Bars onClick={showSidebar} />         
-                        <SidebarNav sidebar={sidebar}>
+                        <SidebarNav sidebar={sidebar} onClick={showSidebar}>
                             <SidebarWrap>
                                 {MenuItems.map((item, index) => {
                                 return <SubMenu item={item} key={index} />;
@@ -41,30 +41,9 @@ const Header = () => {
                     <NavLink to='/map'  >
                         Accessible Melbourne
                     </NavLink>
-                    <NavLink to='/carparkpermit' >
-                    <Dropdown >
-                        <Toggle >
-                            Guide
-                        </Toggle>
-                        <Dropdown.Menu style={{background:'white'}}>
-                            <NavLink to='/carparkpermit' >
-                                CarparkPermit
-                                </NavLink>
-                            <NavLink to='/wheerchaircharge'>
-                                WheerchairCharge
-                            </NavLink>
-                            <NavLink to='/melpolicy' >
-                                MelPolicy
-                            </NavLink>
-                            <NavLink to='/airportService' >
-                                Accessible Airport 
-                            </NavLink>
-                            <NavLink to='/trailRider' >
-                                TrailRider
-                            </NavLink>
-                                </Dropdown.Menu>
-                                </Dropdown>
-                            </NavLink>
+                    <NavLink to='/guide' >
+                        Guide
+                    </NavLink>
                     <NavLink to='/attraction' >
                         Attractions in Melbounre
                     </NavLink>

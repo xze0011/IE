@@ -7,6 +7,7 @@ import useSupercluster from "use-supercluster";
 import 'mapbox-gl/dist/mapbox-gl.css'
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
+import carparkData from '../subpages/assets/carpark_total.json'
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWluZzEwMjMwMDI0ODAiLCJhIjoiY2tuMDY3ODM3MGttYjJvbW4zdGZob3NnZyJ9.PN78lH51pVoRLAnHRfBiRA';
@@ -51,7 +52,7 @@ const Maps = () => {
     const carparkResult = await axios(
       'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
     );
-    carparkFlag ? setCarpark(carparkResult.data) : setCarpark([]);
+    carparkFlag ? setCarpark(carparkData.data) : setCarpark([]);
   }temp();}, [carparkFlag]);
   useEffect(() => {
       var map = mapRef.current.getMap();
@@ -84,12 +85,12 @@ const Maps = () => {
 
   const points = carpark.map(car => ({
     type: "Feature",
-    properties: { cluster: false, bay_id: car.bay_id, Latest_Description: car.Latest_Description,lon:car.lon,lat:car.lat },
+    properties: {  cluster: false ,key:car[0],desc:car[1],period:car[4],time:car[5],lat:car[2].location.lat,lon:car[2].location.lng,rating:car[7] },
     geometry: {
       type: "Point",
       coordinates: [
-        parseFloat(car.lon),
-        parseFloat(car.lat)
+        parseFloat(car[2].location.lng),
+        parseFloat(car[2].location.lat)
       ]
     }
   }));
@@ -192,7 +193,7 @@ const Maps = () => {
 
           return (
             <Marker
-              key={`car-${cluster.properties.bay_id}`}
+              key={`car-${cluster.properties.key}`}
               latitude={latitude}
               longitude={longitude}
             >
@@ -215,9 +216,10 @@ const Maps = () => {
           >
           <div className='loopCarpark'>
             <p><img src='./P.png' width='30' height='30' align="left" alt='car' title='accessible carpark' />
-              <span className='Pointname'>Opening Time: {selectedCarpark.Latest_Description}<br/></span>
+            <span className='Pointname'>{selectedCarpark.desc}<br/></span>
             </p>
-            <p>Parking time for Disability: {selectedCarpark.Latest_Description} minutes</p>
+            <p>Opening Time: {selectedCarpark.period}{selectedCarpark.time}</p>
+          <p>Rating: {selectedCarpark.rating}</p>
           </div>
           </Popup>
         ) : null}

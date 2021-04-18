@@ -3,9 +3,10 @@ import banner from  './assets/banner.jpeg';
 import ballon from  './assets/ballon.png';
 import Tilt from 'react-parallax-tilt';
 import Accordion from '../../component/Accordion/Accordion';
-import data from './assets/trailrider.json';
+import data from './assets/mobaid.json';
 import './carparkPermit.css';
-const TrailRider = () => {
+
+const MobilityAid = () => {
   const carpermitContainer ={
     marginTop:'-5%',
     marginLeft:'5%',
@@ -40,11 +41,11 @@ const TrailRider = () => {
       <img src={banner} alt='banner' style={{width:'100vw',zIndex:-1}}/>
       
       <div className='card'style={carpermitContainer}>
-        <h1>Accessible parking permits</h1>
+        <h1>Mobility Aid Check</h1>
         <Accordion content={data}/>
       </div>
     </div>
   );
 };
 
-export default TrailRider;
+export default MobilityAid;

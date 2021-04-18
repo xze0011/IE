@@ -40,7 +40,9 @@ const Accordion = (props) => {
                             </button>
                         </h3>
                         <div id={ 'sect-' + indexCount(index) } className={ active === index  ? 'panel-open' : 'panel-close' }>
-                                {tab.description.split('<br/>').map((i) => (<ul style={{color:'#000000'}}> <AutoLink text={i} /> </ul>))}
+                                <strong>{tab.list}</strong>
+                                {tab.description.split('<br/>').map((i) => (<li style={{color:'#000000'}}> <AutoLink text={i} /> </li>))}
+                                {(tab.img!= null)?<img src={tab.img}  alt={tab.title} style ={{width:'30%',height:'20%',marginLeft:'30%',marginTop:'15px',borderRadius:'30%'}}/>:false}
                         </div>
                     </div>
                     ))
