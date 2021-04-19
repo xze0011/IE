@@ -4,7 +4,7 @@ import { FaBars } from 'react-icons/fa';
 import {Button,Dropdown} from "react-bootstrap"
 
 export const Nav = styled.nav`
-  background: white;
+  background: background: rgba(157,169,147,0.3);
   height: 80px;
   display: flex;
   justify-content: space-between;

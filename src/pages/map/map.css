@@ -1,6 +1,6 @@
 .cluster-marker {
   color: #fff;
-  background: #055816;
+  background:rgb(86,116,138);
   border-radius: 50%;
 
   display: flex;
@@ -14,8 +14,8 @@
 }
 
 .carpark-marker img{
-  width: 25px;
-  height: 30px;
+  width: 70px;
+  height: 70px;
 }
 
 ul{
@@ -50,7 +50,7 @@ ul{
   justify-content: space-between;
 }
 
- .mapbox-directions-profile > label:nth-child(8){
+ /* .mapbox-directions-profile > label:nth-child(8){
   visibility: hidden;
 } 
 
@@ -58,14 +58,17 @@ ul{
   content: "Wheechair" !important;
   visibility: visible;
   margin-left: -85%;
-} 
+}  */
 .flagIcon  {
   position: absolute;
   top: 1.1rem;
-  left: 20rem;
+  right: 3rem;
 }
 .flagIcon > button> img{
   width: 3rem;
   height: 3rem;
 }
 
+.geocoder-icon{
+  margin-top:-15% !important;
+}

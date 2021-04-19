@@ -14,8 +14,8 @@ const Home = () => {
     marginRight:'5%',
     borderRadius:'20px',
     marginBottom:'50px',
-    /*color:'#2a9d8f'*/
-
+    backgroundColor:'rgba(234,229,222,0.7)',
+    color:'#37391E'
 };
   return (
     <div>
@@ -48,12 +48,11 @@ const Home = () => {
       <h2 >Our team aims to help disabilities</h2></Zoom>
       <div className='container'>
       <Bounce  Left duration={3000} delay={2700}>
-      <div> Especially those with mobility problems better access to Victoria's spectacular tourism attractions and improve their travel experience with the idea that everyone should have equally enjoyment towards Victoria's entertainment amenities and sceneries. <br/>
-      
-      
-      
-          Melbourne is a truly wonderful country, filled with ancient history and contemporary modern appeal. However, if you have a disability or other specific needs, finding the right information on accessibility can be a challenge.
-Even though you might be adventurous at heart, it’s still a good idea to have some information before you embark on your journey to Melbourne. It’s a website dedicated to collecting everything there is to know about accessibility in Melbourne. 
+      <div> 
+        <li>Help mobility problems better access to Victoria's spectacular tourism attractions and improve their travel experience</li> 
+        <li>Everyone should have equally enjoyment towards Victoria's entertainment amenities and sceneries.</li> 
+        <li>Melbourne is a truly wonderful country, filled with ancient history and contemporary modern appeal. However, if you have a disability or other specific needs, finding the right information on accessibility can be a challenge.</li>
+        <li>Even though you might be adventurous at heart, it’s still a good idea to have some information before you embark on your journey to Melbourne. It’s a website dedicated to collecting everything there is to know about accessibility in Melbourne. </li>
       </div>
       </Bounce>
       
@@ -62,7 +61,7 @@ Even though you might be adventurous at heart, it’s still a good idea to have 
   </div>
 
 
-    <div className='label' >
+    {/* <div className='label' >
          <h2>Visiting a city far from home can be overwhelming.  Get prepared with:</h2>
          <div className='container'>
          <div className='row' >
@@ -92,7 +91,7 @@ Even though you might be adventurous at heart, it’s still a good idea to have 
          </div>
          </div>
        <br/><br/><br/><br/><br/><br/>
-      </div>
+      </div> */}
   </div>
   
   

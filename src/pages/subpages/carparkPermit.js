@@ -5,6 +5,7 @@ import Tilt from 'react-parallax-tilt';
 import Accordion from '../../component/Accordion/Accordion';
 import data from './assets/carpark.json';
 import './carparkPermit.css';
+import {Button} from '../../component/button/button';
 
 const CarparkPermit = () => {
   const carpermitContainer ={
@@ -17,7 +18,8 @@ const CarparkPermit = () => {
     justifyContent: 'center',
     alignItems: 'center',
     padding:'5%',
-    boxShadow:'0 6px 20px rgba(56, 125, 255, 0.3)'
+    boxShadow:'0 6px 20px rgba(56, 125, 255, 0.3)',
+    // backgroundColor:'rgb(234,229,222)'
   };
   return (
     <div className='banner'>
@@ -41,8 +43,21 @@ const CarparkPermit = () => {
       <img src={banner} alt='banner' style={{width:'100vw',zIndex:-1}}/>
       
       <div className='card'style={carpermitContainer}>
-        <h1>Accessible parking permits</h1>
+        <h1 style={{color:'#9da993'}}>Accessible parking permits</h1>
         <Accordion content={data}/>
+        {/* <Button className='btns'
+        buttonStyle='btn--outline'
+        buttonSize='btn--large' destination='./guide'>Last Step</Button> 
+        <br/>
+
+        <Button className='btns'
+        buttonStyle='btn--outline'
+        buttonSize='btn--large' destination='./guide'>Guide</Button> 
+
+        <br/>
+        <Button  className='btns'
+        buttonStyle='btn--outline'
+        buttonSize='btn--large' destination='./attraction'>Next Step</Button> */}
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ const MelPolicy = () => {
       <img src={banner} alt='banner' style={{width:'100vw',zIndex:-1}}/>
       
       <div className='card'style={carpermitContainer}>
-        <h1>Victoria Travel Restriction</h1>
+        <h1 style={{color:'#9da993'}}>Victoria Travel Restriction</h1>
         <Accordion content={data}/>
       </div>
     </div>

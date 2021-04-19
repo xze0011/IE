@@ -27,7 +27,7 @@ const Maps = () => {
     latitude:Latitude,
     longitude:Longitude,
     width: "100vw",
-    height: "80vh",
+    height: "90vh",
     zoom:Zoom
   });
   const mapRef = useRef();
@@ -39,25 +39,43 @@ const Maps = () => {
 
   
   // const positionOptions = {enableHighAccuracy: true};
+
+
+  {/* Import Toilet Data*/}
   useEffect(() => {   
     async function temp(){
-    const result = await  axios(
+    const result = await axios(
       'https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC',
     );
     toiletFlag ? setToilet(result.data.result.records): setToilet([]);
-
   }temp();}, [toiletFlag]);
+
+
+  {/* Import Carpark Data*/}
   useEffect(() => {   
     async function temp(){
-    const carparkResult = await axios(
+    const carparkResult = await  axios(
       'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
     );
     carparkFlag ? setCarpark(carparkData.data) : setCarpark([]);
   }temp();}, [carparkFlag]);
+
+   {/* Call Route Function*/}
   useEffect(() => {
       var map = mapRef.current.getMap();
       var directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        flyTo:false,
+        controls: {
+          profileSwitcher:false
+          // profile:"mapbox/driving-traffic"
+        },
+        geocoder: {
+          language: 'au'
+        },
+        placeholderOrigin:"Choose a starting place",
+        placeholderDestination:"Choose destination"
       });
       map.addControl(directions,"top-left");
 
@@ -141,7 +159,7 @@ const Maps = () => {
         }}
       >
       <div className='flagIcon'>    
-        <button onClick={()=>{setToiletFlag(!toiletFlag)}}><img src='/toilet.png' alt='Toilet Control Icon' ></img></button><br/>
+        <button onClick={()=>{setToiletFlag(!toiletFlag)}}><img src='/toilet.png' alt='Toilet Control Icon' ></img></button>
         <button onClick={()=>{setCarparkFlag(!carparkFlag)}}><img src='/carpark.png' alt='Carpark Control Icon' ></img></button>
       </div>  
       <div className="sidebar">
