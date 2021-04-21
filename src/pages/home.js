@@ -46,12 +46,12 @@ const Home = () => {
   <div className='cards' style={homePageIntro}>
     
     <Zoom  top duration={600} delay={2200}>
-      <h2 >Our team aims to help disabilities</h2></Zoom>
+      <h2 >Wayfarer aims to help disabilities to enjoy their Melbourne trip</h2></Zoom>
       <div className='container'>
       <Bounce  Left duration={3000} delay={2700}>
       <div> 
-        <li>Help mobility problems better access to Victoria's spectacular tourism attractions and improve their travel experience</li> 
-        <li>Everyone should have equally enjoyment towards Victoria's entertainment amenities and sceneries.</li> 
+        <li>Help mobility problems better access to Melbourne's spectacular tourism attractions and improve their travel experience</li> 
+        <li>Everyone should have equally enjoyment towards Melbourne's entertainment amenities and sceneries.</li> 
         <li>Melbourne is a truly wonderful country, filled with ancient history and contemporary modern appeal. However, if you have a disability or other specific needs, finding the right information on accessibility can be a challenge.</li>
         <li>Even though you might be adventurous at heart, it’s still a good idea to have some information before you embark on your journey to Melbourne. It’s a website dedicated to collecting everything there is to know about accessibility in Melbourne. </li>
       </div>
