@@ -7,26 +7,34 @@ import Guide from './pages/guide';
 import Attration from './pages/attraction';
 import CarparkPermit from './pages/subpages/carparkPermit';
 import MelPolicy from './pages/subpages/melPolicy';
-import WheerchairCharge from './pages/subpages/wheerchairCharge';
+import MobilityAid from './pages/subpages/mobilityAid';
+import AnimatedCursor from "react-animated-cursor";
+import Airport from './pages/subpages/airportService';
+import TrailRider from './pages/subpages/trailRider';
+import About from './pages/about';
+import Header from './component/header/header';
+import Footer from './component/footer/footer';
 
 function App() {
   return (
     <div className="App">
       <Router>
-         <Layout />
+         <Header />
           <Switch>
-            <Route path='/'  exact component={Home} />
+          <Route path='/'  exact component={Home} />
             <Route path='/map' component={Maps} />
             <Route path='/guide' component={Guide} />
             <Route path='/attraction' component={Attration} />
             <Route path='/carparkpermit'  component={CarparkPermit} />
-            <Route path='/wheerchaircharge' component={WheerchairCharge} />
+            <Route path='/mobilityAid' component={MobilityAid} />
             <Route path='/melpolicy' component={MelPolicy} />
+            <Route path='/airportService' component={Airport} />
+            <Route path='/trailRider' component={TrailRider} />
+            <Route path='/about' component={About} />
           </Switch>
+          <Footer />
       </Router>
     </div>
-
-    
   );
 }
 

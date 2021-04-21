@@ -1,0 +1,52 @@
+[
+    {
+        "date":"",
+        "steps":"Step1:",
+        "content":"Check Victoria Travel Policy",
+        "description":"Travel policy under COVID-19",
+        "iconStyle":"background: 'rgb(16, 204, 82)', color: '#fff' ",
+        "contentStyle":"background: 'rgb(16, 204, 82)', color: '#fff' ",
+        "contentArrowStyle":"borderRight: '7px solid  rgb(16, 204, 82)'",
+        "link":"../../melPolicy"
+    },
+    {
+        "date":"",
+        "steps":"Step2:",
+        "content":"Melbourne Airport Accessible Service",
+        "description":"What you should prepare before booking and go to airport",
+        "iconStyle":"background: 'rgb(16, 204, 82)', color: '#000' ",
+        "contentStyle":"background: 'rgb(16, 204, 82)', color: '#fff' ",
+        "contentArrowStyle":"borderRight: '7px solid  rgb(16, 204, 82)'",
+        "link":"../../airportService"
+    },
+    {
+        "date":"",
+        "steps":"Step3:",
+        "content":"Victoria Accessible Carpark permit Policy",
+        "description":"how to use your accessible carpark permit",
+        "iconStyle":"background: 'rgb(16, 204, 82)', color: '#000' ",
+        "contentStyle":"background: 'rgb(16, 204, 82)', color: '#fff' ",
+        "contentArrowStyle":"borderRight: '7px solid  rgb(16, 204, 82)'",
+        "link":"../../carparkPermit"
+    },
+    {
+        "date":"",
+        "steps":"Step4:",
+        "content":"Mobility Aid Check",
+        "description":"what mobility aid are allowed to take public transportation",
+        "iconStyle":"background: 'rgb(16, 204, 82)', color: '#000' ",
+        "contentStyle":"background: 'rgb(16, 204, 82)', color: '#fff' ",
+        "contentArrowStyle":"borderRight: '7px solid  rgb(16, 204, 82)'",
+        "link":"../../mobilityAid"
+    },
+    {
+        "date":"",
+        "steps":"Step5:",
+        "content":"TrailRider Wheelchair Rental",
+        "description":"Free wheelchair rental service for victoria parks",
+        "iconStyle":"background: 'rgb(16, 204, 82)', color: '#000' ",
+        "contentStyle":"background: 'rgb(16, 204, 82)', color: '#fff' ",
+        "contentArrowStyle":"borderRight: '7px solid  rgb(16, 204, 82)'",
+        "link":"../../trailRider"
+    }
+]
