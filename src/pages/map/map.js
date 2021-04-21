@@ -10,7 +10,8 @@ import Search from './mapsearch';
 import Locate from './locate';
 import axios from 'axios';
 import useSupercluster from "use-supercluster";
-import carparkData from './carpark_total.json'
+import ca from '../subpages/assets/carpark_total.json'
+import to from '../subpages/assets/carpark_total.json'
 import Button from '../../component/button/button'
 
 // import {Accordion,Card} from 'react-bootstrap';
@@ -21,8 +22,8 @@ const Maps = ()=>{
   const [toiletFlag,setToiletFlag] = useState(false);
   const [carpark,setCarpark] = useState([]);
   const [carparkFlag,setCarparkFlag] = useState(false);
-  const [bounds, setBounds] = useState(null);
   const [zoom, setZoom] = useState(10);
+  const [bounds,setBounds] = useState(null)
   const libraries = ["places"]
    const mapContainerStyle={
     height: '84vh', width: '100vw'
@@ -30,6 +31,18 @@ const Maps = ()=>{
   const [center,setCenter] = useState({
     lat: -37.906612,
     lng: 145.136693})
+
+  const mapRef =useRef();
+  const onMapLoad = useCallback((map) => {
+      mapRef.current = map;
+    }, []);
+
+  function handleZoomChanged() {
+      if (!mapRef.current) return;
+      const newZoom = mapRef.current.getZoom();
+      setZoom(newZoom);
+    }  
+
 
   {/* Import Toilet Data*/}
   useEffect(() => {   
@@ -44,48 +57,42 @@ const Maps = ()=>{
   {/* Import Carpark Data*/}
   useEffect(() => {   
     async function temp(){
-    const carparkResult = await  axios(
-      'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
-    );
-    carparkFlag ? setCarpark(carparkData.data) : setCarpark([]);
+    // const carparkResult = await  axios(
+    //   'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
+    // );
+    carparkFlag ? setCarpark(ca.data) : setCarpark([]);
+ console.log(ca.data)
   }temp();}, [carparkFlag]);
 
-  // useEffect(()=>{
-    
-  // },[bounds])
-
-  const points = carpark.map(car => ({
-    type: "Feature",
-    properties: {  cluster: false ,key:car[0],desc:car[1],period:car[4],time:car[5],lat:car[2].location.lat,lon:car[2].location.lng,rating:car[7] },
-    geometry: {
-      type: "Point",
-      coordinates: [
-        parseFloat(car[2].location.lng),
-        parseFloat(car[2].location.lat)
-      ]
-    }
-  }));
-
-  const { clusters, supercluster } = useSupercluster({
-    points,
-    bounds,
-    zoom,
-    options: { radius: 75, maxZoom: 20 }
-  });
-  console.log(clusters)
   const [selectedToilet, setSelectedToilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
   const {isLoaded,loadError} = useLoadScript({
     googleMapsApiKey:"AIzaSyDHYvDznXH0Ep5elG3OHU-TfrMt80HItuI",
     libraries,
   });
+//   onChange={({ zoom, bounds }) => {
+//     setZoom(mapRef.current.getZoom());
+//     setBounds(new window.google.maps.LatLngBounds());
+// }}
+// const points = carpark.map(car => ({
+//   type: "Feature",
+//   properties: {  cluster: false ,key:car[0],desc:car[1],period:car[4],time:car[5],lat:car[2].location.lat,lon:car[2].location.lng,rating:car[7] },
+//   geometry: {
+//     type: "Point",
+//     coordinates: [
+//       parseFloat(car[2].location.lng),
+//       parseFloat(car[2].location.lat)
+//     ]
+//   }
+// }));
+// onZoomChanged={handleZoomChanged} onBoundsChanged={e => { setBounds([mapRef.current.getBounds().La.g,mapRef.current.getBounds().Ua.g,mapRef.current.getBounds().La.i,mapRef.current.getBounds().Ua.g]) }
+// const { clusters, supercluster } = useSupercluster({
+//   points,
+//   bounds,
+//   zoom,
+//   options: { radius: 75, maxZoom: 20 }
+// });
 
-  const mapRef =useRef();
-  const onMapLoad = useCallback((map) => {
-    mapRef.current = map;
-    setBounds(new window.google.maps.LatLngBounds())
-  }, []);
-  
   const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
@@ -95,7 +102,8 @@ const Maps = ()=>{
   
   return(
     <div className='mapWraper' style={{display:'flex'}}>
-        <GoogleMap mapContainerStyle={mapContainerStyle}  zoom={10} center={center} yesIWantToUseGoogleMapApiInternals onLoad={onMapLoad} >
+
+        <GoogleMap mapContainerStyle={mapContainerStyle}  zoom={zoom} center={center} yesIWantToUseGoogleMapApiInternals onLoad={onMapLoad}>
         <Locate panTo={panTo} />
         <Search panTo={panTo}/>
         <div className='flagIcon'>
@@ -175,7 +183,8 @@ const Maps = ()=>{
           >
             <div className='loop'>
             <p><img src='./P.png' width='30' height='30' align="left" alt='car' title='accessible carpark' />
-              <span className='Pointname'>Opening Time: {selectedCarpark[4]} | {selectedCarpark[5]}<br/></span>
+            <p>{selectedCarpark[3]} | {selectedCarpark[1]}</p>
+          <span className='Pointname'>Opening Time: {selectedCarpark[4]} | {selectedCarpark[5]}<br/> </span>
             </p>
           <p>Rating:  {selectedCarpark[7]}</p>
           </div>

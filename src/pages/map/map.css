@@ -41,6 +41,7 @@
 .Pointaddress{
   font-size: smaller;
   color: green;
+  white-space: nowrap;
 }
 
 .Pointname{
@@ -53,7 +54,9 @@
   justify-content: space-between;
 }
 
-
+.loop{
+  
+}
 .sidebarmap{
   float:'right';
   top:'0';

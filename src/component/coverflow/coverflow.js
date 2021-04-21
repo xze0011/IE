@@ -99,11 +99,7 @@ function Slide({ slide, offset }) {
         }}
       >
         <div className="slideContentInner" >
-         <Link to={`./individualAttraction/${slide.name}`}>
-            <h2 className="slideTitle" style={{textAlign:'center'}}>{slide.name}</h2>
-         </Link> {/* <a href={slide.image}></a> */}
-          {/* <h3 className="slideSubtitle">{slide.subtitle}</h3>
-          <p className="slideDescription">{slide.description}</p> */}
+          <h2 className="slideTitle" style={{textAlign:'center'}}>{slide.name}</h2>
         </div>
       </div>
     </div>
