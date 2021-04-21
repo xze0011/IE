@@ -18,6 +18,14 @@ import Footer from './component/footer/footer';
 function App() {
   return (
     <div className="App">
+      <AnimatedCursor
+        innerSize={20}
+        outerSize={38}
+        color='231, 111, 81'
+        outerAlpha={0.2}
+        innerScale={0.8}
+        outerScale={3}/>
+        {/* /> */}
       <Router>
          <Header />
           <Switch>

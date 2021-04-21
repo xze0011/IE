@@ -1,6 +1,13 @@
 import React ,{useEffect,useRef,useReducer}from 'react';
 import './coverflow.css';
-import data from '../../pages/subpages/assets/gallary.json'
+import data from '../../pages/subpages/assets/attractionlist2.json';
+import { Link } from 'react-router-dom';
+
+
+
+/*coverflow component that display gallary of attractions in Melbourne. 
+ * @param is the json file with detailed attraction information with its img address. 
+ */
 const slides = data;
  
 function useTilt(active) {
@@ -82,19 +89,21 @@ function Slide({ slide, offset }) {
       <div
         className="slideBackground"
         style={{
-          backgroundImage: `url('${slide.image}')`
+          backgroundImage: `url('${slide.content[0].image}')`
         }}
       />
       <div
         className="slideContent"
         style={{
-          backgroundImage: `url('${slide.image}')`,boxShadow:'0 6px 20px rgba(0,0,0, 0.5)'
+          backgroundImage: `url('${slide.content[0].image}')`,boxShadow:'0 6px 20px rgba(0,0,0, 0.5)'
         }}
       >
         <div className="slideContentInner" >
-          <a href={slide.image}><h2 className="slideTitle">{slide.title}</h2></a>
-          <h3 className="slideSubtitle">{slide.subtitle}</h3>
-          <p className="slideDescription">{slide.description}</p>
+         <Link to={`./individualAttraction/${slide.name}`}>
+            <h2 className="slideTitle" style={{textAlign:'center'}}>{slide.name}</h2>
+         </Link> {/* <a href={slide.image}></a> */}
+          {/* <h3 className="slideSubtitle">{slide.subtitle}</h3>
+          <p className="slideDescription">{slide.description}</p> */}
         </div>
       </div>
     </div>
