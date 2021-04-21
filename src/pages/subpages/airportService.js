@@ -46,8 +46,9 @@ const Airport = () => {
         <h1 style={{color:'#9da993'}}>Step2: Melbourne Airport Accessible Service</h1>
         <Accordion content={data}/>
         <Row>
-          <Col xs='6' md='6'>  <Button destination = './melPolicy' buttonSize='btn--medium' buttonColor='btn--red' > Last</Button></Col>
-          <Col xs='6' md='6'>  <Button destination = './carparkPermit' buttonSize='btn--medium' buttonColor='btn--red' > Next</Button></Col>
+          <Col xs='4' md='4'>  <Button destination = './melPolicy' buttonSize='btn--medium' buttonColor='btn--red' > Last</Button></Col>
+          <Col xs='4' md='4'>  <Button destination = './guide' buttonSize='btn--medium' buttonColor='btn--red' > Back</Button></Col>
+          <Col xs='4' md='4'>  <Button destination = './carparkPermit' buttonSize='btn--medium' buttonColor='btn--red' > Next</Button></Col>
         </Row>
 
       </div>

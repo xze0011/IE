@@ -5,7 +5,8 @@ import Tilt from 'react-parallax-tilt';
 import Accordion from '../../component/Accordion/Accordion';
 import data from './assets/melbp.json';
 import './carparkPermit.css'
-import Button from '../../component/button/button'
+import {Row,Col} from 'react-bootstrap'
+import {Button} from '../../component/button/button';
 const MelPolicy = () => {
   const carpermitContainer ={
     marginTop:'-5%',
@@ -43,7 +44,11 @@ const MelPolicy = () => {
       <div className='card'style={carpermitContainer}>
         <h1 style={{color:'#9da993'}}>Step1: Victoria Travel Restriction</h1>
         <Accordion content={data}/>
-        <Button destination = './airportService' buttonSize='btn--medium' buttonColor='btn--red' > Next</Button>
+        <Row>
+          <Col xs='6' md='6'>  <Button destination = './guide' buttonSize='btn--medium' buttonColor='btn--red' > Back</Button></Col>
+          <Col xs='6' md='6'>  <Button destination = './airportService' buttonSize='btn--medium' buttonColor='btn--red' >Next</Button></Col>
+        </Row>
+
       </div>
     </div>
   );

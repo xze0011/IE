@@ -54,8 +54,12 @@ h3 >button:hover {
   margin-left: 17%;
   color:#ffffff;
 }
+.panel-open >img{
+     margin-left:35% !important;
 
-.minus {
+}
+
+.minus{
   content: url('./assets/plus.svg');
   width: 24px;
   height: 24px;

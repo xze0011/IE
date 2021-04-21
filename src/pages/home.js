@@ -30,12 +30,13 @@ const Home = () => {
       </h1>
      
     
-    <p>Find accessible facilities?</p>
+    <p>Wanna Find Accessible Facilities?</p>
     <div className='hero-btns'>
       <Button
         className='btns'
         buttonStyle='btn--outline'
         buttonSize='btn--large'
+        destination = './map'
       >
         GET STARTED
       </Button>
