@@ -26,7 +26,7 @@ function App() {
         outerAlpha={0.2}
         innerScale={0.8}
         outerScale={3}/>
-        {/* /> */}
+        />
       <Router>
          <Header />
           <Switch>
