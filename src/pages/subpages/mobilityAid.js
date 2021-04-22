@@ -28,7 +28,6 @@ const MobilityAid = () => {
   };
   return (
     <div className='banner'>
-      
       <Tilt
         tiltMaxAngleX={100}
         tiltMaxAngleY={20}
@@ -49,6 +48,7 @@ const MobilityAid = () => {
       
       <div className='card'style={carpermitContainer}>
         <h1 style={{color:'#9da993'}}>Step4: Mobility Aid Check</h1>
+        <p style={{color:'#9da993'}}> To take public transportation in Melbourne, please check whether your mobility aid meets PTV requirements </p>
         <Accordion content={data}/>
         <Row>
           <Col xs='4' md='4'>  <Button destination = './carparkPermit' buttonSize='btn--medium' buttonColor='btn--red' > Last</Button></Col>

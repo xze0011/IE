@@ -1,14 +1,14 @@
 [
     {
       "title": "Dimension Check",
-      "description": "Fit within a space 1300mm long by 800mm wide <br/> To fit between the wheel axles of a bus, no more than 750mm wide or 300mm above the ground <br/>No more than 300kg with you in it."
+      "description":"Fit within a space 1300mm long by 800mm wide <br/> To fit between the wheel axles of a bus, no more than 750mm wide or 300mm above the ground <br/>No more than 300kg with you in it."
     },
     {
       "title": "Stability Check",
-      "description": "can move backwards and forwards <br/>have effective brakes to help maintain stability<br/>able to be carried on a coach that has anchor points. <br/>"
+      "description":"Can move backwards and forwards <br/>Have effective brakes to help maintain stability<br/>Able to be carried on a coach that has anchor points."
     },
     {
       "title": "Manoeuvrability Check",
-      "description": "can turn 180 degrees within an area 2070mm x 1540mm<br/>cross grates in vehicles up to 13mm wide and 150mm long<br/>can turn 180 degrees within an area 2070mm x 1540mm<br/>go up and down a ramp with a 1:14 grade unassisted<br/>go up and down a ramp that is less than 1520mm with a 1:8 grade<br/>go up and down a ramp with a 1:4 grade with assistance"
+      "description": "Can turn 180 degrees within an area 2070mm x 1540mm<br/>Cross grates in vehicles up to 13mm wide and 150mm long<br/>Can turn 180 degrees within an area 2070mm x 1540mm<br/>Go up and down a ramp with a 1:14 grade unassisted<br/>Go up and down a ramp that is less than 1520mm with a 1:8 grade<br/>Go up and down a ramp with a 1:4 grade with assistance"
     }
 ]

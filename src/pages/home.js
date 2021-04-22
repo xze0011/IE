@@ -36,7 +36,7 @@ const Home = () => {
       </h1>
      
     
-    <p>Wanna Find Accessible Facilities?</p>
+    <p>Want to Find Accessible Facilities?</p>
     <div className='hero-btns'>
       <Button
         className='btns'
