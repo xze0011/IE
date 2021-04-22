@@ -60,7 +60,7 @@ const aboutContainer ={
         <img src='/attractionBanner.png' alt='banner' style={{width:'100vw',zIndex:-3}}/>
         <div className='card'style={aboutContainer}>
             <h1>{item.name}</h1>
-                      <CardView
+                    <CardView
                     items={item.content}
                     activeColor='#000'
                     imageHeight='500px'
