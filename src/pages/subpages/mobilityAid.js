@@ -8,6 +8,11 @@ import './carparkPermit.css';
 import {Row,Col} from 'react-bootstrap'
 import {Button} from '../../component/button/button';
 
+/**
+ * Name: MobilityAid
+ * Function: Mobility Aid Check related information | Subpage of Guide
+ */
+
 const MobilityAid = () => {
   const carpermitContainer ={
     marginTop:'-5%',

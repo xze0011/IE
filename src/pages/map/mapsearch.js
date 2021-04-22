@@ -11,6 +11,12 @@ import usePlacesAutocomplete, {
   } from "@reach/combobox";
   import "@reach/combobox/styles.css";
   
+
+/**
+ * Name: Search
+ * Function: Search position as per input
+ * 
+ */
  const Search = ({ panTo }) =>{
     const {
       ready,

@@ -7,6 +7,11 @@ import data from './assets/trailrider.json';
 import './carparkPermit.css';
 import {Button} from '../../component/button/button';
 import {Row,Col} from 'react-bootstrap'
+/**
+ * Name: TrailRider 
+ * Function:TrailRider related information | Subpage of Guide
+ */
+
 const TrailRider = () => {
   const carpermitContainer ={
     marginTop:'-5%',

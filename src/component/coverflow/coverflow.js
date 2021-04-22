@@ -3,11 +3,13 @@ import './coverflow.css';
 import data from '../../pages/subpages/assets/attractionlist2.json';
 import { Link } from 'react-router-dom';
 
-
-
-/*coverflow component that display gallary of attractions in Melbourne. 
- * @param is the json file with detailed attraction information with its img address. 
+/*
+Name: Coverflow
+coverflow component that display gallary of attractions in Melbourne. 
+it read json file with detailed attraction information with its img address. 
+used in /pages/attraction page as gallary 
  */
+
 const slides = data;
  
 function useTilt(active) {

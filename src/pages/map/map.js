@@ -9,21 +9,23 @@ import './map.css'
 import Search from './mapsearch';
 import Locate from './locate';
 import axios from 'axios';
-import useSupercluster from "use-supercluster";
+// import useSupercluster from "use-supercluster";
 import ca from '../subpages/assets/carpark_total.json'
-import to from '../subpages/assets/carpark_total.json'
 import Button from '../../component/button/button'
 
-// import {Accordion,Card} from 'react-bootstrap';
+
+/**
+ * Name: Map
+ * Function: display google map, search bar, and display markers
+ * 
+ */
 
 const Maps = ()=>{
   const [toilet, setToilet] = useState([]);
-  const [isLoading,setIsLoading] = useState(false); 
   const [toiletFlag,setToiletFlag] = useState(false);
   const [carpark,setCarpark] = useState([]);
   const [carparkFlag,setCarparkFlag] = useState(false);
   const [zoom, setZoom] = useState(10);
-  const [bounds,setBounds] = useState(null)
   const libraries = ["places"]
    const mapContainerStyle={
     height: '84vh', width: '100vw'
@@ -32,17 +34,17 @@ const Maps = ()=>{
     lat: -37.906612,
     lng: 145.136693})
 
+    {/* Access map object*/}
   const mapRef =useRef();
   const onMapLoad = useCallback((map) => {
       mapRef.current = map;
     }, []);
 
-  function handleZoomChanged() {
-      if (!mapRef.current) return;
-      const newZoom = mapRef.current.getZoom();
-      setZoom(newZoom);
-    }  
-
+  // function handleZoomChanged() {
+  //     if (!mapRef.current) return;
+  //     const newZoom = mapRef.current.getZoom();
+  //     setZoom(newZoom);
+  //   }  
 
   {/* Import Toilet Data*/}
   useEffect(() => {   
@@ -57,9 +59,9 @@ const Maps = ()=>{
   {/* Import Carpark Data*/}
   useEffect(() => {   
     async function temp(){
-    // const carparkResult = await  axios(
-    //   'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
-    // );
+    const carparkResult = await  axios(
+      'https://reactapi20210330172750.azurewebsites.net/api/Carpark',
+    );
     carparkFlag ? setCarpark(ca.data) : setCarpark([]);
  console.log(ca.data)
   }temp();}, [carparkFlag]);

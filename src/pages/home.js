@@ -7,6 +7,12 @@ import Bounce from 'react-reveal/Bounce';
 import Zoom from 'react-reveal/Zoom';
 import BGM from 'react-awesome-snippets-bgm';
 
+
+/**
+ * Name:Home
+ * Function: demonstrate our website purpose. and navigate to individual pages
+ * used in App.js and header.js
+ */
 const Home = () => {
   const homePageIntro ={
     marginTop:'-15%',

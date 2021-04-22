@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import {Button,Dropdown} from "react-bootstrap"
 
+
+/**
+ * Name: headerElement
+ * Function: list of styled component of header element with some hover effect
+ * used in header component as child component with style. 
+ */
 export const Nav = styled.nav`
   background: background: rgba(157,169,147,0.3);
   height: 80px;

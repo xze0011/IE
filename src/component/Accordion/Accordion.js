@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import AutoLink from '../AutoLink/AutoLink';
 
+/**
+ * Name: Accordion
+ * Accordion accept json data as parameter and  display information inside content inside an Accordion container. 
+ * params are in ./pages/subpages/assets
+ * used in ./pages/subpages 
+ */
 
 const Accordion = (props) => {
     

@@ -2,6 +2,11 @@ import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+/**
+ * Name: submenu
+ * Function: list of styled component of navigation drawer  with some hover effect
+ * used in header component as child component with style. 
+ */
 const SidebarLink = styled(Link)`
   display: flex;
   color: white;

@@ -7,8 +7,14 @@ import data from './assets/carpark.json';
 import './carparkPermit.css';
 import {Button} from '../../component/button/button';
 import {Row,Col} from 'react-bootstrap'
+  
+ /**
+ * Name:CarparkPermit
+ * Function:  Accessible parking permits related information | Subpage of Guide
+ */
 
 const CarparkPermit = () => {
+
   const carpermitContainer ={
     marginTop:'-5%',
     marginLeft:'5%',

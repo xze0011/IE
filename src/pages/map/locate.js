@@ -1,4 +1,9 @@
 
+  /**
+ * Name:  Locate
+ * Function: Locate user's position
+ * 
+ */
 function Locate({ panTo }) {
   
     return (

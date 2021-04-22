@@ -1,5 +1,4 @@
 import React from 'react';
-/* import './guide.css'; */
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import data from './subpages/assets/guidelist.json';
@@ -10,6 +9,12 @@ import Tilt from 'react-parallax-tilt';
 
 //import router
 import { Link } from 'react-router-dom';
+
+/**
+ * Name:Guide
+ * Function: display timeline to navigate to guide.  A page of this project to show informational guide to users
+ * params: json file of listed of steps. 
+ */
 
 const carpermitContainer ={
   marginTop:'-15%', 

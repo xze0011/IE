@@ -15,6 +15,12 @@ import SubMenu from './submenu';
 import './header.css'
 import Slide from 'react-reveal/Slide'
 
+
+/**
+ * Name: header
+ * Function: displays header bar,navigation and sidebar. allow users to navigate to individual pages. 
+ * used in App.js file as layout 
+ */
 const Header = () => {
     
  const [sidebar, setSidebar] = useState(false);

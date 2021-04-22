@@ -7,6 +7,12 @@ import data from './assets/melbp.json';
 import './carparkPermit.css'
 import {Row,Col} from 'react-bootstrap'
 import {Button} from '../../component/button/button';
+
+/**
+ * Name:MelPolicy
+ * Function: Victoria Travel Restriction related information | Subpage of Guide
+ */
+
 const MelPolicy = () => {
   const carpermitContainer ={
     marginTop:'-5%',

@@ -18,7 +18,11 @@ const aboutContainer ={
   color:'#9da993',
   zIndex:0
 };
-
+/**
+ * Name:about
+ * Function: show about us information and link to our instagram page. 
+ * used in footer.js
+ */
 const About = () => {
   return (
     <>

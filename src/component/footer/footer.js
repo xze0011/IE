@@ -2,6 +2,12 @@ import React from 'react';
 import './footer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+/**
+ * Name: footer
+ * Function: displays footer and show its content
+ * used in App.js file as layout 
+ */
 const Footer = ()=>{
     return(
         <div className='footer' style={{
