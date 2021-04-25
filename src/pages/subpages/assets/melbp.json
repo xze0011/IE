@@ -1,19 +1,19 @@
 [
   {
     "title": "Transportation",
-    "description": "Public transport, taxis, tour transport and ride-share cars are free from use, but Drivers and passengers must wear face masks at all times — including waiting at stations. ",
+    "description": "Public transport like trams, trains including ride share are available to use in Victoria however, masks are mandatory while travelling and waiting at station. ",
     "img":"https://images.unsplash.com/photo-1513158106916-b9a5f8ba07fe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
   },
   {
     "title": "Mandatory face masks",
-    "description": "Public transport, commercial passenger vehicles <br/> Visitors to a hospital or care facility <br/> Inside airport and flight to and from Victoria <br/>When you are diagnosed with COVID-19 or a close contact of someone diagnosed with COVID-19 and leave your accommodation for a permitted reason <br/>While waiting for COVID-19 test result and leaving your accommodation for a permitted reason<br/>Have symptoms of COVID-19",
+    "description": "Have symptoms of COVID-19<br/> While visiting hospital or care facility<br/> Inside airport while arriving or leaving Melbourne<br/> When you or your close contacts are diagnosed with COVID-19. In such circumstances you can leave your accommodation for permitted reason only<br/> While waiting for COVID-19 result<br/> Public transport and commercial passenger vehicles",
     "img":"https://images.unsplash.com/photo-1584634731339-252c581abfc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1954&q=80"
   },
   {
     "title": "Traffic-light permit system",
-    "description": "Victoria classifies regions of Australia as green, orange or red, based on the region's COVID-19 risk. Non-Victorian residents can't enter Victoria from a red zone.<br/> Check your current area here: <br/> - Green: can apply for a permit and enter Victoria <br/> - Orange: Can apply for a single-use permit and need to be tested for COVID-19 within 3 days of your arrival in Victoria and isolated until you get a negative test result. Testing location https://www.coronavirus.vic.gov.au/where-get-tested-covid-19 <br/> - Red: Only get permit if you’re Victorian resident. Otherwise, be fined $4957 and sent back."
+    "description": "Victoria classifies regions of Australia as green, orange, or red, based on the region's COVID-19 risk. Non-Victorian residents cannot enter Victoria from a red zone<br/> Check your current area here:<br/> - Green: can apply for a permit and enter Victoria<br/> -Orange: Can apply for a single-use permit and need to be tested for COVID-19 within 3 days of your arrival in Victoria and isolated until you get a negative test result. Testing location https://www.coronavirus.vic.gov.au/where-get-tested-covid-19 <br/> -Red: You can apply for permit only if you’re Victorian resident. Otherwise, you will be fined $4957 and sent back"
   },
   {
     "title": "Apply for travel permit",
-    "description": "https://www.service.vic.gov.au/services/border-permit/Transaction#details"
+    "description": "You can apply for permit using the following link: https://www.service.vic.gov.au/services/border-permit/Transaction#details"
   }]
