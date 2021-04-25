@@ -4,7 +4,6 @@ import { CardView } from 'react-card-with-image'
 import 'react-card-with-image/dist/index.css'
 import { useLocation } from 'react-router-dom'
 import items from './assets/attractionlist2.json'
-import {Row,Col} from 'react-bootstrap'
 import {Button} from '../../component/button/button';
 import creatHistory from 'history/createBrowserHistory' 
 const aboutContainer ={

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState}from 'react';
 import banner from  './assets/trailRiderBanner.png';
 import ballon from  './assets/ballon.png';
 import Tilt from 'react-parallax-tilt';
@@ -6,13 +6,18 @@ import Accordion from '../../component/Accordion/Accordion';
 import data from './assets/trailrider.json';
 import './carparkPermit.css';
 import {Button} from '../../component/button/button';
-import {Row,Col} from 'react-bootstrap'
+import {Row,Col,Modal,Button as Btn} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+
 /**
  * Name: TrailRider 
  * Function:TrailRider related information | Subpage of Guide
  */
 
 const TrailRider = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const carpermitContainer ={
     marginTop:'-5%',
     marginLeft:'5%',
@@ -27,7 +32,22 @@ const TrailRider = () => {
   };
   return (
     <div className='banner'>
-      
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ready to Start ?</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You are going to view the tourism attractions in Melbourne</Modal.Body>
+        <Modal.Footer>
+          <Btn variant="secondary" onClick={handleClose}>
+            No
+          </Btn>
+          <Link to="/attraction">
+          <Btn variant="primary" onClick={handleClose}>
+            Yes
+          </Btn>
+          </Link>
+        </Modal.Footer>
+      </Modal>
       <Tilt
         tiltMaxAngleX={100}
         tiltMaxAngleY={20}
@@ -52,7 +72,7 @@ const TrailRider = () => {
         <Row>
           <Col xs='4' md='4' >  <Button destination = './mobilityAid' buttonSize='btn--medium' buttonColor='btn--red' > Last</Button></Col>
           <Col xs='4' md='4'>  <Button destination = './guide' buttonSize='btn--medium' buttonColor='btn--red' > Back</Button></Col>
-          <Col xs='4' md='4'>  <Button destination = './attraction' buttonSize='btn--medium' buttonColor='btn--red' > Next</Button></Col>
+          <Col xs='4' md='4'>  <Button buttonSize='btn--medium' buttonColor='btn--red' onClick={() => setShow(true)}>Next</Button></Col>
         </Row>
       </div>
       </div>
