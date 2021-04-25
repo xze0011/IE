@@ -16,7 +16,7 @@ export default function AutoLink(props) {
         let match = word.match(delimiter);
         if (match) {
           let url = match[0];
-          return <a href={url.startsWith('http') ? url : `http://${url}`} style={{color:'#e76f51'}}>click here</a>;
+          return <a target="_blank" href={url.startsWith('http') ? url : `http://${url}` } style={{color:'#e76f51'}}>click here</a>;
         }
         return word;
       })}

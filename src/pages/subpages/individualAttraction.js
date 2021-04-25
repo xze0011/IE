@@ -4,7 +4,9 @@ import { CardView } from 'react-card-with-image'
 import 'react-card-with-image/dist/index.css'
 import { useLocation } from 'react-router-dom'
 import items from './assets/attractionlist2.json'
-
+import {Row,Col} from 'react-bootstrap'
+import {Button} from '../../component/button/button';
+import creatHistory from 'history/createBrowserHistory' 
 const aboutContainer ={
     marginTop:'-10%',
     marginLeft:'5%',
@@ -24,7 +26,7 @@ const aboutContainer ={
   
   const IndiAttaction = () => {
     
-
+        const history = creatHistory();
         const location = useLocation();
         const name = location.pathname.substr(22);
         
@@ -49,10 +51,6 @@ const aboutContainer ={
             }
         }
         var item = compareName();
-
-        /* console.log('path',location.pathname);
-        console.log('bool',typeof(location.pathname));
-        console.log('name',name); */
         console.log('item',item);
         console.log('items',items);
     return (
@@ -66,9 +64,9 @@ const aboutContainer ={
                     imageHeight='500px'
                     imageWidth='400px'
                     /> 
-  
+          <Button destination = '../attraction' buttonSize='btn--medium' buttonColor='btn--red'> Back</Button>
         </div>
-        
+
       </>
       
          

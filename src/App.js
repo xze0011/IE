@@ -14,6 +14,7 @@ import TrailRider from './pages/subpages/trailRider';
 import About from './pages/about';
 import Header from './component/header/header';
 import Footer from './component/footer/footer';
+import IndiAttaction from './pages/subpages/individualAttraction'
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path='/airportService' component={Airport} />
             <Route path='/trailRider' component={TrailRider} />
             <Route path='/about' component={About} />
+            <Route path='/individualAttraction' component={IndiAttaction} />
           </Switch>
           <Footer />
       </Router>

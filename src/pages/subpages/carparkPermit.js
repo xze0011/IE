@@ -26,7 +26,6 @@ const CarparkPermit = () => {
     alignItems: 'center',
     padding:'5%',
     boxShadow:'0 6px 20px rgba(56, 125, 255, 0.3)',
-    // backgroundColor:'rgb(234,229,222)'
   };
   return (
     <div className='banner'>

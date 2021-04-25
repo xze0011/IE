@@ -57,10 +57,10 @@ const Home = () => {
       <div className='container'>
       <Bounce  Left duration={3000} delay={2700}>
       <div> 
-        <li> <strong>Prepare</strong> good guide for your journey before you arrived</li> 
-        <li><strong>Enjoyment</strong> of Melbourne’s entertainment amenities and sceneries
+        <li> <strong style={{fontSize:'20px',color:'#2B7C85'}}>Prepare</strong > good guide for your journey before you arrived</li> 
+        <li><strong style={{fontSize:'20px',color:'#2B7C85'}}>Enjoyment</strong> of Melbourne’s entertainment amenities and sceneries
         </li> 
-        <li><strong>People with motor impaired</strong> access to Melbourne conveniently</li>
+        <li><strong style={{fontSize:'20px',color:'#2B7C85'}}>People with motor impairement </strong>can access to Melbourne conveniently</li>
       </div>
       </Bounce>
       
