@@ -31,12 +31,12 @@ const Home = () => {
      {/*https://www.react-reveal.com/docs/props/ animation for heading */}
       <h1 className=''>
         <Bounce top  duration={2000} delay={200}>
-          Welcome To Melbourne 
+          Welcome To Wayfarers 
          </Bounce>
       </h1>
      
     
-    <p>Want to Find Accessible Facilities?</p>
+    <p>Want to Find an Accessible Car Park or Toilet in Melbourne?</p>
     <div className='hero-btns'>
       <Button
         className='btns'
@@ -52,15 +52,15 @@ const Home = () => {
   <div className='cards' style={homePageIntro}>
     
     <Zoom  top duration={600} delay={2200}>
-      <h2 >Wayfarers aims to help people with motor impairmnet to enjoy their Melbourne Trip</h2></Zoom>
+      <h2 >Wayfarers aim to help people with motor impairment planing their Melbourne Trips</h2></Zoom>
       
       <div className='container'>
       <Bounce  Left duration={3000} delay={2700}>
       <div> 
-        <li> <strong style={{fontSize:'20px',color:'#2B7C85'}}>Prepare</strong > good guide for your journey before you arrived</li> 
-        <li><strong style={{fontSize:'20px',color:'#2B7C85'}}>Enjoyment</strong> of Melbourne’s entertainment amenities and sceneries
+        <li> <strong style={{fontSize:'20px',color:'#2B7C85'}}>Get</strong > information about accessible car parks and toilets</li> 
+        <li><strong style={{fontSize:'20px',color:'#2B7C85'}}>Plan</strong> your journey before you arrive
         </li> 
-        <li><strong style={{fontSize:'20px',color:'#2B7C85'}}>People with motor impairement </strong>can access to Melbourne conveniently</li>
+        <li><strong style={{fontSize:'20px',color:'#2B7C85'}}>Enjoy</strong> Melbourne’s tourist attractions and sceneries and know which one is suitable for your special needs</li>
       </div>
       </Bounce>
       
