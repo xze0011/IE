@@ -4,6 +4,7 @@ import {
   useLoadScript,
   Marker,
   InfoWindow,
+  StreetViewPanorama,
 } from "@react-google-maps/api";
 import "./map.css";
 import Search from "./mapsearch";
@@ -12,6 +13,7 @@ import axios from "axios";
 import ca from "../subpages/assets/carpark_guide.json";
 import Button from "../../component/button/button";
 import tourismGuide from "../subpages/assets/attractionlist2.json";
+import { set } from "date-fns";
 
 /**
  * Name: Map
@@ -23,10 +25,12 @@ const Maps = () => {
   const [toilet, setToilet] = useState([]);
   const [toiletFlag, setToiletFlag] = useState(false);
   const [tourism, setTourism] = useState([]);
+  const [tourismFlag, setTourismFlag] = useState(false);
   const [carpark, setCarpark] = useState([]);
   const [carparkFlag, setCarparkFlag] = useState(false);
+  const [streetViewFlag, setStreetViewFlag] = useState(false);
   const [zoom, setZoom] = useState(10);
-  const [markers, setMarkers] = React.useState([]);
+  const [markers, setMarkers] = useState([]);
   const mapContainerStyle = {
     height: "84vh",
     width: "100vw",
@@ -70,6 +74,13 @@ const Maps = () => {
     temp();
   }, [carparkFlag]);
 
+  useEffect(() => {
+    async function temp() {
+      tourismFlag ? setTourism(tourismGuide) : setTourism([]);
+    }
+    temp();
+  }, [tourismFlag]);
+
   const [selectedToilet, setSelectedToilet] = useState(null);
   const [selectedCarpark, setSelectedCarpark] = useState(null);
   const [selectedTourism, setSelectedTourism] = useState(null);
@@ -77,6 +88,118 @@ const Maps = () => {
     googleMapsApiKey: "AIzaSyDHYvDznXH0Ep5elG3OHU-TfrMt80HItuI",
     libraries,
   });
+  const exampleMapStyles = [
+    {
+      featureType: "administrative.country",
+      elementType: "labels.icon",
+      stylers: [
+        {
+          visibility: "simplified",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.land_parcel",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.neighborhood",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.province",
+      stylers: [
+        {
+          weight: 3,
+        },
+      ],
+    },
+    {
+      featureType: "poi",
+      elementType: "labels.text",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "poi.business",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "labels.icon",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "road.arterial",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "road.highway",
+      elementType: "labels",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "road.local",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "transit",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "labels.text",
+      stylers: [
+        {
+          visibility: "off",
+        },
+      ],
+    },
+  ];
 
   const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
@@ -90,6 +213,7 @@ const Maps = () => {
       <GoogleMap
         id="map"
         mapContainerStyle={mapContainerStyle}
+        options={{ styles: exampleMapStyles }}
         zoom={zoom}
         center={center}
         onLoad={onMapLoad}
@@ -114,6 +238,15 @@ const Maps = () => {
             buttonSize="btn--medium"
           >
             Carpark
+          </Button>
+          <Button
+            onClick={() => {
+              setTourismFlag(!tourismFlag);
+            }}
+            buttonColor={tourismFlag ? "btn--red" : "btn--green"}
+            buttonSize="btn--medium"
+          >
+            Attration
           </Button>
         </div>
 
@@ -149,7 +282,7 @@ const Maps = () => {
             }}
           />
         ))}
-        {tourismGuide.map((tour, index) => (
+        {tourism.map((tour, index) => (
           <Marker
             key={index}
             position={{
@@ -160,8 +293,8 @@ const Maps = () => {
               setSelectedTourism(tour);
             }}
             icon={{
-              url: `img-2.jpg`,
-              scaledSize: new window.google.maps.Size(20, 20),
+              url: `attraction.png`,
+              scaledSize: new window.google.maps.Size(80, 80),
             }}
           />
         ))}
@@ -261,6 +394,15 @@ const Maps = () => {
                 Opening Time: {selectedCarpark[4]} | {selectedCarpark[5]}
                 <br />{" "}
               </span>
+              <p>
+                <button
+                  onClick={() => {
+                    setStreetViewFlag(true);
+                  }}
+                >
+                  click to view street{" "}
+                </button>
+              </p>
             </div>
           </InfoWindow>
         )}
