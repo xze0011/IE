@@ -62,7 +62,8 @@ const aboutContainer ={
                     activeColor='#000'
                     imageHeight='500px'
                     imageWidth='400px'
-                    /> 
+                    />
+          <iframe src={item.panorama} width="600" height="450" allowfullscreen="" loading="lazy"></iframe>   
           <Button destination = '../attraction' buttonSize='btn--medium' buttonColor='btn--red'> Back</Button>
         </div>
 
