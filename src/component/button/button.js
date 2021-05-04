@@ -1,7 +1,6 @@
-
-import React from 'react';
-import './button.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./button.css";
+import { Link } from "react-router-dom";
 /*
 Name: Button
 Function: customized button by using different class name. And use css override to adopt multiple styles 
@@ -14,11 +13,10 @@ Function: customized button by using different class name. And use css override 
 Used in Homepage, individual guide page in /pages/subpages. 
 */
 
+const STYLES = ["btn--primary", "btn--outline", "btn--test", "btn--control"];
 
-const STYLES = ['btn--primary', 'btn--outline', 'btn--test','btn--control'];
-
-const SIZES = ['btn--small','btn--medium', 'btn--large'];
-const COLOR =['','btn--red','btn--green'];
+const SIZES = ["btn--small", "btn--medium", "btn--large"];
+const COLOR = ["", "btn--red", "btn--green"];
 
 export const Button = ({
   children,
@@ -27,7 +25,7 @@ export const Button = ({
   buttonStyle,
   buttonSize,
   destination,
-  buttonColor
+  buttonColor,
 }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
@@ -37,16 +35,16 @@ export const Button = ({
   const checkButtonColor = COLOR.includes(buttonColor) ? buttonColor : COLOR[0];
 
   return (
-    <Link to={destination} className='btn-mobile'>
+    <Link to={destination} className="btn-mobile">
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`}
         onClick={onClick}
-        type={type}>
+        type={type}
+      >
         {children}
       </button>
     </Link>
   );
 };
-
 
 export default Button;

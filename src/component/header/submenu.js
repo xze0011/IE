@@ -1,11 +1,11 @@
-import React, { useState,useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 /**
  * Name: submenu
  * Function: list of styled component of navigation drawer  with some hover effect
- * used in header component as child component with style. 
+ * used in header component as child component with style.
  */
 const SidebarLink = styled(Link)`
   display: flex;
@@ -65,7 +65,9 @@ const SubMenu = ({ item }) => {
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index}>
-              <SidebarLabel onClick={setSubnav(false)} >{item.title}</SidebarLabel>
+              <SidebarLabel onClick={setSubnav(false)}>
+                {item.title}
+              </SidebarLabel>
             </DropdownLink>
           );
         })}

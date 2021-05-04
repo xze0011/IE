@@ -1,0 +1,65 @@
+[
+    {
+        "id": "1",
+        "name": "1st",
+        "img": "/guide/7.png",
+        "heading": "First:",
+        "p": "Click on \"search bar\" and enter places to display where to visit."
+    },
+    {
+        "id": "2",
+        "name": "2nd",
+        "img": "/guide/1.png",
+        "heading": "Second:",
+        "p": "Click on \"toilet\" button to display accessible toilets."
+    },
+    {
+        "id": "3",
+        "name": "jx",
+        "img": "/guide/2.png",
+        "heading": "Third:",
+        "p": "Click on \"carpark\" button to display accessible carparks."
+    },
+    {
+        "id": "4",
+        "name": "jx",
+        "img": "/guide/8.png",
+        "heading": "Fourth:",
+        "p": "Click on \"campass\" button to locate yourself."
+    },
+    {
+        "id": "5",
+        "name": "jx",
+        "img": "/guide/3.png",
+        "heading": "Fifth:",
+        "p": "Click on \"+\" button to zoom out."
+    },
+    {
+        "id": "6",
+        "name": "jx",
+        "img": "/guide/5.png",
+        "heading": "Sixth:",
+        "p": "Click on \"-\" button to zoom in"
+    },
+    {
+        "id": "7",
+        "name": "1st",
+        "img": "/guide/4.png",
+        "heading": "Seventh:",
+        "p": "Click on \"Map\" button to display map in route mode and \"Satellite\" button to display map in satellite mode"
+    },
+    {
+        "id": "8",
+        "name": "1st",
+        "img": "/guide/9.png",
+        "heading": "Eighth:",
+        "p": "Drag the Pegman button onto the map to open panorama street view "
+    },
+    {
+        "id": "9",
+        "name": "1st",
+        "img": "/guide/6.png",
+        "heading": "Ninth:",
+        "p": "Click the first button to open \"full screen\" mode and second to exit"
+    }
+]

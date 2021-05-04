@@ -1,9 +1,13 @@
-import React from "react";
-import { CardView } from "react-card-with-image";
+import { React, useState } from "react";
 import "react-card-with-image/dist/index.css";
 import { useLocation } from "react-router-dom";
 import items from "./assets/attractionlist2.json";
 import { Button } from "../../component/button/button";
+import Accordion from "../../component/Accordion/Accordion";
+import data from "./assets/mobaid.json";
+import { Container, Col, Row } from "react-bootstrap";
+import Map from "../map/map";
+import { render } from "@testing-library/react";
 
 const aboutContainer = {
   marginTop: "-10%",
@@ -35,7 +39,6 @@ const IndiAttaction = () => {
     }
   }
   var item = compareName();
-
   return (
     <>
       <img
@@ -45,12 +48,25 @@ const IndiAttaction = () => {
       />
       <div className="card" style={aboutContainer}>
         <h1>{item.name}</h1>
-        <CardView
-          items={item.content}
-          activeColor="#000"
-          imageHeight="500px"
-          imageWidth="400px"
-        />
+        <div style={{ marginTop: "20px" }}>
+          <Container>
+            <Row>
+              <Col>
+                <iframe
+                  src={item.panorama}
+                  width="100%"
+                  height="450px"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </Col>
+              <Col>
+                <Accordion content={item.content} />
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
         <Button
           destination="../attraction"
           buttonSize="btn--medium"
@@ -58,6 +74,14 @@ const IndiAttaction = () => {
         >
           {" "}
           Back
+        </Button>
+        <Button
+          destination="../map"
+          buttonSize="btn--medium"
+          buttonColor="btn--red"
+        >
+          {" "}
+          Go to attraction
         </Button>
       </div>
     </>

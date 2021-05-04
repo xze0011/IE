@@ -9786,6 +9786,11 @@ react-error-overlay@^6.0.9:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.9.tgz#3c743010c9359608c375ecd6bc76f35d93995b0a"
   integrity sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
 
+react-flippy@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/react-flippy/-/react-flippy-0.1.5.tgz#ba097fbd671ef315e7726dc26ea918e0b19be343"
+  integrity sha512-y0q9l33YQmASGY7ojcrlY0BzVsCYgThFjXjNL+4C19ws5vEpdKH+PyG5v9ZbLXq2kGArDO921FT7fhFSAX2SMQ==
+
 react-google-maps@^9.4.5:
   version "9.4.5"
   resolved "https://registry.yarnpkg.com/react-google-maps/-/react-google-maps-9.4.5.tgz#920c199bdc925e0ce93880edffb09428d263aafa"

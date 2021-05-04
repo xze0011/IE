@@ -14,7 +14,7 @@ import ca from "../subpages/assets/carpark_guide.json";
 import Button from "../../component/button/button";
 import tourismGuide from "../subpages/assets/attractionlist2.json";
 import { set } from "date-fns";
-
+import Help from "../../component/help/help";
 /**
  * Name: Map
  * Function: display google map, search bar, and display markers
@@ -248,8 +248,8 @@ const Maps = () => {
           >
             Attration
           </Button>
+          <Help />
         </div>
-
         {toilet.map((toi, index) => (
           <Marker
             key={index}
@@ -394,15 +394,6 @@ const Maps = () => {
                 Opening Time: {selectedCarpark[4]} | {selectedCarpark[5]}
                 <br />{" "}
               </span>
-              <p>
-                <button
-                  onClick={() => {
-                    setStreetViewFlag(true);
-                  }}
-                >
-                  click to view street{" "}
-                </button>
-              </p>
             </div>
           </InfoWindow>
         )}
@@ -418,12 +409,16 @@ const Maps = () => {
             }}
           >
             <div className="loop">
-              <h2>
-                <span role="img" aria-label="bear">
-                  🐻
-                </span>
-              </h2>
-              <p> {selectedTourism.name}</p>
+              <div> {selectedTourism.name}</div>
+              <div className="tourismButton">
+                <Button
+                  destination={`./individualAttraction/${selectedTourism.name}`}
+                  buttonColor={"btn--red"}
+                  buttonSize="btn--small"
+                >
+                  Details
+                </Button>
+              </div>
             </div>
           </InfoWindow>
         ) : null}
