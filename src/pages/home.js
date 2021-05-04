@@ -106,7 +106,7 @@ const Home = () => {
                     style={{
                       color: "#ffffff",
                       fontSize: "25px",
-                      marginLeft: "auto",
+                      textAlign: "center",
                     }}
                   >
                     {data.title}

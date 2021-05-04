@@ -1,7 +1,7 @@
 [
     {
         "title": "Guide",
-        "description":"Plan your journey before you arrive",
+        "description":"Plan your journey before arriving",
         "image":"/home/1.png",
         "button":"Plan",
         "path":"./guide"
