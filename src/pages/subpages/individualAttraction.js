@@ -51,6 +51,7 @@ const IndiAttaction = () => {
           imageHeight="500px"
           imageWidth="400px"
         />
+        <iframe src={item.panorama} width="100%" height="450px" allowfullscreen="" loading="lazy"></iframe>
         <Button
           destination="../attraction"
           buttonSize="btn--medium"
