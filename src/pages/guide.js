@@ -148,7 +148,7 @@ const Guide = () => {
             contentArrowStyle={{ borderRight: "7px solid  #E4B4B4" }}
             iconStyle={{ background: "#E4B4B4", color: "#fff" }}
           >
-            <Link to="/checklist.pdf" target="_blank" download>
+            <Link to="/checklist">
               <h3
                 className="vertical-timeline-element-title"
                 style={{ color: "#fff", fontSize: "30px" }}

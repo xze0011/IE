@@ -20,7 +20,15 @@ function Locate({ panTo }) {
         );
       }}
     >
-      <img src="/compass.png" alt="compass" />
+      <div class="demo">
+        <img
+          className="an"
+          src="/compass.png"
+          height="30px"
+          width="30px"
+          alt="compass"
+        />
+      </div>
     </button>
   );
 }

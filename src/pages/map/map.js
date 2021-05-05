@@ -11,6 +11,7 @@ import Search from "./mapsearch";
 import Locate from "./locate";
 import axios from "axios";
 import ca from "../subpages/assets/carpark_guide.json";
+import to from "../subpages/assets/toilet_guide.json";
 import Button from "../../component/button/button";
 import tourismGuide from "../subpages/assets/attractionlist2.json";
 import { set } from "date-fns";
@@ -57,6 +58,7 @@ const Maps = () => {
         "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC"
       );
       toiletFlag ? setToilet(result.data.result.records) : setToilet([]);
+      console.log(to.data);
     }
     temp();
   }, [toiletFlag]);
@@ -270,8 +272,8 @@ const Maps = () => {
           <Marker
             key={index}
             position={{
-              lat: parseFloat(car[2].location.lat),
-              lng: parseFloat(car[2].location.lng),
+              lat: parseFloat(car[6]),
+              lng: parseFloat(car[7]),
             }}
             onClick={() => {
               setSelectedCarpark(car);
@@ -372,8 +374,8 @@ const Maps = () => {
               setSelectedCarpark(null);
             }}
             position={{
-              lat: parseFloat(selectedCarpark[2].location.lat),
-              lng: parseFloat(selectedCarpark[2].location.lng),
+              lat: parseFloat(selectedCarpark[6]),
+              lng: parseFloat(selectedCarpark[7]),
             }}
           >
             <div className="loop">
@@ -387,13 +389,11 @@ const Maps = () => {
                   title="accessible carpark"
                 />
               </p>
-              <p>
-                {selectedCarpark[3]} | {selectedCarpark[1]}
-              </p>
-              <span className="Pointname">
-                Opening Time: {selectedCarpark[4]} | {selectedCarpark[5]}
-                <br />{" "}
-              </span>
+              <p className="Pointname">{selectedCarpark[1]}</p>
+              <div>
+                Opening Time: {selectedCarpark[4]} | {selectedCarpark[3]}
+              </div>
+              <br />
             </div>
           </InfoWindow>
         )}
@@ -409,7 +409,7 @@ const Maps = () => {
             }}
           >
             <div className="loop">
-              <div> {selectedTourism.name}</div>
+              <div className="Pointname"> {selectedTourism.name}</div>
               <div className="tourismButton">
                 <Button
                   destination={`./individualAttraction/${selectedTourism.name}`}

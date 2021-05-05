@@ -15,9 +15,6 @@ import { Link } from "react-router-dom";
  */
 
 const TrailRider = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const carpermitContainer = {
     marginTop: "-5%",
     marginLeft: "5%",
@@ -32,27 +29,6 @@ const TrailRider = () => {
   };
   return (
     <div className="banner">
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            {" "}
-            <h3 style={{ color: "#9da993" }}>Ready to Start ?</h3>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p style={{ color: "#9da993" }}>
-            You are going to view the tourism attractions in Melbourne
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleClose} buttonColor="btn--green">
-            No
-          </Button>
-          <Button destination={"/attraction"} buttonColor="btn--red">
-            Yes
-          </Button>
-        </Modal.Footer>
-      </Modal>
       <Tilt
         tiltMaxAngleX={100}
         tiltMaxAngleY={20}
@@ -122,10 +98,11 @@ const TrailRider = () => {
           <Col xs="4" md="4">
             {" "}
             <Button
+              destination="./checklist"
               buttonSize="btn--medium"
               buttonColor="btn--red"
-              onClick={() => setShow(true)}
             >
+              {" "}
               Next
             </Button>
           </Col>
