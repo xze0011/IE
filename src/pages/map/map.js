@@ -57,7 +57,7 @@ const Maps = () => {
       const result = await axios(
         "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC"
       );
-      toiletFlag ? setToilet(result.data.result.records) : setToilet([]);
+      toiletFlag ? setToilet(to.data) : setToilet([]);
       console.log(to.data);
     }
     temp();
@@ -256,8 +256,8 @@ const Maps = () => {
           <Marker
             key={index}
             position={{
-              lat: parseFloat(toi.Latitude),
-              lng: parseFloat(toi.Longitude),
+              lat: parseFloat(toi[3]),
+              lng: parseFloat(toi[4]),
             }}
             onClick={() => {
               setSelectedToilet(toi);
@@ -307,8 +307,8 @@ const Maps = () => {
               setSelectedToilet(null);
             }}
             position={{
-              lat: parseFloat(selectedToilet.Latitude),
-              lng: parseFloat(selectedToilet.Longitude),
+              lat: parseFloat(selectedToilet[3]),
+              lng: parseFloat(selectedToilet[4]),
             }}
           >
             <div className="loop">
@@ -322,12 +322,10 @@ const Maps = () => {
                   title="accessible toilet"
                 />
                 <span className="Pointname">
-                  {selectedToilet.Name}
+                  {selectedToilet[1]}
                   <br />
                 </span>
-                <span className="Pointaddress">
-                  {selectedToilet.Town},{selectedToilet.Address1}
-                </span>
+                <span className="Pointaddress">{selectedToilet[2]}</span>
               </p>
               <div className="iconrow">
                 <img
@@ -338,7 +336,7 @@ const Maps = () => {
                   title="male "
                   style={{
                     background:
-                      selectedToilet.Male === "True" ? "#1e90ff" : "grey",
+                      selectedToilet[5] === "True" ? "#1e90ff" : "grey",
                   }}
                 />
                 <img
@@ -349,7 +347,7 @@ const Maps = () => {
                   title="female"
                   style={{
                     background:
-                      selectedToilet.Female === "True" ? "#1e90ff" : "grey",
+                      selectedToilet[6] === "True" ? "#1e90ff" : "grey",
                   }}
                 />
                 <img
@@ -360,7 +358,7 @@ const Maps = () => {
                   title="unisex"
                   style={{
                     background:
-                      selectedToilet.Unisex === "True" ? "#1e90ff" : "grey",
+                      selectedToilet[7] === "True" ? "#1e90ff" : "grey",
                   }}
                 />
               </div>
