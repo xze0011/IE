@@ -30,7 +30,7 @@ const Maps = () => {
   const [carpark, setCarpark] = useState([]);
   const [carparkFlag, setCarparkFlag] = useState(false);
   const [streetViewFlag, setStreetViewFlag] = useState(false);
-  const [zoom, setZoom] = useState(10);
+  const [zoom, setZoom] = useState(9);
   const [markers, setMarkers] = useState([]);
   const mapContainerStyle = {
     height: "84vh",

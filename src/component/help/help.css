@@ -1,0 +1,53 @@
+.btnn {
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(228, 180, 180, 0.3);
+  position: absolute;
+  left: 1850px;
+  top: 100px;
+  z-index: 0;
+  width: 60px;
+  height: 60px;
+  border: 5px solid #fdd05a;
+
+  /* Giving Animation Function */
+  -webkit-animation: btnn 1s linear infinite 0.3s;
+  -moz-animation: btnn 1s linear infinite 0.3s;
+  animation: btnn 1s linear infinite 0.3s;
+  border-image: initial;
+}
+.btnn:hover {
+  background-color: #fdd05a;
+  transform: scale(1.3);
+}
+
+@-webkit-keyframes btnn {
+  0% {
+    -webkit-transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(1.1);
+  }
+}
+@-moz-keyframes btnn {
+  0% {
+    -moz-transform: scale(1);
+  }
+
+  100% {
+    -moz-transform: scale(1.1);
+  }
+}
+
+@keyframes btnn {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}

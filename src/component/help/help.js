@@ -3,21 +3,33 @@ import { React, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { Button } from "../button/button";
 import data from "./mapguide.json";
+import "./help.css";
+
+/* const data = [{id:"1",name:"1st", img:"https://images.unsplash.com/photo-1514395462725-fb4566210144?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80", heading:"heidi","p":"p"},
+{id:"2",name:"2nd", img:"https://images.unsplash.com/photo-1514395462725-fb4566210144?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80", heading:"wang","p":"p"},{id:"3",name:"jx", img:"https://images.unsplash.com/photo-1514395462725-fb4566210144?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80", heading:"jx","p":"p"},
+
+] */
 
 export default function Help() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
     <>
-      <Button
-        onClick={handleShow}
-        buttonColor="btn--green"
-        buttonSize="btn--medium"
-      >
-        Guidence
-      </Button>
+      {/* <Button variant="primary" onClick={handleShow}>
+          Launch demo modal
+        </Button> */}
+
+      <button class="btnn" onClick={handleShow}>
+        {" "}
+        <img
+          src="./guide.png"
+          alt="guideMark"
+          style={{ width: "40px", height: "40px" }}
+        />
+      </button>
 
       <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton>

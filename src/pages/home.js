@@ -63,8 +63,8 @@ const Home = () => {
             <div>
               <p>
                 In the Melbourne metropolitan area, motor impairedpeople from
-                overseas or other parts ofAustralia face difficulties due to
-                inadequate facilitiesand lack of guidelines in 2020.
+                overseas or other parts of Australia face difficulties due to
+                inadequate facilities and lack of guidelines in 2021.
               </p>
             </div>
           </Bounce>
