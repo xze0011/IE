@@ -81,7 +81,7 @@ const IndiAttaction = () => {
           buttonColor="btn--red"
         >
           {" "}
-          Go to attraction
+          Find This Attraction on our Map
         </Button>
       </div>
     </>

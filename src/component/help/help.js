@@ -5,7 +5,7 @@ import { Button } from "../button/button";
 import data from "./mapguide.json";
 
 export default function Help() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

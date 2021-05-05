@@ -64,8 +64,7 @@ const Home = () => {
               <p>
                 In the Melbourne metropolitan area, motor impairedpeople from
                 overseas or other parts ofAustralia face difficulties due to
-                inadequate facilitiesand lack of guidelines in 2020 (Herbert
-                et.al.,2020).
+                inadequate facilitiesand lack of guidelines in 2020.
               </p>
             </div>
           </Bounce>
@@ -75,8 +74,6 @@ const Home = () => {
               flipOnHover={false} // default false
               flipOnClick={true} // default false
               flipDirection="horizontal" // horizontal or vertical
-              // if you pass isFlipped prop component will be controlled component.
-              // and other props, which will go to div
               style={{
                 width: "30%",
                 height: "100%",

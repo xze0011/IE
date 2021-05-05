@@ -294,7 +294,7 @@ const Maps = () => {
             }}
             icon={{
               url: `attraction.png`,
-              scaledSize: new window.google.maps.Size(80, 80),
+              scaledSize: new window.google.maps.Size(60, 60),
             }}
           />
         ))}
