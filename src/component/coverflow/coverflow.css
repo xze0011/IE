@@ -1,4 +1,3 @@
-
 .coverflow {
   height: 85vh;
   width: 100vw;
@@ -6,11 +5,9 @@
   padding: 0;
   font-size: 3vmin;
   overflow: hidden;
-  
 }
 
-
-.coverflow{
+.coverflow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,11 +19,11 @@
   position: relative;
 }
 
-.slides>.slide {
+.slides > .slide {
   grid-area: 1 / -1;
 }
 
-.slides>button {
+.slides > button {
   appearance: none;
   background: transparent;
   border: none;
@@ -41,19 +38,19 @@
   z-index: 5;
 }
 
-.slides>button:hover {
+.slides > button:hover {
   opacity: 1;
 }
 
-.slides>button:focus {
+.slides > button:focus {
   outline: none;
 }
 
-.slides>button:first-child {
+.slides > button:first-child {
   left: -50%;
 }
 
-.slides>button:last-child {
+.slides > button:last-child {
   right: -50%;
 }
 
@@ -68,7 +65,8 @@
   display: grid;
   align-content: center;
   transform-style: preserve-3d;
-  transform: perspective(1000px) translateX(calc(95% * var(--offset))) rotateY(calc(25deg * var(--dir)));
+  transform: perspective(1000px) translateX(calc(95% * var(--offset)))
+    rotateY(calc(25deg * var(--dir)));
   border-radius: 500px;
 }
 
@@ -78,8 +76,8 @@
   transition: opacity 0.3s linear;
   text-shadow: 0 0.3rem 1rem #000;
   opacity: 0;
-  color:#ffffff;
-  margin:20px;
+  color: #ffffff;
+  margin: 20px;
 }
 
 .slideContentInner .slideSubtitle,
@@ -89,8 +87,7 @@
   letter-spacing: 0.2ch;
   text-transform: uppercase;
   margin: 20px;
-  color:#ffffff;
-
+  color: #ffffff;
 }
 
 .slideContentInner .slideSubtitle::before {
@@ -141,6 +138,7 @@
 
 .slide[data-active] .slideContent:hover {
   width: 50vw;
-  transition:none;
-  transform: perspective(1000px) rotateY(calc(var(--x) * 80deg)) rotateX(calc(var(--y) * -80deg));
+  transition: none;
+  transform: perspective(1000px) rotateY(calc(var(--x) * 80deg))
+    rotateX(calc(var(--y) * -80deg));
 }

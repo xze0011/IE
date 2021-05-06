@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import banner from "./assets/trailRiderBanner.png";
 import ballon from "./assets/ballon.png";
 import Tilt from "react-parallax-tilt";

@@ -51,7 +51,9 @@ const SubMenu = ({ item }) => {
     <>
       <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
         <div>
-          <SidebarLabel>{item.title}</SidebarLabel>
+          <SidebarLabel onClick={item.subNav && showSubnav}>
+            {item.title}
+          </SidebarLabel>
         </div>
         <div>
           {item.subNav && subnav

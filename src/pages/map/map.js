@@ -26,7 +26,7 @@ const Maps = () => {
   const [toilet, setToilet] = useState([]);
   const [toiletFlag, setToiletFlag] = useState(false);
   const [tourism, setTourism] = useState([]);
-  const [tourismFlag, setTourismFlag] = useState(false);
+  const [tourismFlag, setTourismFlag] = useState(true);
   const [carpark, setCarpark] = useState([]);
   const [carparkFlag, setCarparkFlag] = useState(false);
   const [streetViewFlag, setStreetViewFlag] = useState(false);

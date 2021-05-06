@@ -9,7 +9,7 @@ import BGM from "react-awesome-snippets-bgm";
 import Card from "../component/card/card";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import data from "./home.json";
-
+import { Col, Row } from "react-bootstrap";
 /**
  * Name:Home
  * Function: demonstrate our website purpose. and navigate to individual pages
@@ -68,62 +68,55 @@ const Home = () => {
               </p>
             </div>
           </Bounce>
+          <Row>
+            {data.map((data, i) => (
+              <Col xs="12" lg="4" md="4">
+                <Flippy
+                  flipOnHover={false} // default false
+                  flipOnClick={true} // default false
+                  flipDirection="horizontal" // horizontal or vertical
+                >
+                  <FrontSide className="frontSide">
+                    <figure className="cards__item__pic-wrap">
+                      <img
+                        className="cards__item__img"
+                        alt="Travel"
+                        src={data.image}
+                        width="25%"
+                      />
+                    </figure>
 
-          {data.map((data, i) => (
-            <Flippy
-              flipOnHover={false} // default false
-              flipOnClick={true} // default false
-              flipDirection="horizontal" // horizontal or vertical
-              style={{
-                width: "30%",
-                height: "100%",
-                display: "inline-block",
-                marginLeft: "25px",
-                marginTop: "20px",
-                borderRadius: "50px",
-              }}
-            >
-              <FrontSide
-                style={{
-                  backgroundColor: "rgba(157, 169, 147,0.7)",
-                }}
-              >
-                <figure className="cards__item__pic-wrap">
-                  <img
-                    className="cards__item__img"
-                    alt="Travel"
-                    src={data.image}
-                    width="25%"
-                  />
-                </figure>
-
-                <div className="cards__item__info">
-                  <h5
-                    className="cards__item__text"
-                    style={{
-                      color: "#ffffff",
-                      fontSize: "25px",
-                      textAlign: "center",
-                    }}
+                    <div className="cards__item__info">
+                      <h5
+                        className="cards__item__text"
+                        style={{
+                          color: "#ffffff",
+                          fontSize: "25px",
+                          textAlign: "center",
+                        }}
+                      >
+                        {data.title}
+                      </h5>
+                    </div>
+                  </FrontSide>
+                  <BackSide
+                    style={{ backgroundColor: "rgba(228, 180, 180,0.7)" }}
                   >
-                    {data.title}
-                  </h5>
-                </div>
-              </FrontSide>
-              <BackSide style={{ backgroundColor: "rgba(228, 180, 180,0.7)" }}>
-                <p style={{ color: "#ffffff" }}> {data.description}</p>
-                <div style={{ position: "absolute", bottom: "20px" }}>
-                  <Button
-                    destination={data.path}
-                    buttonColor="btn--green"
-                    buttonSize="btn--medium"
-                  >
-                    {data.button}
-                  </Button>
-                </div>
-              </BackSide>
-            </Flippy>
-          ))}
+                    <p style={{ color: "#ffffff" }}> {data.description}</p>
+                    <div style={{ position: "absolute", bottom: "20px" }}>
+                      <Button
+                        destination={data.path}
+                        buttonColor="btn--green"
+                        buttonSize="btn--medium"
+                      >
+                        {data.button}
+                      </Button>
+                    </div>
+                  </BackSide>
+                </Flippy>
+              </Col>
+            ))}
+          </Row>
         </div>
       </div>
     </div>

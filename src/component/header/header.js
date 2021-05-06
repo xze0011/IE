@@ -26,7 +26,11 @@ const Header = () => {
   return (
     <>
       <Nav>
-        <NavLink to="#" disabled="disabled" style={{ color: "#555" }}>
+        <NavLink
+          to="#"
+          disabled="disabled"
+          style={{ color: "#555", marginLeft: "-300px" }}
+        >
           <img
             className="LOGO"
             src="./Logo.png"

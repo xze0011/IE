@@ -93,11 +93,14 @@ video {
 .introtitle {
   text-align: center;
 }
-svg {
-  margin-left: 40%;
-  margin-bottom: 5%;
-}
+
 .react-reveal > li {
   list-style-type: none;
   text-align: center;
+}
+.frontSide {
+  background-color: rgba(157, 169, 147, 0.7) !important;
+}
+.frontSide:hover {
+  cursor: pointer;
 }

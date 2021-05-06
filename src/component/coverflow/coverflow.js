@@ -1,7 +1,7 @@
-import React ,{useEffect,useRef,useReducer}from 'react';
-import './coverflow.css';
-import data from '../../pages/subpages/assets/attractionlist2.json';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useReducer } from "react";
+import "./coverflow.css";
+import data from "../../pages/subpages/assets/attractionlist2.json";
+import { Link } from "react-router-dom";
 
 /*
 Name: Coverflow
@@ -11,7 +11,7 @@ used in /pages/attraction page as gallary
  */
 
 const slides = data;
- 
+
 function useTilt(active) {
   const ref = useRef(null);
 
@@ -23,7 +23,7 @@ function useTilt(active) {
     const state = {
       rect: undefined,
       mouseX: undefined,
-      mouseY: undefined
+      mouseY: undefined,
     };
 
     let el = ref.current;
@@ -55,21 +55,21 @@ function useTilt(active) {
 }
 
 const initialState = {
-  slideIndex: 0
+  slideIndex: 0,
 };
 
 const slidesReducer = (state, event) => {
   if (event.type === "NEXT") {
     return {
       ...state,
-      slideIndex: (state.slideIndex + 1) % slides.length
+      slideIndex:
+        state.slideIndex === 0 ? slides.length - 1 : state.slideIndex - 1,
     };
   }
   if (event.type === "PREV") {
     return {
       ...state,
-      slideIndex:
-        state.slideIndex === 0 ? slides.length - 1 : state.slideIndex - 1
+      slideIndex: (state.slideIndex + 1) % slides.length,
     };
   }
 };
@@ -85,25 +85,28 @@ function Slide({ slide, offset }) {
       data-active={active}
       style={{
         "--offset": offset,
-        "--dir": offset === 0 ? 0 : offset > 0 ? 1 : -1
+        "--dir": offset === 0 ? 0 : offset > 0 ? 1 : -1,
       }}
     >
       <div
         className="slideBackground"
         style={{
-          backgroundImage: `url('${slide.content[0].image}')`
+          backgroundImage: `url('${slide.content[0].image}')`,
         }}
       />
       <div
         className="slideContent"
         style={{
-          backgroundImage: `url('${slide.content[0].image}')`,boxShadow:'0 6px 20px rgba(0,0,0, 0.5)'
+          backgroundImage: `url('${slide.content[0].image}')`,
+          boxShadow: "0 6px 20px rgba(0,0,0, 0.5)",
         }}
       >
-        <div className="slideContentInner" >
-        <Link to={`./individualAttraction/${slide.name}`}>
-            <h2 className="slideTitle" style={{textAlign:'center'}}>{slide.name}</h2>
-         </Link>
+        <div className="slideContentInner">
+          <Link to={`./individualAttraction/${slide.name}`}>
+            <h2 className="slideTitle" style={{ textAlign: "center" }}>
+              {slide.name}
+            </h2>
+          </Link>
         </div>
       </div>
     </div>
@@ -125,4 +128,3 @@ export default function Coverflow() {
     </div>
   );
 }
-

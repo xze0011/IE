@@ -1,13 +1,12 @@
-import { NavLink as Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { FaBars } from 'react-icons/fa';
-import {Button,Dropdown} from "react-bootstrap"
-
+import { NavLink as Link } from "react-router-dom";
+import styled from "styled-components";
+import { FaBars } from "react-icons/fa";
+import { Button, Dropdown } from "react-bootstrap";
 
 /**
  * Name: headerElement
  * Function: list of styled component of header element with some hover effect
- * used in header component as child component with style. 
+ * used in header component as child component with style.
  */
 export const Nav = styled.nav`
   background: background: rgba(157,169,147,0.3);
@@ -24,7 +23,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color:	#555;
+  color: #555;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -50,26 +49,25 @@ export const Bars = styled(FaBars)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -24px;
+  margin-right: -21rem;
   @media screen and (max-width: 768px) {
     display: none;
   }
 `;
 
 export const Toggle = styled(Dropdown.Toggle)`
-  background:	white;
-  border:none;
-  color:#555;
+  background: white;
+  border: none;
+  color: #555;
   &:hover {
     background: #535353;
     cursor: pointer;
   }
-  &.:active{
+  &.:active {
     background: #535353;
     cursor: pointer;
   }
-`
-
+`;
 
 export const SidebarNav = styled.nav`
   background: #939393;
@@ -79,7 +77,7 @@ export const SidebarNav = styled.nav`
   justify-content: center;
   position: fixed;
   top: 80px;
-  right: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
+  right: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350ms;
 `;
 
