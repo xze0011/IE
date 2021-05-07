@@ -14,13 +14,9 @@ export default function Help() {
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const [Flag, setFlag] = useState(false);
   return (
     <>
-      {/* <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
-        </Button> */}
-
       <button class="btnn" onClick={handleShow}>
         {" "}
         <img

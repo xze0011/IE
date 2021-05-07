@@ -70,6 +70,7 @@ const Airport = () => {
       <img src={banner} alt="banner" style={{ width: "100vw", zIndex: -1 }} />
 
       <div className="card" style={carpermitContainer}>
+        <img className="car air" src="/guideAnimation/plane.png" alt="plane" />
         <h1 style={{ color: "#9da993" }}>
           Step2: Melbourne Airport Accessible Service
         </h1>

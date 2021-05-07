@@ -48,7 +48,7 @@ const IndiAttaction = () => {
         <div style={{ marginTop: "20px" }}>
           <Container>
             <Row>
-              <Col>
+              <Col lg="12">
                 <iframe
                   src={item.panorama}
                   width="100%"
@@ -78,7 +78,7 @@ const IndiAttaction = () => {
           buttonColor="btn--red"
         >
           {" "}
-          Find This Attraction on our Map
+          Find on Map
         </Button>
       </div>
     </>

@@ -1,5 +1,5 @@
-sect-3>ul>a {
-  color: #9DA993;
+sect-3 > ul > a {
+  color: #9da993;
 }
 
 .content {
@@ -18,11 +18,11 @@ h3 {
   margin: 0px;
 }
 
-p { 
+p {
   line-height: 1.75rem;
 }
 
-h3 >button {
+h3 > button {
   display: flex;
   align-items: center;
   background: #c4c4c4;
@@ -37,14 +37,14 @@ h3 >button {
   padding: 1rem;
 }
 
-h3 >button.active {
-  background-color: #9DA993;
+h3 > button.active {
+  background-color: #9da993;
   color: #ffffff;
   border: #fff solid 1px;
 }
 
-h3 >button:hover {
-    background-color: #9DA993;
+h3 > button:hover {
+  background-color: #9da993;
 }
 
 .title-wrapper {
@@ -52,38 +52,38 @@ h3 >button:hover {
   position: relative;
   width: 100%;
   margin-left: 17%;
-  color:#ffffff;
+  color: #ffffff;
 }
-.panel-open >img{
-     margin-left:35% !important;
-
+.panel-open > img {
+  margin-left: 35% !important;
 }
 
-.minus{
-  content: url('./assets/plus.svg');
+.minus {
+  content: url("./assets/plus.svg");
   width: 24px;
   height: 24px;
   position: absolute;
   right: 0;
+  right: -20%;
 }
 .plus {
-  content: url('./assets/minus_ic.svg');
+  content: url("./assets/minus_ic.svg");
   width: 24px;
   height: 24px;
   transform: rotate(90deg);
   transition-timing-function: ease-in;
   transition: all 1s;
   position: absolute;
-  right: 0;
+  right: -20%;
 }
 
-.panel-close { 
+.panel-close {
   background: #e0e0e0;
   box-sizing: border-box;
   padding: 0.5rem 1rem 0 1rem;
-  opacity:0;
-  width:100%;
-  height:0;
+  opacity: 0;
+  width: 100%;
+  height: 0;
   overflow: hidden;
   transition-timing-function: ease-out;
   transition: all 1s;
@@ -91,13 +91,13 @@ h3 >button:hover {
 
 .panel-open {
   overflow: hidden;
-  background: rgba(157,169,147,0.5);
+  background: rgba(157, 169, 147, 0.5);
   padding: 1rem;
   margin-bottom: 1rem;
   box-sizing: border-box;
   border-radius: 1rem;
-  opacity:1;
-  width:100%;
+  opacity: 1;
+  width: 100%;
   height: auto;
   transition-timing-function: ease-in;
   transition: all 1s;
@@ -107,4 +107,99 @@ h3 >button:hover {
   margin: 0;
 }
 
+.bay {
+  position: absolute;
+  top: 200px;
+  width: 200px;
+  height: 400px;
+  object-fit: cover;
+}
+.car {
+  width: 200px;
+  height: 100px;
+  top: 200px;
 
+  object-fit: cover;
+  /*  background: url("/examples/images/tortoise-transparent.png") no-repeat; */
+  position: absolute;
+  left: -350px;
+  /* Chrome, Safari, Opera */
+  -webkit-animation-name: moveit;
+  -webkit-animation-duration: 10s;
+  /*   -webkit-animation-delay: 20s;
+ */ /* Standard syntax */
+  animation-name: moveit;
+  animation-duration: 10s;
+  /* animation-delay: 20s; */
+}
+
+@-webkit-keyframes moveit {
+  from {
+    left: 0%;
+    scale: 2;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+/* Standard syntax */
+@keyframes moveit {
+  from {
+    left: 0;
+    scale: 2;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+.wheel {
+  width: 250px;
+  height: 200px;
+  top: 100px;
+  position: absolute;
+}
+
+.air {
+  width: 250px;
+  height: 200px;
+  position: fixed;
+  top: 500px;
+  -webkit-animation-name: fly;
+  -webkit-animation-duration: 10s;
+  /*   -webkit-animation-delay: 20s;
+ */ /* Standard syntax */
+  animation-name: fly;
+  animation-duration: 10s;
+}
+
+@-webkit-keyframes fly {
+  from {
+    left: 0%;
+    scale: 2;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+    top: 0px;
+  }
+}
+
+/* Standard syntax */
+@keyframes fly {
+  from {
+    left: 0;
+    scale: 2;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+    scale: 0;
+    top: 0px;
+  }
+}

@@ -49,7 +49,7 @@ const Checklist = () => {
           <Button onClick={handleClose} buttonColor="btn--green">
             No
           </Button>
-          <Button destination={"/attraction"} buttonColor="btn--red">
+          <Button destination={"/attraction/0"} buttonColor="btn--red">
             Yes
           </Button>
         </Modal.Footer>

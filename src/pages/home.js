@@ -1,12 +1,8 @@
 import React from "react";
 import { Button } from "../component/button/button";
 import "./home.css";
-import { RiBankLine } from "react-icons/ri";
-import { MdDirectionsSubway } from "react-icons/md";
 import Bounce from "react-reveal/Bounce";
 import Zoom from "react-reveal/Zoom";
-import BGM from "react-awesome-snippets-bgm";
-import Card from "../component/card/card";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import data from "./home.json";
 import { Col, Row } from "react-bootstrap";
@@ -28,9 +24,7 @@ const Home = () => {
   return (
     <div>
       <div className="hero-container">
-        {/* <BGM src='./summer-rain2.mp3' autoplay={true} loop={false}/> */}
         <video src="./video.mp4" autoPlay loop muted />
-        {/*https://www.react-reveal.com/docs/props/ animation for heading */}
         <h1>
           <Bounce top duration={2000} delay={200}>
             Welcome To Wayfarers
@@ -74,9 +68,9 @@ const Home = () => {
             {data.map((data, i) => (
               <Col xs="12" lg="4" md="4">
                 <Flippy
-                  flipOnHover={false} // default false
-                  flipOnClick={true} // default false
-                  flipDirection="horizontal" // horizontal or vertical
+                  flipOnHover={false}
+                  flipOnClick={true}
+                  flipDirection="horizontal"
                 >
                   <FrontSide className="frontSide">
                     <figure className="cards__item__pic-wrap">

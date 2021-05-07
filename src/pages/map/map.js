@@ -4,7 +4,6 @@ import {
   useLoadScript,
   Marker,
   InfoWindow,
-  StreetViewPanorama,
 } from "@react-google-maps/api";
 import "./map.css";
 import Search from "./mapsearch";
@@ -14,7 +13,6 @@ import ca from "../subpages/assets/carpark_guide.json";
 import to from "../subpages/assets/toilet_guide.json";
 import Button from "../../component/button/button";
 import tourismGuide from "../subpages/assets/attractionlist2.json";
-import { set } from "date-fns";
 import Help from "../../component/help/help";
 /**
  * Name: Map
@@ -29,7 +27,6 @@ const Maps = () => {
   const [tourismFlag, setTourismFlag] = useState(true);
   const [carpark, setCarpark] = useState([]);
   const [carparkFlag, setCarparkFlag] = useState(false);
-  const [streetViewFlag, setStreetViewFlag] = useState(false);
   const [zoom, setZoom] = useState(9);
   const [markers, setMarkers] = useState([]);
   const mapContainerStyle = {
@@ -41,31 +38,22 @@ const Maps = () => {
     lng: 145.136693,
   });
 
-  {
-    /* Access map object*/
-  }
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
-
-  {
-    /* Import Toilet Data*/
-  }
+  // Import Toilet Data
   useEffect(() => {
     async function temp() {
       const result = await axios(
         "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC"
       );
       toiletFlag ? setToilet(to.data) : setToilet([]);
-      console.log(tourism);
     }
     temp();
   }, [toiletFlag]);
 
-  {
-    /* Import Carpark Data*/
-  }
+  // Import Carpark Data
   useEffect(() => {
     async function temp() {
       const carparkResult = await axios(
@@ -76,6 +64,7 @@ const Maps = () => {
     temp();
   }, [carparkFlag]);
 
+  // Import Tourism Data
   useEffect(() => {
     async function temp() {
       tourismFlag ? setTourism(tourismGuide) : setTourism([]);
@@ -319,7 +308,7 @@ const Maps = () => {
                   height="30"
                   align="left"
                   alt="wc"
-                  title="accessible toilet"
+                  title="Accessible Toilet"
                 />
                 <span className="Pointname">
                   {selectedToilet[1]}
@@ -333,7 +322,7 @@ const Maps = () => {
                   width="30"
                   height="30"
                   alt="man"
-                  title="male "
+                  title="Male "
                   style={{
                     background:
                       selectedToilet[5] === "True" ? "#1e90ff" : "grey",
@@ -344,7 +333,7 @@ const Maps = () => {
                   width="30"
                   height="30"
                   alt="women"
-                  title="female"
+                  title="Female"
                   style={{
                     background:
                       selectedToilet[6] === "True" ? "#1e90ff" : "grey",
@@ -355,7 +344,7 @@ const Maps = () => {
                   width="30"
                   height="30"
                   alt="unisex"
-                  title="unisex"
+                  title="Unisex"
                   style={{
                     background:
                       selectedToilet[7] === "True" ? "#1e90ff" : "grey",
@@ -384,7 +373,7 @@ const Maps = () => {
                   height="30"
                   align="left"
                   alt="car"
-                  title="accessible carpark"
+                  title="Accessible Carpark"
                 />
               </p>
               <p className="Pointname">{selectedCarpark[1]}</p>

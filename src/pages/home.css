@@ -86,7 +86,6 @@ video {
 }
 .row {
   font-size: x-large;
-  /* padding-left: 14%; */
   display: flex;
   justify-content: space-between;
 }

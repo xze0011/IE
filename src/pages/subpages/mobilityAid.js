@@ -70,6 +70,11 @@ const MobilityAid = () => {
       <img src={banner} alt="banner" style={{ width: "100vw", zIndex: -1 }} />
 
       <div className="card" style={carpermitContainer}>
+        <img
+          className="car wheel"
+          src="/guideAnimation/wheelchair.png"
+          alt="wheelchair"
+        />
         <h1 style={{ color: "#9da993" }}>Step4: Mobility Aid Check</h1>
         <p style={{ color: "#9da993" }}>
           {" "}

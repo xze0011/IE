@@ -70,6 +70,7 @@ const CarparkPermit = () => {
       <img src={banner} alt="banner" style={{ width: "100vw", zIndex: -1 }} />
 
       <div className="card" style={carpermitContainer}>
+        <img className="car wheel" src="/guideAnimation/car.png" alt="car" />
         <h1 style={{ color: "#9da993" }}>Step3: Accessible parking permits</h1>
         <Accordion content={data} />
         <Row>
