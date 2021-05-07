@@ -31,7 +31,7 @@
     },
     {"name":"Melbourne Zoo",
       "id":1,
-      "panorama": "",
+      "panorama": "https://www.google.com/maps/embed?pb=!4v1620130454173!6m8!1m7!1sA_l2pLYcN_ZXDPLo47YcwA!2m2!1d-37.78424373907392!2d144.9515431416871!3f329.87298637694187!4f-21.532511005397723!5f0.7820865974627469",
       "icon":"/icon/7.png",
       "content":[
     {
@@ -183,7 +183,7 @@
   {"name":"The Twelve Apostles",
     "id":6,
     "icon":"/icon/5.png",
-    "panorama": "https://www.google.com/maps/embed?pb=!4v1620077361369!6m8!1m7!1sCAoSLEFGMVFpcE50TnY4b0ctR3NvYkhvanNZcFVzeTctQlR2MC1GdzVYbDBTbW93!2m2!1d-38.4719227!2d144.0445336!3f330.33695516166756!4f-25.138813471136984!5f0.7820865974627469",
+    "panorama": "https://www.google.com/maps/embed?pb=!4v1620130580932!6m8!1m7!1sCAoSLEFGMVFpcFBFVXcwQkJacVIwc0J2S2EyZmhyQjJvUEFObmFvTXJBZjRPbWM5!2m2!1d-38.66427598844407!2d143.1037152381866!3f312.2435801499212!4f0.909119679041325!5f0.7820865974627469",
     "content":[
     {
       "id": 1,
