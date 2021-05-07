@@ -24,7 +24,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/map" component={Maps} />
           <Route path="/guide" component={Guide} />
-          <Route path="/attraction" component={Attration} />
+          <Route path="/attraction/:id" component={Attration} />
           <Route path="/carparkpermit" component={CarparkPermit} />
           <Route path="/mobilityAid" component={MobilityAid} />
           <Route path="/melpolicy" component={MelPolicy} />

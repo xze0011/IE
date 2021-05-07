@@ -1,13 +1,10 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "react-card-with-image/dist/index.css";
 import { useLocation } from "react-router-dom";
 import items from "./assets/attractionlist2.json";
 import { Button } from "../../component/button/button";
 import Accordion from "../../component/Accordion/Accordion";
-import data from "./assets/mobaid.json";
 import { Container, Col, Row } from "react-bootstrap";
-import Map from "../map/map";
-import { render } from "@testing-library/react";
 
 const aboutContainer = {
   marginTop: "-10%",
@@ -68,7 +65,7 @@ const IndiAttaction = () => {
         </div>
 
         <Button
-          destination="../attraction"
+          destination={`../attraction/${item.id}`}
           buttonSize="btn--medium"
           buttonColor="btn--red"
         >

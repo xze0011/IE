@@ -31,13 +31,15 @@ const Home = () => {
         {/* <BGM src='./summer-rain2.mp3' autoplay={true} loop={false}/> */}
         <video src="./video.mp4" autoPlay loop muted />
         {/*https://www.react-reveal.com/docs/props/ animation for heading */}
-        <h1 className="">
+        <h1>
           <Bounce top duration={2000} delay={200}>
             Welcome To Wayfarers
           </Bounce>
         </h1>
 
-        <p>The Latest Accessible Travel Information about Melbourne</p>
+        <p style={{ textAlign: "center" }}>
+          The Latest Accessible Travel Information about Melbourne
+        </p>
         <div className="hero-btns">
           <Button
             className="btns"

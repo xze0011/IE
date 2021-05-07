@@ -15,7 +15,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   font-size: 1.2rem;
   position: sticky;
-  align-items: center;
+  margin-left:5%;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
   /* Third Nav */
@@ -49,7 +49,7 @@ export const Bars = styled(FaBars)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -21rem;
+  margin-right: -10rem;
   @media screen and (max-width: 768px) {
     display: none;
   }

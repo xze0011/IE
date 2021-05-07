@@ -1,6 +1,8 @@
 [
   {"name":"NGV International",
+    "id":0,
     "panorama": "https://www.google.com/maps/embed?pb=!4v1620077011530!6m8!1m7!1sCAoSLEFGMVFpcE9XSlVublA5YXFNSTBIU21XMlVnTXJSUWgwVm8wY2Rqbno4N2Nr!2m2!1d-37.8217964!2d144.9687!3f16.386774945690867!4f-8.01662887093552!5f0.7820865974627469",
+    "icon":"/icon/4.png",
     "content":[
     {
       "id": 1,
@@ -28,7 +30,9 @@
       ]
     },
     {"name":"Melbourne Zoo",
-      "panorama": "http://www.360cities.net/image/melbourne-zoo-great-flight-aviary-20131127-0953?proj=fisheye_projection#233.70,0.20,70.0",
+      "id":1,
+      "panorama": "",
+      "icon":"/icon/7.png",
       "content":[
     {
       "id": 1,
@@ -56,6 +60,8 @@
       ]
     }, 
     {"name":"Phillip Island Nature Parks Penguin Parade",
+      "id":2,
+      "icon":"/icon/3.png",
       "panorama": "https://www.google.com/maps/embed?pb=!4v1620075323634!6m8!1m7!1sCAoSLEFGMVFpcE1TMmtDTnl0V3NKbUtzTTZ2RFRUUDVLQS1ZR2xoSXY0cXFZelQ2!2m2!1d-38.505762!2d145.14708!3f241.97950200780096!4f2.028716466692373!5f0.7820865974627469",
       "content":[
     {
@@ -84,6 +90,8 @@
       ]
     },
   {"name":"Eureka Skydeck 88",
+    "id":3,
+    "icon":"/icon/6.png",
     "panorama": "https://www.google.com/maps/embed?pb=!4v1620076711293!6m8!1m7!1sCAoSLEFGMVFpcE83YnN1N2p5WnBMWEhQR1d0N0Etb3FGVkpLa2JQZkplVUFNSm5X!2m2!1d-37.8211646!2d144.9646129!3f3.9163165492756775!4f33.6339912340288!5f0.7820865974627469",
     "content":[
     {
@@ -113,6 +121,8 @@
     },
   
   {"name":"Brighton Bathing Boxes",
+    "id":4,
+    "icon":"/icon/8.png",
     "panorama": "https://www.google.com/maps/embed?pb=!4v1620077095357!6m8!1m7!1sCAoSLEFGMVFpcE1OSjdROGZCZnFXRXVseFZCZEs2eV9TY0pFbklBMmlCdHd3RnFy!2m2!1d-37.9191317!2d144.986705!3f26.003489296361685!4f-35.53033366185349!5f0.7820865974627469",
     "content":[
     {
@@ -141,6 +151,8 @@
       ]
     },
   {"name":"State Library Victoria",
+    "id":5,
+    "icon":"/icon/9.png",
     "panorama": "https://www.google.com/maps/embed?pb=!4v1620077207858!6m8!1m7!1sCAoSLEFGMVFpcE5sclQ2dURuRzFnMXpHdGVuS2tsUFNsQkxPdDZjMzExd0o1UmJj!2m2!1d-37.809769!2d144.965306!3f55.33253946461964!4f7.637530012146371!5f0.7820865974627469",
     "content":[
     {
@@ -169,6 +181,8 @@
       ]
     },
   {"name":"The Twelve Apostles",
+    "id":6,
+    "icon":"/icon/5.png",
     "panorama": "https://www.google.com/maps/embed?pb=!4v1620077361369!6m8!1m7!1sCAoSLEFGMVFpcE50TnY4b0ctR3NvYkhvanNZcFVzeTctQlR2MC1GdzVYbDBTbW93!2m2!1d-38.4719227!2d144.0445336!3f330.33695516166756!4f-25.138813471136984!5f0.7820865974627469",
     "content":[
     {

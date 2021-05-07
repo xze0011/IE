@@ -58,7 +58,7 @@ const Maps = () => {
         "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC"
       );
       toiletFlag ? setToilet(to.data) : setToilet([]);
-      console.log(to.data);
+      console.log(tourism);
     }
     temp();
   }, [toiletFlag]);
@@ -295,7 +295,7 @@ const Maps = () => {
               setSelectedTourism(tour);
             }}
             icon={{
-              url: `attraction.png`,
+              url: tour.icon,
               scaledSize: new window.google.maps.Size(60, 60),
             }}
           />

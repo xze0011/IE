@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useReducer } from "react";
 import "./coverflow.css";
 import data from "../../pages/subpages/assets/attractionlist2.json";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 /*
 Name: Coverflow
@@ -54,22 +55,19 @@ function useTilt(active) {
   return ref;
 }
 
-const initialState = {
-  slideIndex: 0,
-};
-
 const slidesReducer = (state, event) => {
   if (event.type === "NEXT") {
     return {
       ...state,
-      slideIndex:
-        state.slideIndex === 0 ? slides.length - 1 : state.slideIndex - 1,
+      slideIndex: (state.slideIndex + 1) % slides.length,
     };
   }
+
   if (event.type === "PREV") {
     return {
       ...state,
-      slideIndex: (state.slideIndex + 1) % slides.length,
+      slideIndex:
+        state.slideIndex === 0 ? slides.length - 1 : state.slideIndex - 1,
     };
   }
 };
@@ -102,7 +100,7 @@ function Slide({ slide, offset }) {
         }}
       >
         <div className="slideContentInner">
-          <Link to={`./individualAttraction/${slide.name}`}>
+          <Link to={`/individualAttraction/${slide.name}`}>
             <h2 className="slideTitle" style={{ textAlign: "center" }}>
               {slide.name}
             </h2>
@@ -113,18 +111,28 @@ function Slide({ slide, offset }) {
   );
 }
 
-export default function Coverflow() {
+export default function Coverflow(props) {
+  const location = useLocation();
+  const name = location.pathname.substr(12);
+  const initialState = {
+    slideIndex: parseInt(name),
+  };
+  console.log("name", location);
   const [state, dispatch] = useReducer(slidesReducer, initialState);
 
   return (
     <div className="slides">
-      <button onClick={() => dispatch({ type: "PREV" })}>‹</button>
+      <button onClick={() => dispatch({ type: "PREV" })}>
+        <div style={{ color: "#fffff" }}>‹</div>
+      </button>
 
       {[...slides, ...slides, ...slides].map((slide, i) => {
         let offset = slides.length + (state.slideIndex - i);
         return <Slide slide={slide} offset={offset} key={i} />;
       })}
-      <button onClick={() => dispatch({ type: "NEXT" })}>›</button>
+      <button onClick={() => dispatch({ type: "NEXT" })}>
+        <div style={{ color: "#fffff" }}>›</div>
+      </button>
     </div>
   );
 }

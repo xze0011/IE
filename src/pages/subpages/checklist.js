@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import banner from "./assets/carpark.png";
+import banner from "./assets/checklist.png";
 import ballon from "./assets/ballon.png";
 import Tilt from "react-parallax-tilt";
 import Accordion from "../../component/Accordion/Accordion";
@@ -29,6 +29,7 @@ const Checklist = () => {
     alignItems: "center",
     padding: "5%",
     boxShadow: "0 6px 20px rgba(56, 125, 255, 0.3)",
+    backgroundColor: "rgb(234,229,222)",
   };
   return (
     <div className="banner">
@@ -115,7 +116,7 @@ const Checklist = () => {
         >
           <div class="pulsecontainer">
             <span class="circle">
-              <div className="svg" style={{ marginLeft: "-43%" }}>
+              <div className="svg" style={{ marginLeft: "12%" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="80"

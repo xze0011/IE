@@ -20,7 +20,7 @@ const Footer = () => {
       }}
     >
       <p className="footerp" style={{ margin: "10px" }}>
-        <Link to="./about" style={{ color: "#ffffff" }}>
+        <Link to="../about" style={{ color: "#ffffff" }}>
           About Us
         </Link>
       </p>

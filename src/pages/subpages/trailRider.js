@@ -6,8 +6,7 @@ import Accordion from "../../component/Accordion/Accordion";
 import data from "./assets/trailrider.json";
 import "./carparkPermit.css";
 import { Button } from "../../component/button/button";
-import { Row, Col, Modal, Button as Btn } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
 
 /**
  * Name: TrailRider
@@ -26,6 +25,7 @@ const TrailRider = () => {
     alignItems: "center",
     padding: "5%",
     boxShadow: "0 6px 20px rgba(56, 125, 255, 0.3)",
+    backgroundColor: "rgb(234,229,222)",
   };
   return (
     <div className="banner">

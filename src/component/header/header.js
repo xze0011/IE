@@ -62,7 +62,7 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink to="/guide">Guide</NavLink>
-          <NavLink to="/attraction">Attractions</NavLink>
+          <NavLink to="/attraction/0">Attractions</NavLink>
           <NavLink to="/map">Accessible Melbourne</NavLink>
         </NavMenu>
       </Nav>

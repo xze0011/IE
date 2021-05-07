@@ -142,3 +142,11 @@
   transform: perspective(1000px) rotateY(calc(var(--x) * 80deg))
     rotateX(calc(var(--y) * -80deg));
 }
+@media only screen and (max-width: 600px) {
+  .slideTitle {
+    position: absolute !important;
+    margin: -280% -70% !important;
+    text-align: center !important;
+    font-size: 1.5rem !important;
+  }
+}
