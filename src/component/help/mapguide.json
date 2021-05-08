@@ -30,16 +30,16 @@
     {
         "id": "5",
         "name": "jx",
-        "img": "/guide/3.png",
+        "img": "/guide/5.png",
         "heading": "Fifth:",
-        "p": "Click on \"+\" button to zoom out."
+        "p": "Click on \"-\" button to zoom out."
     },
     {
         "id": "6",
         "name": "jx",
-        "img": "/guide/5.png",
+        "img": "/guide/3.png",
         "heading": "Sixth:",
-        "p": "Click on \"-\" button to zoom in"
+        "p": "Click on \"+\" button to zoom in"
     },
     {
         "id": "7",

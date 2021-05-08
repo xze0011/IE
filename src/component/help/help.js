@@ -12,7 +12,7 @@ export default function Help() {
   const [Flag, setFlag] = useState(false);
   return (
     <>
-      <button className="btnn" onClick={handleShow}>
+      <button class="btnn" onClick={handleShow}>
         {" "}
         <img
           src="./guide.png"
