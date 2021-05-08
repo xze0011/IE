@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "../component/card/card";
 import Coverflow from "../component/coverflow/coverflow";
 
 /**

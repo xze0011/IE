@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import banner from "./assets/checklist.png";
 import ballon from "./assets/ballon.png";
 import Tilt from "react-parallax-tilt";
-import Accordion from "../../component/Accordion/Accordion";
-import data from "./assets/carpark.json";
 import "./carparkPermit.css";
 import "./checklist.css";
 import { Row, Col, Modal, Button as Btn } from "react-bootstrap";

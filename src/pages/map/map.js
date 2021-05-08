@@ -28,7 +28,6 @@ const Maps = () => {
   const [carpark, setCarpark] = useState([]);
   const [carparkFlag, setCarparkFlag] = useState(false);
   const [zoom, setZoom] = useState(9);
-  const [markers, setMarkers] = useState([]);
   const mapContainerStyle = {
     height: "84vh",
     width: "100vw",
@@ -81,58 +80,16 @@ const Maps = () => {
   });
   const exampleMapStyles = [
     {
-      featureType: "administrative.country",
-      elementType: "labels.icon",
-      stylers: [
-        {
-          visibility: "simplified",
-        },
-      ],
-    },
-    {
-      featureType: "administrative.land_parcel",
+      featureType: "administrative",
+      elementType: "geometry",
       stylers: [
         {
           visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "administrative.neighborhood",
-      stylers: [
-        {
-          visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "administrative.province",
-      stylers: [
-        {
-          weight: 3,
         },
       ],
     },
     {
       featureType: "poi",
-      elementType: "labels.text",
-      stylers: [
-        {
-          visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "poi.business",
-      stylers: [
-        {
-          visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "road",
-      elementType: "labels",
       stylers: [
         {
           visibility: "off",
@@ -142,31 +99,6 @@ const Maps = () => {
     {
       featureType: "road",
       elementType: "labels.icon",
-      stylers: [
-        {
-          visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "road.arterial",
-      stylers: [
-        {
-          visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "road.highway",
-      elementType: "labels",
-      stylers: [
-        {
-          visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "road.local",
       stylers: [
         {
           visibility: "off",
@@ -175,15 +107,6 @@ const Maps = () => {
     },
     {
       featureType: "transit",
-      stylers: [
-        {
-          visibility: "off",
-        },
-      ],
-    },
-    {
-      featureType: "water",
-      elementType: "labels.text",
       stylers: [
         {
           visibility: "off",
