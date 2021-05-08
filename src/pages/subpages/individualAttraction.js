@@ -53,8 +53,9 @@ const IndiAttaction = () => {
                   src={item.panorama}
                   width="100%"
                   height="450px"
-                  allowfullscreen=""
+                  allowFullScreen
                   loading="lazy"
+                  title="googlem map"
                 ></iframe>
               </Col>
               <Col>

@@ -5,11 +5,6 @@ import { Button } from "../button/button";
 import data from "./mapguide.json";
 import "./help.css";
 
-/* const data = [{id:"1",name:"1st", img:"https://images.unsplash.com/photo-1514395462725-fb4566210144?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80", heading:"heidi","p":"p"},
-{id:"2",name:"2nd", img:"https://images.unsplash.com/photo-1514395462725-fb4566210144?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80", heading:"wang","p":"p"},{id:"3",name:"jx", img:"https://images.unsplash.com/photo-1514395462725-fb4566210144?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80", heading:"jx","p":"p"},
-
-] */
-
 export default function Help() {
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
@@ -17,7 +12,7 @@ export default function Help() {
   const [Flag, setFlag] = useState(false);
   return (
     <>
-      <button class="btnn" onClick={handleShow}>
+      <button className="btnn" onClick={handleShow}>
         {" "}
         <img
           src="./guide.png"
@@ -35,8 +30,8 @@ export default function Help() {
         </Modal.Header>
         <Modal.Body>
           <Carousel>
-            {data.map((d, i) => (
-              <CarouselItem>
+            {data.map((d, index) => (
+              <CarouselItem key={index}>
                 <img className="d-block w-100" src={d.img} alt={d.name} />
                 <Carousel.Caption>
                   <h3>{d.heading}</h3>

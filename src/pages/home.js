@@ -49,8 +49,8 @@ const Home = () => {
       <div className="cards" style={homePageIntro}>
         <Zoom top duration={600} delay={2200}>
           <h2>
-            Wayfarers aim to help people with motor impairment planing their
-            Melbourne Trips
+            Wayfarers aims to help people with motor impairment in planning
+            their trips to Melbourne
           </h2>
         </Zoom>
 
@@ -58,15 +58,16 @@ const Home = () => {
           <Bounce Left duration={3000} delay={2700}>
             <div>
               <p>
-                In the Melbourne metropolitan area, motor impairedpeople from
-                overseas or other parts of Australia face difficulties due to
-                inadequate facilities and lack of guidelines in 2021.
+                In the Melbourne metropolitan area, motor impaired people from
+                overseas or other parts of Australia face difficulties in
+                travelling due to inadequate accessible facilities and lack of
+                guidelines.
               </p>
             </div>
           </Bounce>
           <Row>
-            {data.map((data, i) => (
-              <Col xs="12" lg="4" md="4">
+            {data.map((data, index) => (
+              <Col xs="12" lg="4" md="4" key={index}>
                 <Flippy
                   flipOnHover={false}
                   flipOnClick={true}

@@ -12,12 +12,13 @@ export default function AutoLink(props) {
   const text = props.text;
   return (
     <React.Fragment>
-      {text.split(delimiter).map((word) => {
+      {text.split(delimiter).map((word, index) => {
         let match = word.match(delimiter);
         if (match) {
           let url = match[0];
           return (
             <a
+              key={index}
               target="_blank"
               href={url.startsWith("http") ? url : `http://${url}`}
               style={{ color: "#e76f51" }}

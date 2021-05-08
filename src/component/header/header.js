@@ -4,12 +4,9 @@ import {
   NavLink,
   Bars,
   NavMenu,
-  Toggle,
   SidebarNav,
   SidebarWrap,
 } from "./headerElement";
-import { Link } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
 import { MenuItems } from "./menuitem";
 import SubMenu from "./submenu";
 import "./header.css";
@@ -38,7 +35,7 @@ const Header = () => {
             height="180px"
             alt="city"
           />
-          <Slide left delay="200" duration="3000">
+          <Slide left delay={200} duration={3000}>
             <img
               className="LOGO"
               src="./3.png"

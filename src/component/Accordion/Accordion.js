@@ -52,8 +52,9 @@ const Accordion = (props) => {
               <strong style={{ color: "#ffffff", fontSize: "18px" }}>
                 {tab.list}
               </strong>
-              {tab.description.split("<br/>").map((i) => (
+              {tab.description.split("<br/>").map((i, index) => (
                 <li
+                  key={index}
                   style={{
                     fontSize: "1.1rem",
                     color: "#ffffff",

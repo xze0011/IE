@@ -237,7 +237,7 @@ const Maps = () => {
             buttonColor={tourismFlag ? "btn--red" : "btn--green"}
             buttonSize="btn--medium"
           >
-            Attration
+            Attraction
           </Button>
           <Help />
         </div>

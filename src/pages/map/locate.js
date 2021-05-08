@@ -20,7 +20,7 @@ function Locate({ panTo }) {
         );
       }}
     >
-      <div class="demo">
+      <div className="demo">
         <img
           className="an"
           src="/compass.png"

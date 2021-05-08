@@ -109,8 +109,9 @@ const Guide = () => {
             </h3>
           </VerticalTimelineElement>
 
-          {data.map((data) => (
+          {data.map((data, index) => (
             <VerticalTimelineElement
+              key={index}
               className="vertical-timeline-element--work"
               date={data.date}
               contentStyle={{
