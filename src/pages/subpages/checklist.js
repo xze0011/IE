@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import banner from "./assets/checklist.png";
 import ballon from "./assets/ballon.png";
 import Tilt from "react-parallax-tilt";
@@ -29,6 +29,9 @@ const Checklist = () => {
     boxShadow: "0 6px 20px rgba(56, 125, 255, 0.3)",
     backgroundColor: "rgb(234,229,222)",
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="banner">
       <Modal show={show} onHide={handleClose}>

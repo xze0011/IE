@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import banner from "./assets/policyBanner.png";
 import ballon from "./assets/policyBanner.png";
 import Tilt from "react-parallax-tilt";
@@ -27,6 +27,9 @@ const MelPolicy = () => {
     boxShadow: "0 6px 20px rgba(56, 125, 255, 0.3)",
     backgroundColor: "rgb(234,229,222)",
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="banner">
       <Tilt

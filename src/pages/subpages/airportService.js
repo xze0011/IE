@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import banner from "./assets/airport.png";
 import ballon from "./assets/ballon.png";
 import Tilt from "react-parallax-tilt";
@@ -14,6 +14,9 @@ import { Row, Col } from "react-bootstrap";
  */
 
 const Airport = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const carpermitContainer = {
     marginTop: "-5%",
     marginLeft: "5%",

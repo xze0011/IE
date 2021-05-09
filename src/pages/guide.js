@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -34,6 +34,9 @@ const carpermitContainer = {
 };
 
 const Guide = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="banner">

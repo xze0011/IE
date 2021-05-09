@@ -30,7 +30,7 @@ const Header = () => {
         >
           <img
             className="LOGO"
-            src="./Logo.png"
+            src="/Logo.png"
             width="200px"
             height="180px"
             alt="city"
@@ -38,7 +38,7 @@ const Header = () => {
           <Slide left delay={200} duration={3000}>
             <img
               className="LOGO"
-              src="./3.png"
+              src="/TeamLogo.png"
               width="100px"
               height="100px"
               alt="wheelchair"
