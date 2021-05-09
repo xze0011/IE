@@ -103,3 +103,22 @@ video {
 .frontSide:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 960px) {
+  .flippy-container {
+    margin-top: 10%;
+  }
+  .flippy-card > p {
+    font-size: small;
+  }
+  .flippy-card > div > a {
+    text-align: center;
+  }
+  .container > .row > div:nth-child(2) .cards__item__text {
+    margin-left: -45%;
+  }
+}
+
+.vertical-timeline-element-icon {
+  z-index: 10;
+}

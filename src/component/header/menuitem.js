@@ -4,15 +4,15 @@ export const MenuItems = [
     path: "/",
   },
   {
-    title: "Accessible Melbounre",
-    path: "/map",
-  },
-  {
     title: "Guide",
     path: "/guide",
   },
   {
-    title: "Attractions in Melbounre",
+    title: "Attractions",
     path: "/attraction/0",
+  },
+  {
+    title: "Accessible Melbounre",
+    path: "/map",
   },
 ];

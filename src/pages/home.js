@@ -100,7 +100,7 @@ const Home = () => {
                     style={{ backgroundColor: "rgba(228, 180, 180,0.7)" }}
                   >
                     <p style={{ color: "#ffffff" }}> {data.description}</p>
-                    <div style={{ position: "absolute", bottom: "20px" }}>
+                    <div style={{ position: "relative", bottom: "20px" }}>
                       <Button
                         destination={data.path}
                         buttonColor="btn--green"

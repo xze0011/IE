@@ -203,3 +203,12 @@ h3 > button:hover {
     top: 0px;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .pulsecontainer > span {
+    margin-bottom: 70%;
+  }
+  .pulsecontainer > .pulse {
+    display: none;
+  }
+}

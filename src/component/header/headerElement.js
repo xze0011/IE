@@ -70,7 +70,7 @@ export const Toggle = styled(Dropdown.Toggle)`
 `;
 
 export const SidebarNav = styled.nav`
-  background: #939393;
+  background: rgba(157, 169, 147, 0.8);
   width: 100%;
   height: 100vh;
   display: flex;
