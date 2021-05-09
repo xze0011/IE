@@ -183,7 +183,7 @@ const Guide = () => {
                 className="vertical-timeline-element-title"
                 style={{ color: "#fff" }}
               >
-                Congrats! Lets Go For Travel
+                Congrats! Let's Go For Travel
               </h3>
             </Link>
           </VerticalTimelineElement>

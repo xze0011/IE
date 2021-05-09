@@ -45,7 +45,7 @@ const About = () => {
               </p>
               <p>Our team members include:</p>
               <ListGroup>
-                <ListGroup.Item variant="warning">
+                <ListGroup.Item variant="dark">
                   Front-end and back-end developer :{" "}
                   <a
                     href="https://www.linkedin.com/in/xiangming-zeng-732b521a4/"
@@ -54,7 +54,7 @@ const About = () => {
                     Xiangming Zeng
                   </a>
                 </ListGroup.Item>
-                <ListGroup.Item variant="warning">
+                <ListGroup.Item variant="dark">
                   Front-end developer :{" "}
                   <a
                     href="https://www.linkedin.com/in/%E6%99%AF%E7%92%87-%E7%8E%8B-3b4372168/"
@@ -63,7 +63,7 @@ const About = () => {
                     Jingxuan Wang
                   </a>
                 </ListGroup.Item>
-                <ListGroup.Item variant="warning">
+                <ListGroup.Item variant="dark">
                   Data science and business logic analyst :{" "}
                   <a
                     href="https://www.linkedin.com/in/xiaochen-jin-941a1b209/"
@@ -72,7 +72,7 @@ const About = () => {
                     Xiaochen Jin
                   </a>
                 </ListGroup.Item>
-                <ListGroup.Item variant="warning">
+                <ListGroup.Item variant="dark">
                   Business logic analyst :{" "}
                   <a
                     href="https://www.linkedin.com/in/shivam-behl-32a1a5114/"
@@ -81,7 +81,7 @@ const About = () => {
                     Shivam Behl
                   </a>
                 </ListGroup.Item>
-                <ListGroup.Item variant="warning">
+                <ListGroup.Item variant="dark">
                   Data science analyst :{" "}
                   <a
                     href="https://www.linkedin.com/in/khaled-alterish-20a8859a/"
