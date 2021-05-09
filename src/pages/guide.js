@@ -96,7 +96,7 @@ const Guide = () => {
         <VerticalTimeline>
           <VerticalTimelineElement
             className="vertical-timeline-element--carpark-permit"
-            iconStyle={{ background: "#9da993", color: "#fff" }}
+            iconStyle={{ background: "#9da993", color: "#fff", zIndex: "3" }}
             contentStyle={{
               background: "#9da993",
               color: "#fff",
@@ -123,7 +123,7 @@ const Guide = () => {
                 borderRadius: "80px",
               }}
               contentArrowStyle={{ borderRight: "7px solid  #E4B4B4" }}
-              iconStyle={{ background: "#E4B4B4", color: "#fff" }}
+              iconStyle={{ background: "#E4B4B4", color: "#fff", zIndex: "3" }}
             >
               <Link to={data.link}>
                 <h3
@@ -150,7 +150,7 @@ const Guide = () => {
               borderRadius: "80px",
             }}
             contentArrowStyle={{ borderRight: "7px solid  #E4B4B4" }}
-            iconStyle={{ background: "#E4B4B4", color: "#fff" }}
+            iconStyle={{ background: "#E4B4B4", color: "#fff", zIndex: "3" }}
           >
             <Link to="/checklist">
               <h3
@@ -170,7 +170,7 @@ const Guide = () => {
 
           <VerticalTimelineElement
             className="vertical-timeline-element--carpark-permit"
-            iconStyle={{ background: "#9da993", color: "#fff" }}
+            iconStyle={{ background: "#9da993", color: "#fff", zIndex: "3" }}
             contentStyle={{
               background: "#9da993",
               color: "#fff",

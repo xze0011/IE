@@ -39,7 +39,7 @@ const Accordion = (props) => {
                 aria-disabled={active === index ? "true" : "false"}
                 tabIndex={indexCount(index)}
               >
-                <span className="title-wrapper">
+                <span className="title-wrapper" style={{ zIndex: "3" }}>
                   {tab.title}
                   <span className={active === index ? "plus" : "minus"}></span>
                 </span>
