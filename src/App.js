@@ -16,6 +16,8 @@ import Footer from "./component/footer/footer";
 import IndiAttaction from "./pages/subpages/individualAttraction";
 import Checklist from "./pages/subpages/checklist";
 function App() {
+  window.showGUide = true;
+
   return (
     <div className="App">
       <Router>
