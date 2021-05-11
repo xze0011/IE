@@ -61,5 +61,12 @@
         "img": "/guide/6.png",
         "heading": "Ninth:",
         "p": "Click the first button to open \"full screen\" mode and second to exit"
+    },
+    {
+        "id": "10",
+        "name": "1st",
+        "img": "/guide/10.png",
+        "heading": "Tenth:",
+        "p": "Click this button to display the guide again"
     }
 ]

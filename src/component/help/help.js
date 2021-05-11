@@ -6,10 +6,13 @@ import data from "./mapguide.json";
 import "./help.css";
 
 export default function Help() {
-  const [show, setShow] = useState(true);
-  const handleClose = () => setShow(false);
+  const [show, setShow] = useState(window.showGUide);
+  const handleClose = () => {
+    window.showGUide = false;
+    setShow(false);
+  };
   const handleShow = () => setShow(true);
-  const [Flag, setFlag] = useState(false);
+
   return (
     <>
       <button className="btnn" onClick={handleShow}>

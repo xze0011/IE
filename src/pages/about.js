@@ -50,6 +50,7 @@ const About = () => {
                   <a
                     href="https://www.linkedin.com/in/xiangming-zeng-732b521a4/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Xiangming Zeng
                   </a>
@@ -59,6 +60,7 @@ const About = () => {
                   <a
                     href="https://www.linkedin.com/in/%E6%99%AF%E7%92%87-%E7%8E%8B-3b4372168/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Jingxuan Wang
                   </a>
@@ -68,6 +70,7 @@ const About = () => {
                   <a
                     href="https://www.linkedin.com/in/xiaochen-jin-941a1b209/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Xiaochen Jin
                   </a>
@@ -77,6 +80,7 @@ const About = () => {
                   <a
                     href="https://www.linkedin.com/in/shivam-behl-32a1a5114/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Shivam Behl
                   </a>
@@ -86,6 +90,7 @@ const About = () => {
                   <a
                     href="https://www.linkedin.com/in/khaled-alterish-20a8859a/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Khaled Alterish
                   </a>

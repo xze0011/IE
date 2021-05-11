@@ -96,7 +96,7 @@ const CarparkPermit = () => {
               buttonColor="btn--red"
             >
               {" "}
-              Back
+              Guide
             </Button>
           </Col>
           <Col xs="4" md="4">

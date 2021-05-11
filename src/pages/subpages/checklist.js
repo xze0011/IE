@@ -4,7 +4,7 @@ import ballon from "./assets/ballon.png";
 import Tilt from "react-parallax-tilt";
 import "./carparkPermit.css";
 import "./checklist.css";
-import { Row, Col, Modal, Button as Btn } from "react-bootstrap";
+import { Row, Col, Modal } from "react-bootstrap";
 import { Button } from "../../component/button/button";
 
 /**

@@ -12,8 +12,10 @@ import axios from "axios";
 import ca from "../subpages/assets/carpark_guide.json";
 import to from "../subpages/assets/toilet_guide.json";
 import Button from "../../component/button/button";
+import ButtonWithoutRoute from "../../component/button/buttonWithoutRoute";
 import tourismGuide from "../subpages/assets/attractionlist2.json";
 import Help from "../../component/help/help";
+import { Row } from "react-bootstrap";
 /**
  * Name: Map
  * Function: display google map, search bar, and display markers
@@ -21,6 +23,8 @@ import Help from "../../component/help/help";
  */
 const libraries = ["places"];
 const Maps = () => {
+  const [markers, setMarkers] = useState([]);
+  const [selected, setSelected] = useState(null);
   const [toilet, setToilet] = useState([]);
   const [toiletFlag, setToiletFlag] = useState(false);
   const [tourism, setTourism] = useState([]);
@@ -43,24 +47,12 @@ const Maps = () => {
   }, []);
   // Import Toilet Data
   useEffect(() => {
-    async function temp() {
-      const result = await axios(
-        "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC"
-      );
-      toiletFlag ? setToilet(to.data) : setToilet([]);
-    }
-    temp();
+    toiletFlag ? setToilet(to.data) : setToilet([]);
   }, [toiletFlag]);
 
   // Import Carpark Data
   useEffect(() => {
-    async function temp() {
-      const carparkResult = await axios(
-        "https://reactapi20210330172750.azurewebsites.net/api/Carpark"
-      );
-      carparkFlag ? setCarpark(ca.data) : setCarpark([]);
-    }
-    temp();
+    carparkFlag ? setCarpark(ca.data) : setCarpark([]);
   }, [carparkFlag]);
 
   // Import Tourism Data
@@ -114,6 +106,18 @@ const Maps = () => {
       ],
     },
   ];
+  const onMapClick = useCallback((e) => {
+    setMarkers([]);
+    setSelected(null);
+    setMarkers((current) => [
+      ...current,
+      {
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng(),
+        time: new Date(),
+      },
+    ]);
+  }, []);
 
   const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
@@ -131,39 +135,57 @@ const Maps = () => {
         zoom={zoom}
         center={center}
         onLoad={onMapLoad}
+        onClick={onMapClick}
       >
         <Locate panTo={panTo} />
         <Search panTo={panTo} />
         <div className="flagIcon">
-          <Button
-            onClick={() => {
-              setToiletFlag(!toiletFlag);
-            }}
-            buttonColor={toiletFlag ? "btn--red" : "btn--green"}
-            buttonSize="btn--medium"
-          >
-            Toilet
-          </Button>
-          <Button
-            onClick={() => {
-              setCarparkFlag(!carparkFlag);
-            }}
-            buttonColor={carparkFlag ? "btn--red" : "btn--green"}
-            buttonSize="btn--medium"
-          >
-            Carpark
-          </Button>
-          <Button
-            onClick={() => {
-              setTourismFlag(!tourismFlag);
-            }}
-            buttonColor={tourismFlag ? "btn--red" : "btn--green"}
-            buttonSize="btn--medium"
-          >
-            Attraction
-          </Button>
+          <Row>
+            <ButtonWithoutRoute
+              onClick={() => {
+                setToiletFlag(!toiletFlag);
+              }}
+              buttonColor={toiletFlag ? "btn--red" : "btn--green"}
+              buttonSize="btn--medium"
+            >
+              Toilet
+            </ButtonWithoutRoute>
+            <ButtonWithoutRoute
+              onClick={() => {
+                setCarparkFlag(!carparkFlag);
+              }}
+              buttonColor={carparkFlag ? "btn--red" : "btn--green"}
+              buttonSize="btn--medium"
+            >
+              Carpark
+            </ButtonWithoutRoute>
+            <ButtonWithoutRoute
+              onClick={() => {
+                setTourismFlag(!tourismFlag);
+              }}
+              buttonColor={tourismFlag ? "btn--red" : "btn--green"}
+              buttonSize="btn--medium"
+            >
+              Attraction
+            </ButtonWithoutRoute>
+          </Row>
           <Help />
         </div>
+        {markers.map((marker) => (
+          <Marker
+            key={`${marker.lat}-${marker.lng}`}
+            position={{ lat: marker.lat, lng: marker.lng }}
+            onMouseOver={() => {
+              setSelected(marker);
+            }}
+            icon={{
+              url: `/point.png`,
+              origin: new window.google.maps.Point(2, 2),
+              anchor: new window.google.maps.Point(26, 20),
+              scaledSize: new window.google.maps.Size(60, 60),
+            }}
+          />
+        ))}
         {toilet.map((toi, index) => (
           <Marker
             key={index}
@@ -176,6 +198,8 @@ const Maps = () => {
             }}
             icon={{
               url: `toilet.png`,
+              origin: new window.google.maps.Point(12, 12),
+              anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(60, 60),
             }}
           />
@@ -192,6 +216,8 @@ const Maps = () => {
             }}
             icon={{
               url: `carpark.png`,
+              origin: new window.google.maps.Point(12, 12),
+              anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(55, 55),
             }}
           />
@@ -213,6 +239,14 @@ const Maps = () => {
           />
         ))}
 
+        {selected ? (
+          <InfoWindow position={{ lat: selected.lat, lng: selected.lng }}>
+            <div>
+              <h4>This is your starting point of direction</h4>
+            </div>
+          </InfoWindow>
+        ) : null}
+
         {selectedToilet && (
           <InfoWindow
             onCloseClick={() => {
@@ -224,21 +258,38 @@ const Maps = () => {
             }}
           >
             <div className="loop">
-              <p>
-                <img
-                  src="./wc.png"
-                  width="30"
-                  height="30"
-                  align="left"
-                  alt="wc"
-                  title="Accessible Toilet"
-                />
-                <span className="Pointname">
-                  {selectedToilet[1]}
-                  <br />
-                </span>
-                <span className="Pointaddress">{selectedToilet[2]}</span>
-              </p>
+              <img
+                src="./wc.png"
+                width="30"
+                height="30"
+                align="left"
+                alt="wc"
+                title="Accessible Toilet"
+              />
+              <span className="Pointname">
+                {selectedToilet[1]}
+                <br />
+              </span>
+              <span className="Pointaddress">{selectedToilet[2]}</span>
+              <br />
+              <div>
+                {" "}
+                {selected == null ? (
+                  "Clicking your ideal starting point first"
+                ) : (
+                  <a
+                    href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedToilet[3]},${selectedToilet[4]}/`}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => {
+                      setSelectedCarpark(null);
+                    }}
+                  >
+                    Go Here
+                  </a>
+                )}
+              </div>
+              <br />
               <div className="iconrow">
                 <img
                   src="./Male.png"
@@ -304,6 +355,23 @@ const Maps = () => {
                 Opening Time: {selectedCarpark[4]} | {selectedCarpark[3]}
               </div>
               <br />
+              <div>
+                {selected == null ? (
+                  "Clicking your ideal starting point first"
+                ) : (
+                  <a
+                    href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedCarpark[6]},${selectedCarpark[7]}/`}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => {
+                      setSelectedCarpark(null);
+                    }}
+                  >
+                    Go Here
+                  </a>
+                )}
+              </div>
+              <br />
             </div>
           </InfoWindow>
         )}
@@ -320,6 +388,25 @@ const Maps = () => {
           >
             <div className="loop">
               <div className="Pointname"> {selectedTourism.name}</div>
+              <div>
+                <div>
+                  {" "}
+                  {selected == null ? (
+                    "Clicking your ideal starting point first"
+                  ) : (
+                    <a
+                      href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedTourism.content[0].lat},${selectedTourism.content[0].lng}/`}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => {
+                        setSelectedCarpark(null);
+                      }}
+                    >
+                      Go Here
+                    </a>
+                  )}
+                </div>
+              </div>
               <div className="tourismButton">
                 <Button
                   destination={`./individualAttraction/${selectedTourism.name}`}
@@ -328,6 +415,7 @@ const Maps = () => {
                 >
                   Details
                 </Button>
+                <br />
               </div>
             </div>
           </InfoWindow>
