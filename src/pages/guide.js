@@ -187,7 +187,7 @@ const Guide = () => {
               display: "none",
             }}
           >
-            <Link to="../../attraction">
+            <Link to="/attraction/0">
               <h3
                 className="vertical-timeline-element-title"
                 style={{ color: "#fff" }}
