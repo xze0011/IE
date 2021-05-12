@@ -22,6 +22,7 @@ export default function AutoLink(props) {
               target="_blank"
               href={url.startsWith("http") ? url : `http://${url}`}
               style={{ color: "#e76f51" }}
+              rel="noreferrer"
             >
               click here
             </a>

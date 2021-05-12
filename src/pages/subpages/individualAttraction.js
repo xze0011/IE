@@ -71,7 +71,7 @@ const IndiAttaction = () => {
           buttonColor="btn--red"
         >
           {" "}
-          Back
+          Back to Attraction
         </Button>
         <Button
           destination="../map"
@@ -79,7 +79,7 @@ const IndiAttaction = () => {
           buttonColor="btn--red"
         >
           {" "}
-          Find on Map
+          Find it on Map
         </Button>
       </div>
     </>

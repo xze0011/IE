@@ -107,9 +107,15 @@ const Guide = () => {
               display: "none",
             }}
           >
-            <h3 className="vertical-timeline-element-title">
-              Start Planning Your Trip Now
-            </h3>
+            <Link to="/melPolicy">
+              <h3
+                className="vertical-timeline-element-title"
+                className="vertical-timeline-element-title"
+                style={{ color: "#fff" }}
+              >
+                Start Planning Your Trip Now
+              </h3>
+            </Link>
           </VerticalTimelineElement>
 
           {data.map((data, index) => (

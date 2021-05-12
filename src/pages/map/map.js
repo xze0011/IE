@@ -8,7 +8,6 @@ import {
 import "./map.css";
 import Search from "./mapsearch";
 import Locate from "./locate";
-import axios from "axios";
 import ca from "../subpages/assets/carpark_guide.json";
 import to from "../subpages/assets/toilet_guide.json";
 import Button from "../../component/button/button";
@@ -275,7 +274,7 @@ const Maps = () => {
               <div>
                 {" "}
                 {selected == null ? (
-                  "Clicking your ideal starting point first"
+                  "Clicking your ideal starting point first to go here"
                 ) : (
                   <a
                     href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedToilet[3]},${selectedToilet[4]}/`}
@@ -298,8 +297,7 @@ const Maps = () => {
                   alt="man"
                   title="Male "
                   style={{
-                    background:
-                      selectedToilet[5] === "True" ? "#1e90ff" : "grey",
+                    background: selectedToilet[5] === true ? "#1e90ff" : "grey",
                   }}
                 />
                 <img
@@ -309,8 +307,7 @@ const Maps = () => {
                   alt="women"
                   title="Female"
                   style={{
-                    background:
-                      selectedToilet[6] === "True" ? "#1e90ff" : "grey",
+                    background: selectedToilet[6] === true ? "#1e90ff" : "grey",
                   }}
                 />
                 <img
@@ -320,8 +317,7 @@ const Maps = () => {
                   alt="unisex"
                   title="Unisex"
                   style={{
-                    background:
-                      selectedToilet[7] === "True" ? "#1e90ff" : "grey",
+                    background: selectedToilet[7] === true ? "#1e90ff" : "grey",
                   }}
                 />
               </div>
@@ -357,7 +353,7 @@ const Maps = () => {
               <br />
               <div>
                 {selected == null ? (
-                  "Clicking your ideal starting point first"
+                  "Clicking your ideal starting point first to go here"
                 ) : (
                   <a
                     href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedCarpark[6]},${selectedCarpark[7]}/`}
@@ -389,10 +385,10 @@ const Maps = () => {
             <div className="loop">
               <div className="Pointname"> {selectedTourism.name}</div>
               <div>
+                <br />
                 <div>
-                  {" "}
                   {selected == null ? (
-                    "Clicking your ideal starting point first"
+                    "Clicking your ideal starting point first to go here"
                   ) : (
                     <a
                       href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedTourism.content[0].lat},${selectedTourism.content[0].lng}/`}

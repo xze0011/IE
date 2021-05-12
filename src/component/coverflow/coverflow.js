@@ -121,7 +121,6 @@ export default function Coverflow(props) {
   const initialState = {
     slideIndex: parseInt(name),
   };
-  console.log("name", location);
   const [state, dispatch] = useReducer(slidesReducer, initialState);
 
   return (

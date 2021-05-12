@@ -107,3 +107,11 @@ span {
   -webkit-animation: rotation 3s linear infinite;
   -o-animation: rotation 3s linear infinite;
 }
+@media screen and (max-width: 768px) {
+  .flagIcon {
+    margin-top: 2%;
+  }
+  .demo {
+    padding-top: 50%;
+  }
+}

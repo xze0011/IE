@@ -12,7 +12,7 @@ export const MenuItems = [
     path: "/attraction/0",
   },
   {
-    title: "Accessible Melbounre",
+    title: "Accessible Melbourne",
     path: "/map",
   },
 ];
