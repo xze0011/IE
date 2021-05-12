@@ -114,9 +114,6 @@ video {
   .flippy-card > div > a {
     text-align: center;
   }
-  .container > .row > div:nth-child(2) .cards__item__text {
-    margin-left: -45%;
-  }
 }
 
 .vertical-timeline-element-icon {

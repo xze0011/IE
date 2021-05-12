@@ -46,7 +46,7 @@
         "name": "1st",
         "img": "/guide/4.png",
         "heading": "Seventh:",
-        "p": "Click on \"Map\" button to display map in route mode and \"Satellite\" button to display map in satellite mode"
+        "p": "Click on \"Satellite\" button to display the satellite map"
     },
     {
         "id": "8",

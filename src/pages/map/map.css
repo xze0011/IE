@@ -114,4 +114,8 @@ span {
   .demo {
     padding-top: 50%;
   }
+  .carousel-caption {
+    color: black;
+    font-weight: bolder;
+  }
 }
