@@ -6,6 +6,7 @@ import Zoom from "react-reveal/Zoom";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import data from "./home.json";
 import { Col, Row } from "react-bootstrap";
+import { Border } from "react-bootstrap-icons";
 /**
  * Name:Home
  * Function: demonstrate our website purpose. and navigate to individual pages
@@ -32,7 +33,7 @@ const Home = () => {
         </h1>
 
         <p style={{ textAlign: "center" }}>
-          The Latest Accessible Travel Information about Melbourne
+          The Latest Accessible Travel Information around Melbourne
         </p>
         <div className="hero-btns">
           <Button
@@ -57,7 +58,7 @@ const Home = () => {
         <div className="container">
           <Bounce Left duration={3000} delay={2700}>
             <div>
-              <p>
+              <p style={{ fontSize: "larger" }}>
                 In the Melbourne metropolitan area, motor impaired people from
                 overseas or other parts of Australia face difficulties in
                 travelling due to inadequate accessible facilities and lack of
@@ -92,6 +93,16 @@ const Home = () => {
                           textAlign: "center",
                         }}
                       >
+                        {data.step}:
+                      </h5>
+                      <h5
+                        className="cards__item__text"
+                        style={{
+                          color: "#ffffff",
+                          fontSize: "25px",
+                          textAlign: "center",
+                        }}
+                      >
                         {data.title}
                       </h5>
                     </div>
@@ -105,6 +116,7 @@ const Home = () => {
                         destination={data.path}
                         buttonColor="btn--green"
                         buttonSize="btn--medium"
+                        buttonStyle="display:none"
                       >
                         {data.button}
                       </Button>

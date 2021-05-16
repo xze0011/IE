@@ -1,7 +1,7 @@
 import { CarouselItem, Modal } from "react-bootstrap";
 import { React, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { Button } from "../button/button";
+import ButtonWithoutRoute from "../button/buttonWithoutRoute";
 import data from "./mapguide.json";
 import "./help.css";
 
@@ -45,9 +45,9 @@ export default function Help() {
           </Carousel>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleClose} buttonColor="btn--green">
+          <ButtonWithoutRoute onClick={handleClose} buttonColor="btn--green">
             Skip Guide
-          </Button>
+          </ButtonWithoutRoute>
         </Modal.Footer>
       </Modal>
     </>
