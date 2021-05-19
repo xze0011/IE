@@ -43,7 +43,7 @@ const Checklist = () => {
         </Modal.Header>
         <Modal.Body>
           <p style={{ color: "#9da993" }}>
-            You are going to view the tourism attractions in Melbourne
+            You are going to view the tourism attractions around Melbourne
           </p>
         </Modal.Body>
         <Modal.Footer>
@@ -175,7 +175,7 @@ const Checklist = () => {
               buttonColor="btn--red"
             >
               {" "}
-              Back
+              Guide
             </Button>
           </Col>
           <Col xs="4" md="4">

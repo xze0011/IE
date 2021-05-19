@@ -274,7 +274,7 @@ const Maps = () => {
               <div>
                 {" "}
                 {selected == null ? (
-                  "Clicking your ideal starting point first to go here"
+                  "Click on your ideal starting point first to go here"
                 ) : (
                   <a
                     href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedToilet[3]},${selectedToilet[4]}/`}
@@ -353,7 +353,7 @@ const Maps = () => {
               <br />
               <div>
                 {selected == null ? (
-                  "Clicking your ideal starting point first to go here"
+                  "Click on your ideal starting point first to go here"
                 ) : (
                   <a
                     href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedCarpark[6]},${selectedCarpark[7]}/`}
@@ -388,7 +388,7 @@ const Maps = () => {
                 <br />
                 <div>
                   {selected == null ? (
-                    "Clicking your ideal starting point first to go here"
+                    "Click on your ideal starting point first to go here"
                   ) : (
                     <a
                       href={`https://www.google.com/maps/dir/${selected.lat},${selected.lng}/${selectedTourism.content[0].lat},${selectedTourism.content[0].lng}/`}
