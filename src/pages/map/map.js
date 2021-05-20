@@ -46,12 +46,24 @@ const Maps = () => {
   }, []);
   // Import Toilet Data
   useEffect(() => {
-    toiletFlag ? setToilet(to.data) : setToilet([]);
+    async function temp() {
+      const result = await axios(
+        "https://data.gov.au/data/api/3/action/datastore_search?resource_id=34076296-6692-4e30-b627-67b7c4eb1027&q=VIC"
+      );
+      toiletFlag ? setToilet(to.data) : setToilet([]);
+    }
+    temp();
   }, [toiletFlag]);
 
   // Import Carpark Data
   useEffect(() => {
-    carparkFlag ? setCarpark(ca.data) : setCarpark([]);
+    async function temp() {
+      const carparkResult = await axios(
+        "https://reactapi20210330172750.azurewebsites.net/api/Carpark"
+      );
+      carparkFlag ? setCarpark(ca.data) : setCarpark([]);
+    }
+    temp();
   }, [carparkFlag]);
 
   // Import Tourism Data
