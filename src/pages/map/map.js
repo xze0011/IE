@@ -7,6 +7,7 @@ import {
 } from "@react-google-maps/api";
 import "./map.css";
 import Search from "./mapsearch";
+import axios from "axios";
 import Locate from "./locate";
 import ca from "../subpages/assets/carpark_guide.json";
 import to from "../subpages/assets/toilet_guide.json";
