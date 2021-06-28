@@ -79,7 +79,7 @@ const Maps = () => {
   const [selectedCarpark, setSelectedCarpark] = useState(null);
   const [selectedTourism, setSelectedTourism] = useState(null);
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDHYvDznXH0Ep5elG3OHU-TfrMt80HItuI",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP,
     libraries,
   });
   const exampleMapStyles = [
@@ -130,7 +130,7 @@ const Maps = () => {
       },
     ]);
   }, []);
-
+  console.log(process.env.REACT_APP_GOOGLE_MAP);
   const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
