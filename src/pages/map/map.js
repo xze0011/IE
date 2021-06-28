@@ -130,7 +130,7 @@ const Maps = () => {
       },
     ]);
   }, []);
-  console.log(process.env.REACT_APP_GOOGLE_MAP);
+
   const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
