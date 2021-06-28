@@ -19,7 +19,7 @@ import { Row } from "react-bootstrap";
 /**
  * Name: Map
  * Function: display google map, search bar, and display markers
- *
+ * If Page Error occurs, Your should change the google map key into your own key.
  */
 const libraries = ["places"];
 const Maps = () => {
